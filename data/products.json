@@ -1,0 +1,1924 @@
+[
+  {
+    "name": "OnlyVeda Active 365 Daily Essential",
+    "category": "Herbo Nutraceuticals",
+    "key_ingredients": [
+      "365 Herbal & Mineral Complex",
+      "Spirulina",
+      "Ginseng",
+      "Green Tea Extract"
+    ],
+    "benefits": "Full-spectrum cellular energizer, combats muscular aches, fatigue, and free-radical stress throughout the body.",
+    "dosage_and_usage": "All type of cancer: 1 -0-1- | Muscular back pain: 1-0-0 | spondilits: 0-1-0 | abscess: 1-1-1 (1 Morning, 1 Afternoon, 1 Night) | acne: 1-0-1 | Skin lightening: 1-0-1 | otitis / ear infection: 1-0-1",
+    "price_inr": "900",
+    "size": "60 Tablets",
+    "link": "https://onlyvedaa.com/product-info/New-Active-365-Cap",
+    "sources": [
+      "Website",
+      "CSV (diseases_wise_1.csv)",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Advanced Anti-Ageing Face Serum",
+    "category": "Nutraceutical / Classical Ayurvedic",
+    "key_ingredients": [
+      "Bakuchiol (Natural Retinol Alternative)",
+      "Hyaluronic Acid",
+      "Gotu Kola"
+    ],
+    "benefits": "Smooths fine lines and wrinkles, stimulates natural collagen, and firms sagging facial contours.",
+    "dosage_and_usage": "1-0-1 (as directed by healthcare advisor)",
+    "price_inr": "499",
+    "size": "Standard Pack",
+    "link": "",
+    "sources": [
+      "CSV (diseases_wise_1.csv)",
+      "Excel (disease and treatment database (2).xlsx)",
+      "Existing Catalog"
+    ]
+  },
+  {
+    "name": "OnlyVeda Aloe Vera Pure Tablets",
+    "category": "Ayurvedic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Aloe Vera Pure Tablets - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "600",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Aloevera-120-Tab-in-Jar",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Amla Pure Tablets",
+    "category": "Ayurvedic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Amla Pure Tablets - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "600",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Amla-120-Tab-in-Jar",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Anurect Piles Capsules",
+    "category": "Ayurvedic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Anurect Piles Capsules - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "250",
+    "size": "60 Tablets / 30ml",
+    "link": "https://onlyvedaa.com/product-info/Anurect-30-Caps-in-Jar",
+    "sources": [
+      "Website",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Anurect Piles Ointment",
+    "category": "Ayurvedic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Anurect Piles Ointment - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "160",
+    "size": "60 Tablets / 30ml",
+    "link": "https://onlyvedaa.com/product-info/Anurect-Ointmnet-25-Gm",
+    "sources": [
+      "Website",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Apple Cider Vinegar",
+    "category": "Herbo Nutraceuticals",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Apple Cider Vinegar - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "500",
+    "size": "60 Tablets / 30ml",
+    "link": "https://onlyvedaa.com/product-info/Apple-Cider-Vinegar-30-Cap-in-Jar",
+    "sources": [
+      "Website",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Arogyavardhini Vati",
+    "category": "Ayurvedic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Arogyavardhini Vati - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "500",
+    "size": "60 Tablets / 30ml",
+    "link": "https://onlyvedaa.com/product-info/Arogyavardhini-120-Tab-in-Jar",
+    "sources": [
+      "Website",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Ashyuka Plus Syrup",
+    "category": "Ayurvedic",
+    "key_ingredients": [
+      "Ashoka Bark",
+      "Lodhra",
+      "Shatavari",
+      "Guduchi",
+      "Manjistha"
+    ],
+    "benefits": "Potent multi-herbal formulation for cholesterol balance, respiratory relief, gut healing, and cellular rejuvenation.",
+    "dosage_and_usage": "high cholesterol: 10 ml twice a day | All type of cancer: 20 ml twice a day | Rhuematoid arthritis: 15 ml twice a day | Gout: 1-0-1 | Brochial asthma: 1-0-1 | Allergic ashtma: 10 ml twice a day | Cystic fibrosis: 1-0-1 | Pneumonia: 1-0-1 | gastritis (acidity and gas): 1-0-1 | Heart burn: 1-0-1 | GERD: 1-0-1 | Constipation: 1-0-1 | Chronic constipation: 1-0-1",
+    "price_inr": "700",
+    "size": "200 ml Syrup",
+    "link": "https://onlyvedaa.com/product-info/Ashyuka-Cap-10x5",
+    "sources": [
+      "Website",
+      "CSV (diseases_wise_1.csv)",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Avipattikar Pitta-Balance Tablet",
+    "category": "Ayurvedic",
+    "key_ingredients": [
+      "Amla",
+      "Haritaki",
+      "Bibhitaki",
+      "Trikatu",
+      "Nishoth",
+      "Cardamom"
+    ],
+    "benefits": "Classical Ayurvedic Pitta-pacifying digestive that eliminates severe gas, hyperacidity, and sour burps.",
+    "dosage_and_usage": "gastritis (acidity and gas): 1-0-1 | Heart burn: 1-0-1 | GERD: 1-0-1",
+    "price_inr": "500",
+    "size": "60 Tablets",
+    "link": "https://onlyvedaa.com/product-info/Avipattikar-120-Tab-in-Jar",
+    "sources": [
+      "Website",
+      "CSV (diseases_wise_1.csv)",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Biomelt Weight Management Capsules",
+    "category": "Nutraceutical / Classical Ayurvedic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Biomelt Weight Management Capsules - specialized clinical treatment formulation.",
+    "dosage_and_usage": "1-0-1 (as directed by healthcare advisor)",
+    "price_inr": "499",
+    "size": "60 Tablets / 30ml",
+    "link": "",
+    "sources": [
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Biomelt Weight Management Kit",
+    "category": "Protein Powder",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Biomelt Weight Management Kit - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "6000",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Biomelt-Weight-Management-Kit",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Biomelt Weight Management Liquid",
+    "category": "Nutraceutical / Classical Ayurvedic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Biomelt Weight Management Liquid - specialized clinical treatment formulation.",
+    "dosage_and_usage": "1-0-1 (as directed by healthcare advisor)",
+    "price_inr": "499",
+    "size": "60 Tablets / 30ml",
+    "link": "",
+    "sources": [
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Broad-Spectrum SPF 50 Herbal Sunscreen",
+    "category": "Nutraceutical / Classical Ayurvedic",
+    "key_ingredients": [
+      "Carrot Seed Oil",
+      "Raspberry Extract",
+      "Zinc Oxide",
+      "Aloe Vera"
+    ],
+    "benefits": "OnlyVeda Broad-Spectrum SPF 50 Herbal Sunscreen - specialized clinical protocol formulation.",
+    "dosage_and_usage": "1-0-1 (as directed by healthcare advisor)",
+    "price_inr": "499",
+    "size": "Standard Pack",
+    "link": "",
+    "sources": [
+      "CSV (diseases_wise_1.csv)",
+      "Excel (disease and treatment database (2).xlsx)",
+      "Existing Catalog"
+    ]
+  },
+  {
+    "name": "OnlyVeda Calcimus Coral Calcium Complex",
+    "category": "Herbo Nutraceuticals",
+    "key_ingredients": [
+      "Bio-Available Coral Calcium (500mg)",
+      "Magnesium",
+      "Zinc",
+      "Cissus (Hadjod)"
+    ],
+    "benefits": "High-absorption calcium that restores bone mineral density, strengthens teeth enamel, and prevents fractures.",
+    "dosage_and_usage": "osteo arthritis: 0-1-0 | Osteoporosis: 1-0-1",
+    "price_inr": "250",
+    "size": "60 Tablets",
+    "link": "https://onlyvedaa.com/product-info/Calcimus-Chewable-Tab",
+    "sources": [
+      "Website",
+      "CSV (diseases_wise_1.csv)",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Calciumus Forte",
+    "category": "Nutraceutical / Classical Ayurvedic",
+    "key_ingredients": [
+      "Elemental Calcium (from Shankh Bhasma)",
+      "Vitamin D3",
+      "Magnesium",
+      "Zinc"
+    ],
+    "benefits": "Strengthens bone matrix, enhances rapid fracture healing, and rebuilds tooth enamel against cavities.",
+    "dosage_and_usage": "bone fracture: 1-0-1 | Dental cavity: 1-0-0",
+    "price_inr": "499",
+    "size": "60 Tablets",
+    "link": "",
+    "sources": [
+      "CSV (diseases_wise_1.csv)",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Cariwal Platelet Support",
+    "category": "Herbo Nutraceuticals",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Cariwal Platelet Support - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "500",
+    "size": "60 Tablets / 30ml",
+    "link": "https://onlyvedaa.com/product-info/Cariwal-30-Tabs-in-Jar",
+    "sources": [
+      "Website",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Chandraprabha Vati",
+    "category": "Ayurvedic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Chandraprabha Vati - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "600",
+    "size": "60 Tablets / 30ml",
+    "link": "https://onlyvedaa.com/product-info/Chandraprabha-120-Tab-in-Jar",
+    "sources": [
+      "Website",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Cistoca Dish Wash Liquid",
+    "category": "Home Care",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Cistoca Dish Wash Liquid - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "130",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Cistoca-Dish-Wash-Liquid-500-ml--MRP-130---",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Cistoca Disinfectant Floor Cleaner",
+    "category": "Home Care",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Cistoca Disinfectant Floor Cleaner - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "200",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Cistoca-Disinfectant-1-ltr",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Cistoca Liquid Detergent",
+    "category": "Home Care",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Cistoca Liquid Detergent - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "270",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Cistoca-Liquid-Detergent-1-ltr--MRP-270---",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Cistoca Toilet Cleaner",
+    "category": "Home Care",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Cistoca Toilet Cleaner - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "115",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Cistoca-Toilet-Cleaner-500-ml--MRP-115---",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Clarifying Anti-Acne Face Wash",
+    "category": "Nutraceutical / Classical Ayurvedic",
+    "key_ingredients": [
+      "Neem Extract",
+      "Tulsi",
+      "Green Tea",
+      "Zinc PCA"
+    ],
+    "benefits": "OnlyVeda Clarifying Anti-Acne Face Wash - specialized clinical protocol formulation.",
+    "dosage_and_usage": "1-0-1 (as directed by healthcare advisor)",
+    "price_inr": "499",
+    "size": "Standard Pack",
+    "link": "",
+    "sources": [
+      "CSV (diseases_wise_1.csv)",
+      "Excel (disease and treatment database (2).xlsx)",
+      "Existing Catalog"
+    ]
+  },
+  {
+    "name": "OnlyVeda CoQ10 (Coenzyme Q10)",
+    "category": "Nutraceutical / Classical Ayurvedic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda CoQ10 (Coenzyme Q10) - specialized clinical treatment formulation.",
+    "dosage_and_usage": "1-0-1 (as directed by healthcare advisor)",
+    "price_inr": "499",
+    "size": "Standard Pack",
+    "link": "",
+    "sources": [
+      "Excel (disease and treatment database (2).xlsx)",
+      "Existing Catalog"
+    ]
+  },
+  {
+    "name": "OnlyVeda Cranberry Extract Capsules",
+    "category": "Herbo Nutraceuticals",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Cranberry Extract Capsules - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "750",
+    "size": "60 Tablets / 30ml",
+    "link": "https://onlyvedaa.com/product-info/Cranberry-and-Amla-Extract-30-Cap-in-Jar",
+    "sources": [
+      "Website",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Daily Complete Multivitamin",
+    "category": "Herbo Nutraceuticals",
+    "key_ingredients": [
+      "24 Essential Vitamins & Trace Minerals",
+      "Probiotics",
+      "Ginkgo Biloba"
+    ],
+    "benefits": "OnlyVeda Daily Complete Multivitamin - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "Osteoporosis: 1-0-0 | Cystic fibrosis: 1-0-0 | Pneumonia: 1-0-0 | mouth ulcer: 1-0-0",
+    "price_inr": "750",
+    "size": "60 Tablets / 30ml",
+    "link": "https://onlyvedaa.com/product-info/Multivitamin-For-Man",
+    "sources": [
+      "Website",
+      "CSV (diseases_wise_1.csv)",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Daily Complete Multivitamin Women",
+    "category": "Herbo Nutraceuticals",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Daily Complete Multivitamin Women - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "800",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Multivitamin-For-Women",
+    "sources": [
+      "Website",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda EZ Sip Premium Tea",
+    "category": "OTC",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda EZ Sip Premium Tea - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "120",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/EZ-Sip-Tea-250gm--MRP-140---",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Ella Gorgeous ACV Shampoo",
+    "category": "Cosmetic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Ella Gorgeous ACV Shampoo - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "310",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Ella-Gorgeos-Apple-Cider-Vinegar-Conditioning-Shampoo",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Ella Gorgeous Anti-Acne Facewash",
+    "category": "Cosmetic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Ella Gorgeous Anti-Acne Facewash - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "130",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Ella-Gorgeos-Anti-Acne-Facewash",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Ella Gorgeous Anti-Hair Fall Shampoo",
+    "category": "Cosmetic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Ella Gorgeous Anti-Hair Fall Shampoo - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "320",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Ella-Gorgeos-Anti-Hair-Fall-Shampoo",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Ella Gorgeous Neem Tulsi Facewash",
+    "category": "Cosmetic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Ella Gorgeous Neem Tulsi Facewash - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "120",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Ella-Gorgeos-Neem-Tulsi-Aloevera-Facewash",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Ella Gorgeous Onion Hair Oil",
+    "category": "Cosmetic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Ella Gorgeous Onion Hair Oil - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "250",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Ella-Gorgeos-Onion-Hair-Oil",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Ella Gorgeous Radiance Kit",
+    "category": "Nutraceutical / Classical Ayurvedic",
+    "key_ingredients": [
+      "Kumkumadi Oil",
+      "L-Glutathione",
+      "Saffron Extract",
+      "Niacinamide"
+    ],
+    "benefits": "Complete 3-step skincare regimen for skin brightening, melanin reduction, and natural glow.",
+    "dosage_and_usage": "Skin lightening: As directed by physician",
+    "price_inr": "499",
+    "size": "Complete Treatment Kit",
+    "link": "",
+    "sources": [
+      "CSV (diseases_wise_1.csv)",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Evareg Menstrual Regulator",
+    "category": "Ayurvedic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Evareg Menstrual Regulator - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "500",
+    "size": "60 Tablets / 30ml",
+    "link": "https://onlyvedaa.com/product-info/Evareg-Cap-10x10",
+    "sources": [
+      "Website",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Ferrof Iron & Folic Capsules",
+    "category": "Herbo Nutraceuticals",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Ferrof Iron & Folic Capsules - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "200",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Ferrof-Cap--200--MRP-",
+    "sources": [
+      "Website",
+      "Excel (disease and treatment database (2).xlsx)",
+      "Existing Catalog"
+    ]
+  },
+  {
+    "name": "OnlyVeda Glutathione Effervescent",
+    "category": "Nutraceutical / Classical Ayurvedic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Glutathione Effervescent - specialized clinical treatment formulation.",
+    "dosage_and_usage": "1-0-1 (as directed by healthcare advisor)",
+    "price_inr": "499",
+    "size": "60 Tablets / 30ml",
+    "link": "",
+    "sources": [
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Hadjod Bone Healer",
+    "category": "Ayurvedic",
+    "key_ingredients": [
+      "Cissus Quadrangularis (Asthisamharaka) Standardized Extract (500mg)"
+    ],
+    "benefits": "Traditional bone-setter herb that accelerates fracture union, stimulates osteoblasts, and repairs connective tissue.",
+    "dosage_and_usage": "bone fracture: 1-0-1",
+    "price_inr": "600",
+    "size": "60 Tablets",
+    "link": "https://onlyvedaa.com/product-info/Hadjod",
+    "sources": [
+      "Website",
+      "CSV (diseases_wise_1.csv)",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Hair 2X Growth Formula",
+    "category": "Nutraceutical / Classical Ayurvedic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Hair 2X Growth Formula - specialized clinical treatment formulation.",
+    "dosage_and_usage": "1-0-1 (as directed by healthcare advisor)",
+    "price_inr": "499",
+    "size": "60 Tablets / 30ml",
+    "link": "",
+    "sources": [
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Hair 2X Growth Kit",
+    "category": "Herbo Nutraceuticals",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Hair 2X Growth Kit - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "2999",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Hair-2X-Kit",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Hepatreat Hepatic Care",
+    "category": "Ayurvedic",
+    "key_ingredients": [
+      "Standardized Silymarin 80%",
+      "Yashtimadhu",
+      "Amla",
+      "Kutki"
+    ],
+    "benefits": "Reverses sluggish liver function, regulates bile secretion, resolves chronic constipation, and heals digestive ulcers.",
+    "dosage_and_usage": "Stomach ulcer: 1-0-1",
+    "price_inr": "180",
+    "size": "60 Tablets",
+    "link": "https://onlyvedaa.com/product-info/New-Hepatreat-Sy-180--MRP",
+    "sources": [
+      "Website",
+      "CSV (diseases_wise_1.csv)",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Hepatreat Hepatic Tablets",
+    "category": "Ayurvedic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Hepatreat Hepatic Tablets - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "350",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Hepatreat-30-Tab-In-Jar",
+    "sources": [
+      "Website",
+      "CSV (diseases_wise_1.csv)",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Herbal Ayurvedic Mouth Wash",
+    "category": "Nutraceutical / Classical Ayurvedic",
+    "key_ingredients": [
+      "Clove Oil (Laung)",
+      "Neem Extract",
+      "Bakul",
+      "Tea Tree Oil"
+    ],
+    "benefits": "Combats pyorrhea pathogens, stops bleeding gums, removes plaque, and freshens breath all day.",
+    "dosage_and_usage": "Payoria: twice a day",
+    "price_inr": "499",
+    "size": "200 ml Bottle",
+    "link": "",
+    "sources": [
+      "CSV (diseases_wise_1.csv)",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Hot Male Oil",
+    "category": "Nutraceutical / Classical Ayurvedic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Hot Male Oil - specialized clinical treatment formulation.",
+    "dosage_and_usage": "1-0-1 (as directed by healthcare advisor)",
+    "price_inr": "499",
+    "size": "60 Tablets / 30ml",
+    "link": "",
+    "sources": [
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Hot Male Plus",
+    "category": "Herbo Nutraceuticals",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Hot Male Plus - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "600",
+    "size": "60 Tablets / 30ml",
+    "link": "https://onlyvedaa.com/product-info/Hotmale-Plus-30-Caps-in-Jar",
+    "sources": [
+      "Website",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Hot X Female Vitality",
+    "category": "Nutraceutical / Classical Ayurvedic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Hot X Female Vitality - specialized clinical treatment formulation.",
+    "dosage_and_usage": "1-0-1 (as directed by healthcare advisor)",
+    "price_inr": "499",
+    "size": "60 Tablets / 30ml",
+    "link": "",
+    "sources": [
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda I-Well Eye Health Capsules",
+    "category": "Herbo Nutraceuticals",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda I-Well Eye Health Capsules - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "500",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/I-Well-30-Cap-In-Jar",
+    "sources": [
+      "Website",
+      "Excel (disease and treatment database (2).xlsx)",
+      "Existing Catalog"
+    ]
+  },
+  {
+    "name": "OnlyVeda Immuferin Immuno-Shield",
+    "category": "Ayurvedic",
+    "key_ingredients": [
+      "Lactoferrin",
+      "Colostrum",
+      "Curcumin",
+      "Zinc Glycinate",
+      "Giloy"
+    ],
+    "benefits": "Advanced immune modulator; combats systemic inflammation, bacterial and viral infections, and accelerates tissue recovery.",
+    "dosage_and_usage": "All type of cancer: 2-2-2 (2 Morning, 2 Afternoon, 2 Night) | Rhuematoid arthritis: 1-1-1- | spondilits: 1-0-1 | Pneumonia: 1-1-1 (1 Morning, 1 Afternoon, 1 Night) | abscess: 1-1-1 (1 Morning, 1 Afternoon, 1 Night) | Payoria: 1-0-1 | otitis / ear infection: 1-0-1 | tonsilits: 1-1-1 (1 Morning, 1 Afternoon, 1 Night) | Diarroahoea: 1-0-1 | Stomach ulcer: 1-1-1 (1 Morning, 1 Afternoon, 1 Night)",
+    "price_inr": "600",
+    "size": "60 Veggie Capsules",
+    "link": "https://onlyvedaa.com/product-info/New-Immuferin-30-Caps-In-Jar",
+    "sources": [
+      "Website",
+      "CSV (diseases_wise_1.csv)",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Intelget Brain & Memory Capsules",
+    "category": "Ayurvedic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Intelget Brain & Memory Capsules - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "300",
+    "size": "60 Tablets / 30ml",
+    "link": "https://onlyvedaa.com/product-info/Intelget-30-Cap-In-Jar",
+    "sources": [
+      "Website",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Intelget Brain & Memory Syrup",
+    "category": "Ayurvedic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Intelget Brain & Memory Syrup - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "700",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Intelget-Sy",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda KSM-66 Ashwagandha Pure Tablet",
+    "category": "Ayurvedic",
+    "key_ingredients": [
+      "KSM-66 Ashwagandha Extract (500mg)"
+    ],
+    "benefits": "Strengthens nervous system, soothes spinal nerve inflammation, and alleviates cervical spondylitis.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "500",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Ashwagandha-120-Tab-in-Jar",
+    "sources": [
+      "Website",
+      "CSV (diseases_wise_1.csv)",
+      "Excel (disease and treatment database (2).xlsx)",
+      "Existing Catalog"
+    ]
+  },
+  {
+    "name": "OnlyVeda Kamdudha Ras",
+    "category": "Ayurvedic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Kamdudha Ras - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "600",
+    "size": "60 Tablets / 30ml",
+    "link": "https://onlyvedaa.com/product-info/Kamdudha-Ras-120-Tab-in-Jar",
+    "sources": [
+      "Website",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Kanchanar Guggul Traditional",
+    "category": "Ayurvedic",
+    "key_ingredients": [
+      "Kanchanar Bark",
+      "Shuddha Guggulu",
+      "Triphala",
+      "Trikatu"
+    ],
+    "benefits": "OnlyVeda Kanchanar Guggul Traditional - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "Cystic fibrosis: 1-0-1",
+    "price_inr": "500",
+    "size": "60 Tablets",
+    "link": "https://onlyvedaa.com/product-info/Kanchnar-120-Tab-in-Jar",
+    "sources": [
+      "Website",
+      "CSV (diseases_wise_1.csv)",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Khuj Guard Anti-Itch Cream",
+    "category": "Ayurvedic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Khuj Guard Anti-Itch Cream - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "150",
+    "size": "60 Tablets / 30ml",
+    "link": "https://onlyvedaa.com/product-info/KhujGuard-Ointment-25-Gm",
+    "sources": [
+      "Website",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Kidney Detox Formula",
+    "category": "Herbo Nutraceuticals",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Kidney Detox Formula - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "800",
+    "size": "60 Tablets / 30ml",
+    "link": "https://onlyvedaa.com/product-info/Kidney-Detox",
+    "sources": [
+      "Website",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda L-Arginine Plus",
+    "category": "Herbo Nutraceuticals",
+    "key_ingredients": [
+      "Pure L-Arginine (1000mg)",
+      "L-Citrulline",
+      "Folic Acid"
+    ],
+    "benefits": "Boosts nitric oxide production, relaxes blood vessels, and supports cardiovascular stamina.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "800",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/L-Arginine-30-Cap-in-Jar",
+    "sources": [
+      "Website",
+      "CSV (diseases_wise_1.csv)",
+      "Excel (disease and treatment database (2).xlsx)",
+      "Existing Catalog"
+    ]
+  },
+  {
+    "name": "OnlyVeda Laxia Gentle Overnight Colon Cleanse",
+    "category": "Nutraceutical / Classical Ayurvedic",
+    "key_ingredients": [
+      "Senna Standardized Extract",
+      "Haritaki",
+      "Castor Seed Oil Extracts"
+    ],
+    "benefits": "Non-habit-forming overnight relief from acute and stubborn constipation; ensures smooth, effortless morning bowel movement.",
+    "dosage_and_usage": "Constipation: 0-0-1 | Chronic constipation: 0-0-1",
+    "price_inr": "499",
+    "size": "30 Tablets",
+    "link": "",
+    "sources": [
+      "CSV (diseases_wise_1.csv)",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Linopress",
+    "category": "Herbo Nutraceuticals",
+    "key_ingredients": [
+      "Flaxseed Lignans (ALA)",
+      "Terminalia Arjuna",
+      "CoQ10",
+      "Garlic Bulb Extract"
+    ],
+    "benefits": "Clinically formulated for optimal blood pressure management, arterial elasticity, and healthy blood flow.",
+    "dosage_and_usage": "High blood presure: 1-0-1 (1 Morning, 1 Night) | Heart health: 1-0-1 (1 Morning, 1 Night) | high cholesterol: 1-0-1",
+    "price_inr": "450",
+    "size": "60 Capsules",
+    "link": "https://onlyvedaa.com/product-info/Linopress-30-Caps-In-Jar",
+    "sources": [
+      "Website",
+      "CSV (diseases_wise_1.csv)",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Liver Detox Formula",
+    "category": "Herbo Nutraceuticals",
+    "key_ingredients": [
+      "Kalmegh",
+      "Bhumi Amla",
+      "Kutki",
+      "Punarnava"
+    ],
+    "benefits": "Purifies toxins, clears excess uric acid, prevents gout crystallisation, and supports hepatic metabolism.",
+    "dosage_and_usage": "Gout: 0-1-0",
+    "price_inr": "1000",
+    "size": "60 Capsules",
+    "link": "https://onlyvedaa.com/product-info/Milk-Thistle--Liver-Detox--30-Tab-in-Jar",
+    "sources": [
+      "Website",
+      "CSV (diseases_wise_1.csv)",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Lohasu Blood Purifier Tablet",
+    "category": "Nutraceutical / Classical Ayurvedic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Lohasu Blood Purifier Tablet - specialized clinical treatment formulation.",
+    "dosage_and_usage": "1-0-1 (as directed by healthcare advisor)",
+    "price_inr": "499",
+    "size": "60 Tablets / 30ml",
+    "link": "",
+    "sources": [
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Lung Detox Capsules",
+    "category": "Herbo Nutraceuticals",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Lung Detox Capsules - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "600",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Lung-Detox",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda MT-89 Bio-Agri Growth Promoter",
+    "category": "Agriculture Product",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda MT-89 Bio-Agri Growth Promoter - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "400",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/MT-89-100ml--MRP-400---",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda MT-Humic Organic Plant Booster",
+    "category": "Agriculture Product",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda MT-Humic Organic Plant Booster - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "550",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/MT-Humic-500-ml--MRP-550---",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Maha Sudarshan Tablet",
+    "category": "Ayurvedic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Maha Sudarshan Tablet - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "600",
+    "size": "60 Tablets / 30ml",
+    "link": "https://onlyvedaa.com/product-info/Mahasudarshan-120-Tab-in-Jar",
+    "sources": [
+      "Website",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Mahayograj Guggul",
+    "category": "Ayurvedic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Mahayograj Guggul - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "500",
+    "size": "60 Tablets / 30ml",
+    "link": "https://onlyvedaa.com/product-info/Maha-Yograj-Guggal-30-Tab-in-Jar",
+    "sources": [
+      "Website",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Mamejava Ghan Tablets",
+    "category": "Ayurvedic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Mamejava Ghan Tablets - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "600",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Mamejava-Ghan-120-Tab-in-Jar",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Marsulin Diabetic Syrup",
+    "category": "Ayurvedic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Marsulin Diabetic Syrup - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "250",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Marsulin-Sy-200ml",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Marsulin Diabetic Tablets",
+    "category": "Ayurvedic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Marsulin Diabetic Tablets - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "250",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Marsulin-30-Tab-In-Jar",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Meal Replacement Shake",
+    "category": "Nutraceutical / Classical Ayurvedic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Meal Replacement Shake - specialized clinical treatment formulation.",
+    "dosage_and_usage": "1-0-1 (as directed by healthcare advisor)",
+    "price_inr": "499",
+    "size": "60 Tablets / 30ml",
+    "link": "",
+    "sources": [
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Melatonin Sleep Spray",
+    "category": "Nutraceutical / Classical Ayurvedic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Melatonin Sleep Spray - specialized clinical treatment formulation.",
+    "dosage_and_usage": "1-0-1 (as directed by healthcare advisor)",
+    "price_inr": "499",
+    "size": "60 Tablets / 30ml",
+    "link": "",
+    "sources": [
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Milk Thistle Silymarin Detox",
+    "category": "Nutraceutical / Classical Ayurvedic",
+    "key_ingredients": [
+      "Milk Thistle 80% Silymarin Extract (300mg)",
+      "Dandelion Root"
+    ],
+    "benefits": "OnlyVeda Milk Thistle Silymarin Detox - specialized clinical protocol formulation.",
+    "dosage_and_usage": "acne: 1-0-0",
+    "price_inr": "499",
+    "size": "60 Veggie Capsules",
+    "link": "",
+    "sources": [
+      "CSV (diseases_wise_1.csv)",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Multivitamin Effervescent For Men",
+    "category": "Herbo Nutraceuticals",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Multivitamin Effervescent For Men - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "600",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Multivitamin-Effervescent-Tablets-for-Men",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Multivitamin Effervescent For Women",
+    "category": "Herbo Nutraceuticals",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Multivitamin Effervescent For Women - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "600",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Multivitamin-Effervescent-Tablets-for-Women",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Multivitamin For Kids Gummies",
+    "category": "Herbo Nutraceuticals",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Multivitamin For Kids Gummies - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "500",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Multivitamin-Kids-Gummies",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda N-Acetyl Cysteine (NAC 600mg)",
+    "category": "Nutraceutical / Classical Ayurvedic",
+    "key_ingredients": [
+      "N-Acetyl L-Cysteine (600mg)"
+    ],
+    "benefits": "Powerful mucolytic and glutathione precursor that dissolves thick respiratory phlegm and protects lung tissue.",
+    "dosage_and_usage": "1-0-1 (as directed by healthcare advisor)",
+    "price_inr": "499",
+    "size": "Standard Pack",
+    "link": "",
+    "sources": [
+      "CSV (diseases_wise_1.csv)",
+      "Excel (disease and treatment database (2).xlsx)",
+      "Existing Catalog"
+    ]
+  },
+  {
+    "name": "OnlyVeda Natural Vitamin C + Zinc",
+    "category": "Nutraceutical / Classical Ayurvedic",
+    "key_ingredients": [
+      "Phyllanthus Emblica (Amla Extract 1000mg)",
+      "Zinc Citrate"
+    ],
+    "benefits": "Rapid oral ulcer healing, strengthens bleeding gums, and bolsters collagen in periodontal tissues.",
+    "dosage_and_usage": "1-0-1 (as directed by healthcare advisor)",
+    "price_inr": "499",
+    "size": "Standard Pack",
+    "link": "",
+    "sources": [
+      "CSV (diseases_wise_1.csv)",
+      "Excel (disease and treatment database (2).xlsx)",
+      "Existing Catalog"
+    ]
+  },
+  {
+    "name": "OnlyVeda Neem Purify Tablet",
+    "category": "Nutraceutical / Classical Ayurvedic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Neem Purify Tablet - specialized clinical treatment formulation.",
+    "dosage_and_usage": "1-0-1 (as directed by healthcare advisor)",
+    "price_inr": "499",
+    "size": "60 Tablets / 30ml",
+    "link": "",
+    "sources": [
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda ORS Electrolyte Effervescent",
+    "category": "Nutraceutical / Classical Ayurvedic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda ORS Electrolyte Effervescent - specialized clinical treatment formulation.",
+    "dosage_and_usage": "1-0-1 (as directed by healthcare advisor)",
+    "price_inr": "499",
+    "size": "Standard Pack",
+    "link": "",
+    "sources": [
+      "Excel (disease and treatment database (2).xlsx)",
+      "Existing Catalog"
+    ]
+  },
+  {
+    "name": "OnlyVeda Oraplax Herbal Toothpaste",
+    "category": "OTC",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Oraplax Herbal Toothpaste - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "90",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Oraplax-Toothpaste--2x100gm-",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Oraplax Teeth Whitening Powder",
+    "category": "OTC",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Oraplax Teeth Whitening Powder - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "400",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Oraplax-Teeth-Whitening-Powder",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Panch Tulsi Drops",
+    "category": "Nutraceutical / Classical Ayurvedic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Panch Tulsi Drops - specialized clinical treatment formulation.",
+    "dosage_and_usage": "1-0-1 (as directed by healthcare advisor)",
+    "price_inr": "499",
+    "size": "60 Tablets / 30ml",
+    "link": "",
+    "sources": [
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Pearl Essence Cream",
+    "category": "Cosmetic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Pearl Essence Cream - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "130",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Pearl-Essence-Cream",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Pearl Herbal Soap",
+    "category": "OTC",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Pearl Herbal Soap - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "120",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Pearl-Herbal-Soap-MRP-120----4x75gm-",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Pearl Moisturising Soap",
+    "category": "OTC",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Pearl Moisturising Soap - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "125",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Pearl-Moisturising-Soap-MRP-125----4x75gm-",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Pearl Orange Peel Soap",
+    "category": "OTC",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Pearl Orange Peel Soap - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "130",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Pearl-Essence-Soap-MRP-130----4x100gm-",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Piyo Ayurvedic Wellness Coffee",
+    "category": "Piyo",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Piyo Ayurvedic Wellness Coffee - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "799",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Piyo-Coffee",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Piyo Body Detox Effervescent Tablet",
+    "category": "Piyo",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Piyo Body Detox Effervescent Tablet - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "699",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Piyo-Body-Detox-Effer-Tab",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Piyo Diabetic Care Effervescent Tablet",
+    "category": "Piyo",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Piyo Diabetic Care Effervescent Tablet - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "699",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Piyo-Diabetic-Care-Effer-Tab",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Piyo Herbal Green Tea",
+    "category": "Piyo",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Piyo Herbal Green Tea - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "799",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Piyo-Green-Tea",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Piyo Liver Detox Effervescent Tablet",
+    "category": "Piyo",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Piyo Liver Detox Effervescent Tablet - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "699",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Piyo-Liver-Detox-Effer-Tab",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Piyo Lung Detox Effervescent Tablet",
+    "category": "Piyo",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Piyo Lung Detox Effervescent Tablet - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "699",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Piyo-Lung-Detox-Effer-Tab",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Piyo Sea Buckthorn Effervescent Tablet",
+    "category": "Piyo",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Piyo Sea Buckthorn Effervescent Tablet - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "699",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Piyo-Sea-Buckthorn-Effer-Tab",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Piyo UTI Effervescent Tablet",
+    "category": "Piyo",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Piyo UTI Effervescent Tablet - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "699",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Piyo-UTI-Effer-Tab",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Premium Noni Skin Care Soap",
+    "category": "OTC",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Premium Noni Skin Care Soap - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "45",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Premium-Skin-Care-Soap--Noni-Extract-",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Prowal Synbiotic Gut Restorer",
+    "category": "Herbo Nutraceuticals",
+    "key_ingredients": [
+      "50 Billion Spore-Forming Probiotics",
+      "Prebiotic FOS",
+      "Zinc"
+    ],
+    "benefits": "Stops diarrhea and loose motions, restores gut flora disrupted by infections, and heals mucosal lining.",
+    "dosage_and_usage": "Diarroahoea: 1-0-1 | Stomach ulcer: 1-1-1 (1 Morning, 1 Afternoon, 1 Night)",
+    "price_inr": "400",
+    "size": "30 Veggie Capsules",
+    "link": "https://onlyvedaa.com/product-info/Prowell-30-Caps-in-Jar",
+    "sources": [
+      "Website",
+      "CSV (diseases_wise_1.csv)",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Punarnavadi Traditional Tablets",
+    "category": "Ayurvedic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Punarnavadi Traditional Tablets - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "500",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Punarnavadi-120-Tab-in-Jar",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Pure Shilajit Capsules",
+    "category": "Nutraceutical / Classical Ayurvedic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Pure Shilajit Capsules - specialized clinical treatment formulation.",
+    "dosage_and_usage": "1-0-1 (as directed by healthcare advisor)",
+    "price_inr": "499",
+    "size": "60 Tablets / 30ml",
+    "link": "",
+    "sources": [
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Pure Shilajit Tablets",
+    "category": "Ayurvedic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Pure Shilajit Tablets - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "500",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Shilajit-30-Tab-in-Jar",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Pure Vitamin D3 Chewables",
+    "category": "Nutraceutical / Classical Ayurvedic",
+    "key_ingredients": [
+      "Vitamin D3 (Cholecalciferol 60,000 IU equivalent)",
+      "Phosphorus"
+    ],
+    "benefits": "Essential for tooth mineralization, calcium absorption in oral bones, and cavity prevention.",
+    "dosage_and_usage": "Dental cavity: 1-0-0",
+    "price_inr": "499",
+    "size": "30 Chewable Tablets",
+    "link": "",
+    "sources": [
+      "CSV (diseases_wise_1.csv)",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Raalon Skin Disease Cream",
+    "category": "Cosmetic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Raalon Skin Disease Cream - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "165",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Raalon-Skin-Disease-Cream",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Raktashu Blood Purifier Syrup",
+    "category": "Ayurvedic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Raktashu Blood Purifier Syrup - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "700",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Raktashu-Sy",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Resnovae Herbal Shampoo",
+    "category": "Cosmetic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Resnovae Herbal Shampoo - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "330",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Resnovae-Herbal-Hair-Cleaner-Shampoo-200ml",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Respitone Pulmonary Shield",
+    "category": "Ayurvedic",
+    "key_ingredients": [
+      "Vasaka (Adhatoda)",
+      "Pushkarmool",
+      "Kantakari",
+      "Licorice",
+      "Tulsi"
+    ],
+    "benefits": "Clears constricted airways, reduces bronchial wheezing, dilutes stubborn lung mucus, and eases asthmatic breathing.",
+    "dosage_and_usage": "Brochial asthma: 1-1-1 (1 Morning, 1 Afternoon, 1 Night) | Allergic ashtma: 1-1-1 (1 Morning, 1 Afternoon, 1 Night)",
+    "price_inr": "300",
+    "size": "200 ml / 60 Tablets",
+    "link": "https://onlyvedaa.com/product-info/Respitone-30-Caps-in-Jar",
+    "sources": [
+      "Website",
+      "CSV (diseases_wise_1.csv)",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Rhiza Mucosal Gut Shield",
+    "category": "Ayurvedic",
+    "key_ingredients": [
+      "Deglycyrrhizinated Licorice (DGL)",
+      "Slippery Elm",
+      "Marshmallow Root"
+    ],
+    "benefits": "Forms a protective bio-layer over stomach mucosa, neutralizes acid reflux (GERD), and extinguishes heartburn.",
+    "dosage_and_usage": "gastritis (acidity and gas): 1-0-1 | Heart burn: 1-0-1 | GERD: 1-0-1",
+    "price_inr": "170",
+    "size": "60 Chewables",
+    "link": "https://onlyvedaa.com/product-info/New-Rhiza-170--MRP",
+    "sources": [
+      "Website",
+      "CSV (diseases_wise_1.csv)",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Saptamrit Loh Eye Tablet",
+    "category": "Nutraceutical / Classical Ayurvedic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Saptamrit Loh Eye Tablet - specialized clinical treatment formulation.",
+    "dosage_and_usage": "1-0-1 (as directed by healthcare advisor)",
+    "price_inr": "499",
+    "size": "60 Tablets / 30ml",
+    "link": "",
+    "sources": [
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Satvik Pure Digestive Detox",
+    "category": "Ayurvedic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Satvik Pure Digestive Detox - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "600",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Satvik-120-Tab-in-Jar",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Serronil Joint Care",
+    "category": "Herbo Nutraceuticals",
+    "key_ingredients": [
+      "Serratiopeptidase",
+      "Boswellia Shallaki (300mg)",
+      "Curcumin 95%"
+    ],
+    "benefits": "Fast-acting anti-inflammatory enzyme complex that breaks down joint stiffness, eases swelling, and relieves arthritic pain.",
+    "dosage_and_usage": "osteo arthritis: 1-1-1- | Rhuematoid arthritis: 1-0-1 | Gout: 1-0-1",
+    "price_inr": "800",
+    "size": "60 Capsules",
+    "link": "https://onlyvedaa.com/product-info/New-Serronil-30-Caps",
+    "sources": [
+      "Website",
+      "CSV (diseases_wise_1.csv)",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Shatavari Rejuvenation Tablets",
+    "category": "Ayurvedic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Shatavari Rejuvenation Tablets - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "500",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Shatavari-120-Tab-in-Jar",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Shilajit Gummies",
+    "category": "Ayurvedic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Shilajit Gummies - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "450",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Shilajit-Gummies",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Sitopaladi Churna",
+    "category": "Ayurvedic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Sitopaladi Churna - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "500",
+    "size": "60 Tablets / 30ml",
+    "link": "https://onlyvedaa.com/product-info/Sitopaladi-120-Tab-in-Jar",
+    "sources": [
+      "Website",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Stowip Kidney & Urinary Kit",
+    "category": "Ayurvedic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Stowip Kidney & Urinary Kit - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "800",
+    "size": "60 Tablets / 30ml",
+    "link": "https://onlyvedaa.com/product-info/Stowip-Kit",
+    "sources": [
+      "Website",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Strenus Herbal Massage Oil",
+    "category": "OTC",
+    "key_ingredients": [
+      "Mahanarayan Taila",
+      "Gandhapura Oil (Wintergreen)",
+      "Camphor",
+      "Eucalyptus"
+    ],
+    "benefits": "Penetrating Ayurvedic massage oil for instant relief from backache, knee pain, and muscular tightness.",
+    "dosage_and_usage": "Muscular back pain: Apply / Use 2-3 times daily",
+    "price_inr": "190",
+    "size": "100 ml Bottle",
+    "link": "https://onlyvedaa.com/product-info/New-Strenus-Oil-50ml-190--Rs",
+    "sources": [
+      "Website",
+      "CSV (diseases_wise_1.csv)",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Strenus Pain Relief Capsules",
+    "category": "Ayurvedic",
+    "key_ingredients": [
+      "Shallaki",
+      "Nirgundi",
+      "Rasna",
+      "Ashwagandha"
+    ],
+    "benefits": "OnlyVeda Strenus Pain Relief Capsules - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "Muscular back pain: 1-0-1",
+    "price_inr": "650",
+    "size": "60 Capsules",
+    "link": "https://onlyvedaa.com/product-info/Strenus-10x10-Caps",
+    "sources": [
+      "Website",
+      "CSV (diseases_wise_1.csv)",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda T-Booster Testosterone Support",
+    "category": "Herbo Nutraceuticals",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda T-Booster Testosterone Support - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "750",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Testosterone-Booster",
+    "sources": [
+      "Website",
+      "Excel (disease and treatment database (2).xlsx)",
+      "Existing Catalog"
+    ]
+  },
+  {
+    "name": "OnlyVeda Terminalia Arjuna Extract",
+    "category": "Ayurvedic",
+    "key_ingredients": [
+      "Pure Arjuna Bark Standardized Extract (500mg)"
+    ],
+    "benefits": "OnlyVeda Terminalia Arjuna Extract - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "High blood presure: 1-0-1 | high cholesterol: 1-0-1",
+    "price_inr": "500",
+    "size": "60 Tablets",
+    "link": "https://onlyvedaa.com/product-info/Arjun-120-Tab-in-Jar",
+    "sources": [
+      "Website",
+      "CSV (diseases_wise_1.csv)",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Throatwal Soothing Lozenges & Gargle",
+    "category": "Nutraceutical / Classical Ayurvedic",
+    "key_ingredients": [
+      "Yashtimadhu (Licorice)",
+      "Khadira",
+      "Peppermint",
+      "Pippali"
+    ],
+    "benefits": "Immediate relief from tonsillitis swelling, sore throat friction, and difficulty swallowing.",
+    "dosage_and_usage": "tonsilits: 1-0-1",
+    "price_inr": "499",
+    "size": "100 ml / 30 Lozenges",
+    "link": "",
+    "sources": [
+      "CSV (diseases_wise_1.csv)",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Throatwal Spray",
+    "category": "Spray",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Throatwal Spray - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "450",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Throatwal-Spray-30ml",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Triphala Satwik Pure Digestive Detox",
+    "category": "Ayurvedic",
+    "key_ingredients": [
+      "Equal proportion Amla, Haritaki, Bibhitaki"
+    ],
+    "benefits": "OnlyVeda Triphala Satwik Pure Digestive Detox - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "Constipation: 0-0-1",
+    "price_inr": "500",
+    "size": "60 Tablets / 100g Powder",
+    "link": "https://onlyvedaa.com/product-info/Trifla-120-Tab-in-Jar",
+    "sources": [
+      "Website",
+      "CSV (diseases_wise_1.csv)",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda U-She Intimate Hygiene Wash",
+    "category": "OTC",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda U-She Intimate Hygiene Wash - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "150",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/U-she-Hygiene-Wash",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda U-She Plus Feminine Care",
+    "category": "Ayurvedic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda U-She Plus Feminine Care - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "180",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/New-U-she-Plus-Sy-180--MRP",
+    "sources": [
+      "Website",
+      "Excel (disease and treatment database (2).xlsx)",
+      "Existing Catalog"
+    ]
+  },
+  {
+    "name": "OnlyVeda U-She Wings Sanitary Pads",
+    "category": "OTC",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda U-She Wings Sanitary Pads - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "150",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/U-she-Wings",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Wal D3 Sublingual Spray",
+    "category": "Nutraceutical / Classical Ayurvedic",
+    "key_ingredients": [
+      "Plant-Based Vitamin D3 (Cholecalciferol 2000 IU/spray)"
+    ],
+    "benefits": "Ultra-fast sublingual absorption to rebuild bone cartilage, enhance calcium uptake, and support joint mobility.",
+    "dosage_and_usage": "osteo arthritis: 4 spray in a day | bone fracture: 1-0-0 | Osteoporosis: 4 sprays in a day",
+    "price_inr": "499",
+    "size": "30 ml Oral Spray",
+    "link": "",
+    "sources": [
+      "CSV (diseases_wise_1.csv)",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Walinctus Herbal Cough Syrup",
+    "category": "Ayurvedic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Walinctus Herbal Cough Syrup - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "120",
+    "size": "60 Tablets / 30ml",
+    "link": "https://onlyvedaa.com/product-info/Walinctus-Sy-100ml--120--MRP-",
+    "sources": [
+      "Website",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Walzyme Digestive Enzymes",
+    "category": "Herbo Nutraceuticals",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Walzyme Digestive Enzymes - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "170",
+    "size": "60 Tablets / 30ml",
+    "link": "https://onlyvedaa.com/product-info/New-Walzyme-Sy-170--MRP",
+    "sources": [
+      "Website",
+      "Excel (disease and treatment database (2).xlsx)"
+    ]
+  },
+  {
+    "name": "OnlyVeda Wellpro High Protein Powder",
+    "category": "Protein Powder",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Wellpro High Protein Powder - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "500",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Wellpro-200gm",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Xemma Anti-Acne & Blemish Cream",
+    "category": "Nutraceutical / Classical Ayurvedic",
+    "key_ingredients": [
+      "Tea Tree Oil",
+      "Neem",
+      "Salicylic Acid from Willow Bark",
+      "Aloe Vera"
+    ],
+    "benefits": "OnlyVeda Xemma Anti-Acne & Blemish Cream - specialized clinical protocol formulation.",
+    "dosage_and_usage": "1-0-1 (as directed by healthcare advisor)",
+    "price_inr": "499",
+    "size": "Standard Pack",
+    "link": "",
+    "sources": [
+      "CSV (diseases_wise_1.csv)",
+      "Excel (disease and treatment database (2).xlsx)",
+      "Existing Catalog"
+    ]
+  },
+  {
+    "name": "OnlyVeda Xemma SPF 50 Glowing Cream",
+    "category": "Cosmetic",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Xemma SPF 50 Glowing Cream - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "160",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Xemma-SPF-50-with-Glowing",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Xerocare Skin Cream",
+    "category": "OTC",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Xerocare Skin Cream - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "110",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Xerocare",
+    "sources": [
+      "Website"
+    ]
+  },
+  {
+    "name": "OnlyVeda Zinc ZMA Essential Tablets",
+    "category": "Herbo Nutraceuticals",
+    "key_ingredients": [],
+    "benefits": "OnlyVeda Zinc ZMA Essential Tablets - authentic herbal and healthcare formulation by OnlyVeda.",
+    "dosage_and_usage": "As directed on packaging or by healthcare physician",
+    "price_inr": "450",
+    "size": "Standard Pack",
+    "link": "https://onlyvedaa.com/product-info/Zinc-ZMA-30-Tab-in-Jar",
+    "sources": [
+      "Website"
+    ]
+  }
+]

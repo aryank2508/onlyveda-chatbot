@@ -1,0 +1,866 @@
+{
+  "website_products": [
+    {
+      "name": "MT-89 100ml",
+      "category": "Agriculture Product",
+      "price": "8377400",
+      "link": "https://onlyvedaa.com/product-info/MT-89-100ml--MRP-400---",
+      "source": "Website"
+    },
+    {
+      "name": "MT-Humic 500 ML",
+      "category": "Agriculture Product",
+      "price": "8377550",
+      "link": "https://onlyvedaa.com/product-info/MT-Humic-500-ml--MRP-550---",
+      "source": "Website"
+    },
+    {
+      "name": "Shilajit Gummies",
+      "category": "Ayurvedic",
+      "price": "8377450",
+      "link": "https://onlyvedaa.com/product-info/Shilajit-Gummies",
+      "source": "Website"
+    },
+    {
+      "name": "Hepatreat Syrup",
+      "category": "Ayurvedic",
+      "price": "8377180",
+      "link": "https://onlyvedaa.com/product-info/New-Hepatreat-Sy-180--MRP",
+      "source": "Website"
+    },
+    {
+      "name": "Rhiza Syrup",
+      "category": "Ayurvedic",
+      "price": "8377170",
+      "link": "https://onlyvedaa.com/product-info/New-Rhiza-170--MRP",
+      "source": "Website"
+    },
+    {
+      "name": "Immuferin 30 Caps In Jar",
+      "category": "Ayurvedic",
+      "price": "8377600",
+      "link": "https://onlyvedaa.com/product-info/New-Immuferin-30-Caps-In-Jar",
+      "source": "Website"
+    },
+    {
+      "name": "Raktashu Syrup",
+      "category": "Ayurvedic",
+      "price": "8377700",
+      "link": "https://onlyvedaa.com/product-info/Raktashu-Sy",
+      "source": "Website"
+    },
+    {
+      "name": "Intelget Syrup",
+      "category": "Ayurvedic",
+      "price": "8377700",
+      "link": "https://onlyvedaa.com/product-info/Intelget-Sy",
+      "source": "Website"
+    },
+    {
+      "name": "Amla 120 Tab in Jar",
+      "category": "Ayurvedic",
+      "price": "8377600",
+      "link": "https://onlyvedaa.com/product-info/Amla-120-Tab-in-Jar",
+      "source": "Website"
+    },
+    {
+      "name": "Aloevera 120 Tab in Jar",
+      "category": "Ayurvedic",
+      "price": "8377600",
+      "link": "https://onlyvedaa.com/product-info/Aloevera-120-Tab-in-Jar",
+      "source": "Website"
+    },
+    {
+      "name": "KhujGuard Ointment 25 Gm",
+      "category": "Ayurvedic",
+      "price": "8377150",
+      "link": "https://onlyvedaa.com/product-info/KhujGuard-Ointment-25-Gm",
+      "source": "Website"
+    },
+    {
+      "name": "Anurect Ointmnet 25 Gm",
+      "category": "Ayurvedic",
+      "price": "8377160",
+      "link": "https://onlyvedaa.com/product-info/Anurect-Ointmnet-25-Gm",
+      "source": "Website"
+    },
+    {
+      "name": "Hadjod Tab",
+      "category": "Ayurvedic",
+      "price": "8377600",
+      "link": "https://onlyvedaa.com/product-info/Hadjod",
+      "source": "Website"
+    },
+    {
+      "name": "Maha Yograj Guggal Tab",
+      "category": "Ayurvedic",
+      "price": "8377500",
+      "link": "https://onlyvedaa.com/product-info/Maha-Yograj-Guggal-30-Tab-in-Jar",
+      "source": "Website"
+    },
+    {
+      "name": "Kanchnar 120 Tab in Jar",
+      "category": "Ayurvedic",
+      "price": "8377500",
+      "link": "https://onlyvedaa.com/product-info/Kanchnar-120-Tab-in-Jar",
+      "source": "Website"
+    },
+    {
+      "name": "Kamdudha Ras 120 Tab in Jar",
+      "category": "Ayurvedic",
+      "price": "8377600",
+      "link": "https://onlyvedaa.com/product-info/Kamdudha-Ras-120-Tab-in-Jar",
+      "source": "Website"
+    },
+    {
+      "name": "Chandraprabha 120 Tab in Jar",
+      "category": "Ayurvedic",
+      "price": "8377600",
+      "link": "https://onlyvedaa.com/product-info/Chandraprabha-120-Tab-in-Jar",
+      "source": "Website"
+    },
+    {
+      "name": "Shatavari 120 Tab in Jar",
+      "category": "Ayurvedic",
+      "price": "8377500",
+      "link": "https://onlyvedaa.com/product-info/Shatavari-120-Tab-in-Jar",
+      "source": "Website"
+    },
+    {
+      "name": "Mahasudarshan 120 Tab in Jar",
+      "category": "Ayurvedic",
+      "price": "8377600",
+      "link": "https://onlyvedaa.com/product-info/Mahasudarshan-120-Tab-in-Jar",
+      "source": "Website"
+    },
+    {
+      "name": "Mamejava Ghan 120 Tab in Jar",
+      "category": "Ayurvedic",
+      "price": "8377600",
+      "link": "https://onlyvedaa.com/product-info/Mamejava-Ghan-120-Tab-in-Jar",
+      "source": "Website"
+    },
+    {
+      "name": "Arogyavardhini 120 Tab in Jar",
+      "category": "Ayurvedic",
+      "price": "8377500",
+      "link": "https://onlyvedaa.com/product-info/Arogyavardhini-120-Tab-in-Jar",
+      "source": "Website"
+    },
+    {
+      "name": "Shilajit 30 Tab in Jar",
+      "category": "Ayurvedic",
+      "price": "8377500",
+      "link": "https://onlyvedaa.com/product-info/Shilajit-30-Tab-in-Jar",
+      "source": "Website"
+    },
+    {
+      "name": "Punarnavadi 120 Tab in Jar",
+      "category": "Ayurvedic",
+      "price": "8377500",
+      "link": "https://onlyvedaa.com/product-info/Punarnavadi-120-Tab-in-Jar",
+      "source": "Website"
+    },
+    {
+      "name": "Ashwagandha 120 Tab in Jar",
+      "category": "Ayurvedic",
+      "price": "8377500",
+      "link": "https://onlyvedaa.com/product-info/Ashwagandha-120-Tab-in-Jar",
+      "source": "Website"
+    },
+    {
+      "name": "Triphala 120 Tab in Jar",
+      "category": "Ayurvedic",
+      "price": "8377500",
+      "link": "https://onlyvedaa.com/product-info/Trifla-120-Tab-in-Jar",
+      "source": "Website"
+    },
+    {
+      "name": "Avipattikar 120 Tab in Jar",
+      "category": "Ayurvedic",
+      "price": "8377500",
+      "link": "https://onlyvedaa.com/product-info/Avipattikar-120-Tab-in-Jar",
+      "source": "Website"
+    },
+    {
+      "name": "Satvik 120 Tab in Jar",
+      "category": "Ayurvedic",
+      "price": "8377600",
+      "link": "https://onlyvedaa.com/product-info/Satvik-120-Tab-in-Jar",
+      "source": "Website"
+    },
+    {
+      "name": "Arjun 120 Tab in Jar",
+      "category": "Ayurvedic",
+      "price": "8377500",
+      "link": "https://onlyvedaa.com/product-info/Arjun-120-Tab-in-Jar",
+      "source": "Website"
+    },
+    {
+      "name": "Sitopaladi 120 Tab in Jar",
+      "category": "Ayurvedic",
+      "price": "8377500",
+      "link": "https://onlyvedaa.com/product-info/Sitopaladi-120-Tab-in-Jar",
+      "source": "Website"
+    },
+    {
+      "name": "Walinctus Syrup 100ml",
+      "category": "Ayurvedic",
+      "price": "8377120",
+      "link": "https://onlyvedaa.com/product-info/Walinctus-Sy-100ml--120--MRP-",
+      "source": "Website"
+    },
+    {
+      "name": "Ashyuka Cap 10x5",
+      "category": "Ayurvedic",
+      "price": "8377400",
+      "link": "https://onlyvedaa.com/product-info/Ashyuka-Cap-10x5",
+      "source": "Website"
+    },
+    {
+      "name": "Evareg 10 X 10 Caps",
+      "category": "Ayurvedic",
+      "price": "8377500",
+      "link": "https://onlyvedaa.com/product-info/Evareg-Cap-10x10",
+      "source": "Website"
+    },
+    {
+      "name": "U-she Plus Sy 200ml",
+      "category": "Ayurvedic",
+      "price": "8377180",
+      "link": "https://onlyvedaa.com/product-info/New-U-she-Plus-Sy-180--MRP",
+      "source": "Website"
+    },
+    {
+      "name": "Marsulin Syrup 200ml",
+      "category": "Ayurvedic",
+      "price": "8377250",
+      "link": "https://onlyvedaa.com/product-info/Marsulin-Sy-200ml",
+      "source": "Website"
+    },
+    {
+      "name": "Respitone 30 Caps in Jar",
+      "category": "Ayurvedic",
+      "price": "8377300",
+      "link": "https://onlyvedaa.com/product-info/Respitone-30-Caps-in-Jar",
+      "source": "Website"
+    },
+    {
+      "name": "Anurect 30 Caps in Jar",
+      "category": "Ayurvedic",
+      "price": "8377250",
+      "link": "https://onlyvedaa.com/product-info/Anurect-30-Caps-in-Jar",
+      "source": "Website"
+    },
+    {
+      "name": "Strenus 10x10 Caps",
+      "category": "Ayurvedic",
+      "price": "8377650",
+      "link": "https://onlyvedaa.com/product-info/Strenus-10x10-Caps",
+      "source": "Website"
+    },
+    {
+      "name": "Hepatreat 30 Tab In Jar",
+      "category": "Ayurvedic",
+      "price": "8377350",
+      "link": "https://onlyvedaa.com/product-info/Hepatreat-30-Tab-In-Jar",
+      "source": "Website"
+    },
+    {
+      "name": "Stowip Kit",
+      "category": "Ayurvedic",
+      "price": "8377800",
+      "link": "https://onlyvedaa.com/product-info/Stowip-Kit",
+      "source": "Website"
+    },
+    {
+      "name": "Marsulin 30 Tab In Jar",
+      "category": "Ayurvedic",
+      "price": "8377250",
+      "link": "https://onlyvedaa.com/product-info/Marsulin-30-Tab-In-Jar",
+      "source": "Website"
+    },
+    {
+      "name": "Intelget 30 Cap In Jar",
+      "category": "Ayurvedic",
+      "price": "8377300",
+      "link": "https://onlyvedaa.com/product-info/Intelget-30-Cap-In-Jar",
+      "source": "Website"
+    },
+    {
+      "name": "Resnovae Herbal Shampoo 200ml",
+      "category": "Cosmetic",
+      "price": "8377330",
+      "link": "https://onlyvedaa.com/product-info/Resnovae-Herbal-Hair-Cleaner-Shampoo-200ml",
+      "source": "Website"
+    },
+    {
+      "name": "Raalon Skin Disease Cream",
+      "category": "Cosmetic",
+      "price": "8377165",
+      "link": "https://onlyvedaa.com/product-info/Raalon-Skin-Disease-Cream",
+      "source": "Website"
+    },
+    {
+      "name": "Pearl Essence Cream",
+      "category": "Cosmetic",
+      "price": "8377130",
+      "link": "https://onlyvedaa.com/product-info/Pearl-Essence-Cream",
+      "source": "Website"
+    },
+    {
+      "name": "Xemma SPF 50 with Glowing",
+      "category": "Cosmetic",
+      "price": "8377160",
+      "link": "https://onlyvedaa.com/product-info/Xemma-SPF-50-with-Glowing",
+      "source": "Website"
+    },
+    {
+      "name": "Ella Gorgeos Onion Hair Oil",
+      "category": "Cosmetic",
+      "price": "8377250",
+      "link": "https://onlyvedaa.com/product-info/Ella-Gorgeos-Onion-Hair-Oil",
+      "source": "Website"
+    },
+    {
+      "name": "Ella Gorgeos Neem+Tulsi+Aloevera Facewash",
+      "category": "Cosmetic",
+      "price": "8377120",
+      "link": "https://onlyvedaa.com/product-info/Ella-Gorgeos-Neem-Tulsi-Aloevera-Facewash",
+      "source": "Website"
+    },
+    {
+      "name": "Ella Gorgeos Anti-Acne Facewash",
+      "category": "Cosmetic",
+      "price": "8377130",
+      "link": "https://onlyvedaa.com/product-info/Ella-Gorgeos-Anti-Acne-Facewash",
+      "source": "Website"
+    },
+    {
+      "name": "Ella Gorgeos Apple Cider Vinegar Conditioning Shampoo",
+      "category": "Cosmetic",
+      "price": "8377310",
+      "link": "https://onlyvedaa.com/product-info/Ella-Gorgeos-Apple-Cider-Vinegar-Conditioning-Shampoo",
+      "source": "Website"
+    },
+    {
+      "name": "Ella Gorgeos Anti-Hair Fall Shampoo",
+      "category": "Cosmetic",
+      "price": "8377320",
+      "link": "https://onlyvedaa.com/product-info/Ella-Gorgeos-Anti-Hair-Fall-Shampoo",
+      "source": "Website"
+    },
+    {
+      "name": "Multivitamin Effer. Tablets for Women",
+      "category": "Herbo Nutraceuticals",
+      "price": "8377600",
+      "link": "https://onlyvedaa.com/product-info/Multivitamin-Effervescent-Tablets-for-Women",
+      "source": "Website"
+    },
+    {
+      "name": "Multivitamin Effer. Tablets for Men",
+      "category": "Herbo Nutraceuticals",
+      "price": "8377600",
+      "link": "https://onlyvedaa.com/product-info/Multivitamin-Effervescent-Tablets-for-Men",
+      "source": "Website"
+    },
+    {
+      "name": "Multivitamin For Kids Gummies",
+      "category": "Herbo Nutraceuticals",
+      "price": "8377500",
+      "link": "https://onlyvedaa.com/product-info/Multivitamin-Kids-Gummies",
+      "source": "Website"
+    },
+    {
+      "name": "Serronil 30 Caps",
+      "category": "Herbo Nutraceuticals",
+      "price": "8377800",
+      "link": "https://onlyvedaa.com/product-info/New-Serronil-30-Caps",
+      "source": "Website"
+    },
+    {
+      "name": "Walzyme Syrup",
+      "category": "Herbo Nutraceuticals",
+      "price": "8377170",
+      "link": "https://onlyvedaa.com/product-info/New-Walzyme-Sy-170--MRP",
+      "source": "Website"
+    },
+    {
+      "name": "Active 365 60 Caps",
+      "category": "Herbo Nutraceuticals",
+      "price": "8377900",
+      "link": "https://onlyvedaa.com/product-info/New-Active-365-Cap",
+      "source": "Website"
+    },
+    {
+      "name": "New Ashyuka Plus Sy 450ml",
+      "category": "Herbo Nutraceuticals",
+      "price": "8377700",
+      "link": "https://onlyvedaa.com/product-info/New-Ashyuka-Plus-Sy-450ml",
+      "source": "Website"
+    },
+    {
+      "name": "Lung Detox 30 Capsules",
+      "category": "Herbo Nutraceuticals",
+      "price": "8377600",
+      "link": "https://onlyvedaa.com/product-info/Lung-Detox",
+      "source": "Website"
+    },
+    {
+      "name": "Ferrof 30 Caps",
+      "category": "Herbo Nutraceuticals",
+      "price": "8377200",
+      "link": "https://onlyvedaa.com/product-info/Ferrof-Cap--200--MRP-",
+      "source": "Website"
+    },
+    {
+      "name": "Calcimus 30 Chewable Tab",
+      "category": "Herbo Nutraceuticals",
+      "price": "8377250",
+      "link": "https://onlyvedaa.com/product-info/Calcimus-Chewable-Tab",
+      "source": "Website"
+    },
+    {
+      "name": "Testosterone Booster 30 Tab",
+      "category": "Herbo Nutraceuticals",
+      "price": "8377750",
+      "link": "https://onlyvedaa.com/product-info/Testosterone-Booster",
+      "source": "Website"
+    },
+    {
+      "name": "Multivitamin For Women 30 Tab",
+      "category": "Herbo Nutraceuticals",
+      "price": "8377800",
+      "link": "https://onlyvedaa.com/product-info/Multivitamin-For-Women",
+      "source": "Website"
+    },
+    {
+      "name": "Multivitamin For Men",
+      "category": "Herbo Nutraceuticals",
+      "price": "8377750",
+      "link": "https://onlyvedaa.com/product-info/Multivitamin-For-Man",
+      "source": "Website"
+    },
+    {
+      "name": "Hair 2X Kit",
+      "category": "Herbo Nutraceuticals",
+      "price": "83772999",
+      "link": "https://onlyvedaa.com/product-info/Hair-2X-Kit",
+      "source": "Website"
+    },
+    {
+      "name": "Kidney Detox 30 Caps in Jar",
+      "category": "Herbo Nutraceuticals",
+      "price": "8377800",
+      "link": "https://onlyvedaa.com/product-info/Kidney-Detox",
+      "source": "Website"
+    },
+    {
+      "name": "Apple Cider Vinegar 30 Cap in Jar",
+      "category": "Herbo Nutraceuticals",
+      "price": "8377500",
+      "link": "https://onlyvedaa.com/product-info/Apple-Cider-Vinegar-30-Cap-in-Jar",
+      "source": "Website"
+    },
+    {
+      "name": "Cranberry-Amla 30 Cap in Jar",
+      "category": "Herbo Nutraceuticals",
+      "price": "8377750",
+      "link": "https://onlyvedaa.com/product-info/Cranberry-and-Amla-Extract-30-Cap-in-Jar",
+      "source": "Website"
+    },
+    {
+      "name": "Zinc ZMA 30 Tab in Jar",
+      "category": "Herbo Nutraceuticals",
+      "price": "8377450",
+      "link": "https://onlyvedaa.com/product-info/Zinc-ZMA-30-Tab-in-Jar",
+      "source": "Website"
+    },
+    {
+      "name": "L-Arginine 30 Cap in Jar",
+      "category": "Herbo Nutraceuticals",
+      "price": "8377800",
+      "link": "https://onlyvedaa.com/product-info/L-Arginine-30-Cap-in-Jar",
+      "source": "Website"
+    },
+    {
+      "name": "Liver Detox 30 Tab in Jar",
+      "category": "Herbo Nutraceuticals",
+      "price": "83771000",
+      "link": "https://onlyvedaa.com/product-info/Milk-Thistle--Liver-Detox--30-Tab-in-Jar",
+      "source": "Website"
+    },
+    {
+      "name": "Prowell 30 Caps in Jar",
+      "category": "Herbo Nutraceuticals",
+      "price": "8377400",
+      "link": "https://onlyvedaa.com/product-info/Prowell-30-Caps-in-Jar",
+      "source": "Website"
+    },
+    {
+      "name": "Cariwal 30 Tabs in Jar",
+      "category": "Herbo Nutraceuticals",
+      "price": "8377500",
+      "link": "https://onlyvedaa.com/product-info/Cariwal-30-Tabs-in-Jar",
+      "source": "Website"
+    },
+    {
+      "name": "I-Well 30 Cap In Jar",
+      "category": "Herbo Nutraceuticals",
+      "price": "8377500",
+      "link": "https://onlyvedaa.com/product-info/I-Well-30-Cap-In-Jar",
+      "source": "Website"
+    },
+    {
+      "name": "Hotmale Plus 30 Caps",
+      "category": "Herbo Nutraceuticals",
+      "price": "8377600",
+      "link": "https://onlyvedaa.com/product-info/Hotmale-Plus-30-Caps-in-Jar",
+      "source": "Website"
+    },
+    {
+      "name": "Linopress 30 Caps In Jar",
+      "category": "Herbo Nutraceuticals",
+      "price": "8377450",
+      "link": "https://onlyvedaa.com/product-info/Linopress-30-Caps-In-Jar",
+      "source": "Website"
+    },
+    {
+      "name": "Cistoca Disinfectant Floor Cleaner 1 ltr",
+      "category": "Home Care",
+      "price": "8377200",
+      "link": "https://onlyvedaa.com/product-info/Cistoca-Disinfectant-1-ltr",
+      "source": "Website"
+    },
+    {
+      "name": "Cistoca Toilet Cleaner 500 ml",
+      "category": "Home Care",
+      "price": "8377115",
+      "link": "https://onlyvedaa.com/product-info/Cistoca-Toilet-Cleaner-500-ml--MRP-115---",
+      "source": "Website"
+    },
+    {
+      "name": "Cistoca Liquid Detergent 1 ltr",
+      "category": "Home Care",
+      "price": "8377270",
+      "link": "https://onlyvedaa.com/product-info/Cistoca-Liquid-Detergent-1-ltr--MRP-270---",
+      "source": "Website"
+    },
+    {
+      "name": "Cistoca Dish Wash Liquid 500 ml",
+      "category": "Home Care",
+      "price": "8377130",
+      "link": "https://onlyvedaa.com/product-info/Cistoca-Dish-Wash-Liquid-500-ml--MRP-130---",
+      "source": "Website"
+    },
+    {
+      "name": "Premium Skin Care Soap (Noni Extract)",
+      "category": "OTC",
+      "price": "837745",
+      "link": "https://onlyvedaa.com/product-info/Premium-Skin-Care-Soap--Noni-Extract-",
+      "source": "Website"
+    },
+    {
+      "name": "Oraplax Teeth Whitening Powder",
+      "category": "OTC",
+      "price": "8377400",
+      "link": "https://onlyvedaa.com/product-info/Oraplax-Teeth-Whitening-Powder",
+      "source": "Website"
+    },
+    {
+      "name": "Pearl Moisturising Soap (75gm x 4)",
+      "category": "OTC",
+      "price": "8377125",
+      "link": "https://onlyvedaa.com/product-info/Pearl-Moisturising-Soap-MRP-125----4x75gm-",
+      "source": "Website"
+    },
+    {
+      "name": "Pearl Herbal Soap (75 gm x 4)",
+      "category": "OTC",
+      "price": "8377120",
+      "link": "https://onlyvedaa.com/product-info/Pearl-Herbal-Soap-MRP-120----4x75gm-",
+      "source": "Website"
+    },
+    {
+      "name": "Pearl Essence Orange Peel Soap (100 gm x 4)",
+      "category": "OTC",
+      "price": "8377130",
+      "link": "https://onlyvedaa.com/product-info/Pearl-Essence-Soap-MRP-130----4x100gm-",
+      "source": "Website"
+    },
+    {
+      "name": "Oraplax Toothpaste (2x100gm)",
+      "category": "OTC",
+      "price": "837790",
+      "link": "https://onlyvedaa.com/product-info/Oraplax-Toothpaste--2x100gm-",
+      "source": "Website"
+    },
+    {
+      "name": "EZ Sip Tea 250gm",
+      "category": "OTC",
+      "price": "8377120",
+      "link": "https://onlyvedaa.com/product-info/EZ-Sip-Tea-250gm--MRP-140---",
+      "source": "Website"
+    },
+    {
+      "name": "Strenus Oil 50ml",
+      "category": "OTC",
+      "price": "8377190",
+      "link": "https://onlyvedaa.com/product-info/New-Strenus-Oil-50ml-190--Rs",
+      "source": "Website"
+    },
+    {
+      "name": "U-she Hygiene Wash",
+      "category": "OTC",
+      "price": "8377150",
+      "link": "https://onlyvedaa.com/product-info/U-she-Hygiene-Wash",
+      "source": "Website"
+    },
+    {
+      "name": "U-she Wings",
+      "category": "OTC",
+      "price": "8377150",
+      "link": "https://onlyvedaa.com/product-info/U-she-Wings",
+      "source": "Website"
+    },
+    {
+      "name": "Xerocare 30 GM",
+      "category": "OTC",
+      "price": "8377110",
+      "link": "https://onlyvedaa.com/product-info/Xerocare",
+      "source": "Website"
+    },
+    {
+      "name": "Piyo Diabetic Care Effer Tab",
+      "category": "Piyo",
+      "price": "8377699",
+      "link": "https://onlyvedaa.com/product-info/Piyo-Diabetic-Care-Effer-Tab",
+      "source": "Website"
+    },
+    {
+      "name": "Piyo Body Detox Effer Tab",
+      "category": "Piyo",
+      "price": "8377699",
+      "link": "https://onlyvedaa.com/product-info/Piyo-Body-Detox-Effer-Tab",
+      "source": "Website"
+    },
+    {
+      "name": "Piyo Lung Detox Effer Tab",
+      "category": "Piyo",
+      "price": "8377699",
+      "link": "https://onlyvedaa.com/product-info/Piyo-Lung-Detox-Effer-Tab",
+      "source": "Website"
+    },
+    {
+      "name": "Piyo Liver Detox Effer Tab",
+      "category": "Piyo",
+      "price": "8377699",
+      "link": "https://onlyvedaa.com/product-info/Piyo-Liver-Detox-Effer-Tab",
+      "source": "Website"
+    },
+    {
+      "name": "Piyo Sea Buckthorn Effer Tab",
+      "category": "Piyo",
+      "price": "8377699",
+      "link": "https://onlyvedaa.com/product-info/Piyo-Sea-Buckthorn-Effer-Tab",
+      "source": "Website"
+    },
+    {
+      "name": "Piyo UTI Effer. Tab",
+      "category": "Piyo",
+      "price": "8377699",
+      "link": "https://onlyvedaa.com/product-info/Piyo-UTI-Effer-Tab",
+      "source": "Website"
+    },
+    {
+      "name": "Piyo Green Tea",
+      "category": "Piyo",
+      "price": "8377799",
+      "link": "https://onlyvedaa.com/product-info/Piyo-Green-Tea",
+      "source": "Website"
+    },
+    {
+      "name": "Piyo Coffee",
+      "category": "Piyo",
+      "price": "8377799",
+      "link": "https://onlyvedaa.com/product-info/Piyo-Coffee",
+      "source": "Website"
+    },
+    {
+      "name": "Biomelt Weight Management Kit",
+      "category": "Protein Powder",
+      "price": "83776000",
+      "link": "https://onlyvedaa.com/product-info/Biomelt-Weight-Management-Kit",
+      "source": "Website"
+    },
+    {
+      "name": "Wellpro 200gm",
+      "category": "Protein Powder",
+      "price": "8377500",
+      "link": "https://onlyvedaa.com/product-info/Wellpro-200gm",
+      "source": "Website"
+    },
+    {
+      "name": "Throatwal Spray 30ml",
+      "category": "Spray",
+      "price": "8377450",
+      "link": "https://onlyvedaa.com/product-info/Throatwal-Spray-30ml",
+      "source": "Website"
+    }
+  ],
+  "csv_products": [
+    "Active 365",
+    "Active 365\\`",
+    "Anti acne face wash",
+    "Arjuna tablet",
+    "Ashwagandha tablet",
+    "Ashyuka plus",
+    "Avipathikar tablet",
+    "Calcimus",
+    "Hadjoj",
+    "Hepatreat",
+    "Hepatreat tablet",
+    "Immuferin",
+    "L arginine",
+    "Laxia",
+    "Milk thistle",
+    "Multi vitamin men/women",
+    "Multivitamin for men/women",
+    "Multivitamin men/ women",
+    "Multivitamin men/women",
+    "Prowal",
+    "Rhiza",
+    "Serronil",
+    "Strenus caps",
+    "Strenus oil",
+    "Throatwal",
+    "Trifala/satwik",
+    "Vitamin C",
+    "Vitamin D3",
+    "Vitamin c",
+    "Wal D3",
+    "Xemma cream",
+    "ashyuka plus",
+    "calcimus",
+    "calciumus",
+    "ella gorgeus kit",
+    "hepatreat",
+    "immuferin",
+    "kanchanar guggul",
+    "linopress",
+    "liver detox",
+    "mouth wash",
+    "n acetyl cysteine",
+    "prowal",
+    "respitone",
+    "serronil",
+    "serum",
+    "sun screen lotion",
+    "wal D3"
+  ],
+  "excel_products": [
+    "2 CAPS OF IMMUFERIN IN SOFRAMYCIN CREAM",
+    "ACTIVE 365",
+    "ANTI ACNE FACE WASH",
+    "ANTI WRINKLE CREAM",
+    "ANURECT CAPS",
+    "ANURECT OINTMENT",
+    "APPLE CIDER VINEGAR",
+    "ARJUNA TABLET",
+    "AROGYA VARDHINI",
+    "ASHWAGANDHA TABLET",
+    "ASHYUKA",
+    "ASHYUKA HEALTH DRINK",
+    "ASHYUKA PLUS",
+    "AVIPATHIKAR TABLET",
+    "BIOMELT CAPSULE",
+    "BIOMELT LIQUID",
+    "CALCIMUS",
+    "CALCIUMUS",
+    "CARIWAL",
+    "CHANDRA PRABHA TABLET",
+    "CO ENZYME Q 10",
+    "CRANBERRY CAPS",
+    "ELLA GORGEUS KIT",
+    "EVAREG",
+    "FERROF CAPS",
+    "GLUTATHIONE EFFERCESCENT TABLET",
+    "HADJOJ",
+    "HAIR 2X",
+    "HEPATREAT",
+    "HEPATREAT SYRUP",
+    "HEPATREAT TABLET",
+    "HOT MALE OIL",
+    "HOT MALE PLUS",
+    "HOT X",
+    "HOTMALE PLUS",
+    "I WELL",
+    "IMMUFEIN",
+    "IMMUFEIRN",
+    "IMMUFERI",
+    "IMMUFERIN",
+    "INTELGET",
+    "KAM DUDHA RAS",
+    "KANCHANAR GUGGUL",
+    "KHUJ GUARD",
+    "KHUJ GUARD CREAM",
+    "KIDNEY DETOX",
+    "L ARGINIE",
+    "L ARGININE",
+    "LAXIA",
+    "LAXIA POWDER",
+    "LINOPRESS",
+    "LIVER DETOX",
+    "LOHASU",
+    "LOHASU TABLET",
+    "MAHA SUDARSHAN",
+    "MAHA YOGRAJ GUGGUL",
+    "MAHAYOGRAJ",
+    "MEAL REPLACEMENT",
+    "MELATONIN SPRAY",
+    "MILK THISTLE",
+    "MILK THISTLE CAPSULE",
+    "MOUTH WASH",
+    "MULTI VITAMIN MEN/WOMEN",
+    "MULTIVITAMIN FOR MEN/WOMEN",
+    "MULTIVITAMIN FOR WOMEN",
+    "MULTIVITAMIN MEN/ WOMEN",
+    "MULTIVITAMIN MEN/WOMEN",
+    "MULTIVTIAMIN FOR WOMEN",
+    "N ACETYL CYSTEIN",
+    "N ACETYL CYSTEINE",
+    "NEEM TABLET",
+    "ORS EFFERVESCENT",
+    "PRO WAL",
+    "PROWAL",
+    "PUNCH TULSI",
+    "RESPITONE",
+    "RHIZA",
+    "SAPTAMRUT LOH",
+    "SATWIK / TRIFALA",
+    "SERRONIL",
+    "SERUM",
+    "SHILAJIT CAPS",
+    "SHITOPALADI",
+    "SPF CREAM",
+    "STOWIP",
+    "STRENUS CAPS",
+    "STRENUS CAPSULE",
+    "STRENUS OIL",
+    "STRNUS OIL",
+    "SUN SCREEN LOTION",
+    "T BOOSTER",
+    "THROATWAL",
+    "TRIFALA/SATWIK",
+    "TRIPHALA",
+    "U SHE PLUS",
+    "VITAMIN C",
+    "VITAMIN D3",
+    "WAL D3",
+    "WALICTUS COUGH SYRUP",
+    "WALINCTUS",
+    "WALINCTUS COUGH SYRUP",
+    "WALZYME",
+    "XEMMA CREAM"
+  ]
+}

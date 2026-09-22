@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+.pytest_cache/
+cloudflared.exe
+*.log
+.system_generated/
+scripts/fetch_all_products.py
+scripts/check_pagination.py
+scripts/check_card_html.py

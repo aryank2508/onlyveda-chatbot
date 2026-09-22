@@ -1,0 +1,2173 @@
+{
+  "High blood presure": {
+    "disease": "High blood presure",
+    "category": "Heart disease",
+    "supplements": [
+      {
+        "name": "OnlyVeda Linopress",
+        "dose": "1-0-1 (1 Morning, 1 Night)"
+      },
+      {
+        "name": "OnlyVeda L-Arginine Plus",
+        "dose": "1-0-0"
+      },
+      {
+        "name": "OnlyVeda Terminalia Arjuna Extract",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Ashyuka Plus Syrup",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "Heart health": {
+    "disease": "Heart health",
+    "category": "Heart disease",
+    "supplements": [
+      {
+        "name": "OnlyVeda Linopress",
+        "dose": "1-0-1 (1 Morning, 1 Night)"
+      }
+    ]
+  },
+  "high cholesterol": {
+    "disease": "high cholesterol",
+    "category": "Heart disease",
+    "supplements": [
+      {
+        "name": "OnlyVeda Linopress",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Ashyuka Plus Syrup",
+        "dose": "10 ml twice a day"
+      },
+      {
+        "name": "OnlyVeda Terminalia Arjuna Extract",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "All type of cancer": {
+    "disease": "All type of cancer",
+    "category": "Cancer",
+    "supplements": [
+      {
+        "name": "OnlyVeda Immuferin Immuno-Shield",
+        "dose": "2-2-2 (2 Morning, 2 Afternoon, 2 Night)"
+      },
+      {
+        "name": "OnlyVeda Ashyuka Plus Syrup",
+        "dose": "20 ml twice a day"
+      },
+      {
+        "name": "OnlyVeda Active 365 Daily Essential",
+        "dose": "1 -0-1-"
+      },
+      {
+        "name": "OnlyVeda Prowal Synbiotic Gut Restorer",
+        "dose": "1-0-0"
+      },
+      {
+        "name": "OnlyVeda Terminalia Arjuna Extract",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Hepatreat Hepatic Care",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Arogyavardhini Vati",
+        "dose": "1-1-1"
+      }
+    ]
+  },
+  "osteo arthritis": {
+    "disease": "osteo arthritis",
+    "category": "bone disease",
+    "supplements": [
+      {
+        "name": "OnlyVeda Serronil Joint Care",
+        "dose": "1-1-1-"
+      },
+      {
+        "name": "OnlyVeda Calcimus Coral Calcium Complex",
+        "dose": "0-1-0"
+      },
+      {
+        "name": "OnlyVeda Wal D3 Sublingual Spray",
+        "dose": "4 spray in a day"
+      },
+      {
+        "name": "OnlyVeda L-Arginine Plus",
+        "dose": "1-0-0"
+      },
+      {
+        "name": "OnlyVeda Mahayograj Guggul",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Strenus Pain Relief Capsules",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Strenus Herbal Massage Oil",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Rhiza Mucosal Gut Shield",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Hepatreat Hepatic Care",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "Rhuematoid arthritis": {
+    "disease": "Rhuematoid arthritis",
+    "category": "bone disease",
+    "supplements": [
+      {
+        "name": "OnlyVeda Immuferin Immuno-Shield",
+        "dose": "1-1-1-"
+      },
+      {
+        "name": "OnlyVeda Ashyuka Plus Syrup",
+        "dose": "15 ml twice a day"
+      },
+      {
+        "name": "OnlyVeda Serronil Joint Care",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Mahayograj Guggul",
+        "dose": "1-1-1"
+      },
+      {
+        "name": "OnlyVeda Strenus Herbal Massage Oil",
+        "dose": "1-1-1"
+      },
+      {
+        "name": "OnlyVeda Rhiza Mucosal Gut Shield",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Hepatreat Hepatic Care",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "Gout": {
+    "disease": "Gout",
+    "category": "bone disease",
+    "supplements": [
+      {
+        "name": "OnlyVeda Liver Detox Formula",
+        "dose": "0-1-0"
+      },
+      {
+        "name": "OnlyVeda Ashyuka Plus Syrup",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Serronil Joint Care",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Mahayograj Guggul",
+        "dose": "1-1-1"
+      },
+      {
+        "name": "OnlyVeda Rhiza Mucosal Gut Shield",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Hepatreat Hepatic Care",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "bone fracture": {
+    "disease": "bone fracture",
+    "category": "bone disease",
+    "supplements": [
+      {
+        "name": "OnlyVeda Calciumus Forte",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Wal D3 Sublingual Spray",
+        "dose": "1-0-0"
+      },
+      {
+        "name": "OnlyVeda Hadjod Bone Healer",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Strenus Pain Relief Capsules",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Rhiza Mucosal Gut Shield",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Hepatreat Hepatic Care",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "Muscular back pain": {
+    "disease": "Muscular back pain",
+    "category": "bone disease",
+    "supplements": [
+      {
+        "name": "OnlyVeda Active 365 Daily Essential",
+        "dose": "1-0-0"
+      },
+      {
+        "name": "OnlyVeda Strenus Pain Relief Capsules",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Strenus Herbal Massage Oil",
+        "dose": "Apply / Use 2-3 times daily"
+      }
+    ]
+  },
+  "spondilits": {
+    "disease": "spondilits",
+    "category": "bone disease",
+    "supplements": [
+      {
+        "name": "OnlyVeda Immuferin Immuno-Shield",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Active 365 Daily Essential",
+        "dose": "0-1-0"
+      },
+      {
+        "name": "OnlyVeda KSM-66 Ashwagandha Pure Tablet",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Mahayograj Guggul",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "Osteoporosis": {
+    "disease": "Osteoporosis",
+    "category": "bone disease",
+    "supplements": [
+      {
+        "name": "OnlyVeda Calcimus Coral Calcium Complex",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Wal D3 Sublingual Spray",
+        "dose": "4 sprays in a day"
+      },
+      {
+        "name": "OnlyVeda Daily Complete Multivitamin",
+        "dose": "1-0-0"
+      },
+      {
+        "name": "OnlyVeda Ashyuka Plus Syrup",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "Brochial asthma": {
+    "disease": "Brochial asthma",
+    "category": "Lungs",
+    "supplements": [
+      {
+        "name": "OnlyVeda Respitone Pulmonary Shield",
+        "dose": "1-1-1 (1 Morning, 1 Afternoon, 1 Night)"
+      },
+      {
+        "name": "OnlyVeda N-Acetyl Cysteine (NAC 600mg)",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Ashyuka Plus Syrup",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Sitopaladi Churna",
+        "dose": "1-1-1"
+      },
+      {
+        "name": "OnlyVeda Walinctus Herbal Cough Syrup",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "Allergic ashtma": {
+    "disease": "Allergic ashtma",
+    "category": "Lungs",
+    "supplements": [
+      {
+        "name": "OnlyVeda Respitone Pulmonary Shield",
+        "dose": "1-1-1 (1 Morning, 1 Afternoon, 1 Night)"
+      },
+      {
+        "name": "OnlyVeda N-Acetyl Cysteine (NAC 600mg)",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Ashyuka Plus Syrup",
+        "dose": "10 ml twice a day"
+      },
+      {
+        "name": "OnlyVeda Immuferin Immuno-Shield",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Sitopaladi Churna",
+        "dose": "1-1-1"
+      },
+      {
+        "name": "OnlyVeda Walinctus Herbal Cough Syrup",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "Cystic fibrosis": {
+    "disease": "Cystic fibrosis",
+    "category": "Lungs",
+    "supplements": [
+      {
+        "name": "OnlyVeda Daily Complete Multivitamin",
+        "dose": "1-0-0"
+      },
+      {
+        "name": "OnlyVeda Ashyuka Plus Syrup",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Kanchanar Guggul Traditional",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "Pneumonia": {
+    "disease": "Pneumonia",
+    "category": "Lungs",
+    "supplements": [
+      {
+        "name": "OnlyVeda Immuferin Immuno-Shield",
+        "dose": "1-1-1 (1 Morning, 1 Afternoon, 1 Night)"
+      },
+      {
+        "name": "OnlyVeda Daily Complete Multivitamin",
+        "dose": "1-0-0"
+      },
+      {
+        "name": "OnlyVeda Ashyuka Plus Syrup",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda N-Acetyl Cysteine (NAC 600mg)",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Walinctus Herbal Cough Syrup",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "abscess": {
+    "disease": "abscess",
+    "category": "Mouth",
+    "supplements": [
+      {
+        "name": "OnlyVeda Immuferin Immuno-Shield",
+        "dose": "1-1-1 (1 Morning, 1 Afternoon, 1 Night)"
+      },
+      {
+        "name": "OnlyVeda Active 365 Daily Essential",
+        "dose": "1-1-1 (1 Morning, 1 Afternoon, 1 Night)"
+      },
+      {
+        "name": "OnlyVeda Natural Vitamin C + Zinc",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "mouth ulcer": {
+    "disease": "mouth ulcer",
+    "category": "Mouth",
+    "supplements": [
+      {
+        "name": "OnlyVeda Daily Complete Multivitamin",
+        "dose": "1-0-0"
+      },
+      {
+        "name": "OnlyVeda Natural Vitamin C + Zinc",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Hepatreat Hepatic Care",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "Payoria": {
+    "disease": "Payoria",
+    "category": "Mouth",
+    "supplements": [
+      {
+        "name": "OnlyVeda Herbal Ayurvedic Mouth Wash",
+        "dose": "twice a day"
+      },
+      {
+        "name": "OnlyVeda Natural Vitamin C + Zinc",
+        "dose": "1-0-0"
+      },
+      {
+        "name": "OnlyVeda Immuferin Immuno-Shield",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Active 365 Daily Essential",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Hepatreat Hepatic Care",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "Dental cavity": {
+    "disease": "Dental cavity",
+    "category": "Mouth",
+    "supplements": [
+      {
+        "name": "OnlyVeda Calciumus Forte",
+        "dose": "1-0-0"
+      },
+      {
+        "name": "OnlyVeda Pure Vitamin D3 Chewables",
+        "dose": "1-0-0"
+      }
+    ]
+  },
+  "acne": {
+    "disease": "acne",
+    "category": "Face",
+    "supplements": [
+      {
+        "name": "OnlyVeda Active 365 Daily Essential",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Xemma Anti-Acne & Blemish Cream",
+        "dose": "Apply / Use 2-3 times daily"
+      },
+      {
+        "name": "OnlyVeda Clarifying Anti-Acne Face Wash",
+        "dose": "Apply / Use 2-3 times daily"
+      },
+      {
+        "name": "OnlyVeda Milk Thistle Silymarin Detox",
+        "dose": "1-0-0"
+      },
+      {
+        "name": "OnlyVeda Hepatreat Hepatic Tablets",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "Skin lightening": {
+    "disease": "Skin lightening",
+    "category": "Face",
+    "supplements": [
+      {
+        "name": "OnlyVeda Ella Gorgeous Radiance Kit",
+        "dose": "As directed by physician"
+      },
+      {
+        "name": "OnlyVeda Active 365 Daily Essential",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Broad-Spectrum SPF 50 Herbal Sunscreen",
+        "dose": "1-0-0"
+      },
+      {
+        "name": "OnlyVeda Glutathione Effervescent",
+        "dose": "1-0-0"
+      }
+    ]
+  },
+  "anti ageing / wrinkles": {
+    "disease": "anti ageing / wrinkles",
+    "category": "Face",
+    "supplements": [
+      {
+        "name": "OnlyVeda Advanced Anti-Ageing Face Serum",
+        "dose": "As directed by physician"
+      }
+    ]
+  },
+  "otitis / ear infection": {
+    "disease": "otitis / ear infection",
+    "category": "ear",
+    "supplements": [
+      {
+        "name": "OnlyVeda Immuferin Immuno-Shield",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Active 365 Daily Essential",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "tonsilits": {
+    "disease": "tonsilits",
+    "category": "throat",
+    "supplements": [
+      {
+        "name": "OnlyVeda Throatwal Soothing Lozenges & Gargle",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Immuferin Immuno-Shield",
+        "dose": "1-1-1 (1 Morning, 1 Afternoon, 1 Night)"
+      },
+      {
+        "name": "OnlyVeda Active 365 Daily Essential",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "gastritis (acidity and gas)": {
+    "disease": "gastritis (acidity and gas)",
+    "category": "Stomach",
+    "supplements": [
+      {
+        "name": "OnlyVeda Ashyuka Plus Syrup",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Rhiza Mucosal Gut Shield",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Avipattikar Pitta-Balance Tablet",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Hepatreat Hepatic Care",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "Heart burn": {
+    "disease": "Heart burn",
+    "category": "Stomach",
+    "supplements": [
+      {
+        "name": "OnlyVeda Ashyuka Plus Syrup",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Rhiza Mucosal Gut Shield",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Avipattikar Pitta-Balance Tablet",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Hepatreat Hepatic Care",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "GERD": {
+    "disease": "GERD",
+    "category": "Stomach",
+    "supplements": [
+      {
+        "name": "OnlyVeda Ashyuka Plus Syrup",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Rhiza Mucosal Gut Shield",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Avipattikar Pitta-Balance Tablet",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Hepatreat Hepatic Care",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "Constipation": {
+    "disease": "Constipation",
+    "category": "Stomach",
+    "supplements": [
+      {
+        "name": "OnlyVeda Ashyuka Plus Syrup",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Laxia Gentle Overnight Colon Cleanse",
+        "dose": "0-0-1"
+      },
+      {
+        "name": "OnlyVeda Triphala Satwik Pure Digestive Detox",
+        "dose": "0-0-1"
+      }
+    ]
+  },
+  "Chronic constipation": {
+    "disease": "Chronic constipation",
+    "category": "Stomach",
+    "supplements": [
+      {
+        "name": "OnlyVeda Ashyuka Plus Syrup",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Hepatreat Hepatic Care",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Laxia Gentle Overnight Colon Cleanse",
+        "dose": "0-0-1"
+      },
+      {
+        "name": "OnlyVeda Triphala Satwik Pure Digestive Detox",
+        "dose": "0-0-1"
+      }
+    ]
+  },
+  "Diarroahoea": {
+    "disease": "Diarroahoea",
+    "category": "Stomach",
+    "supplements": [
+      {
+        "name": "OnlyVeda Prowal Synbiotic Gut Restorer",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Immuferin Immuno-Shield",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "Stomach ulcer": {
+    "disease": "Stomach ulcer",
+    "category": "Stomach",
+    "supplements": [
+      {
+        "name": "OnlyVeda Immuferin Immuno-Shield",
+        "dose": "1-1-1 (1 Morning, 1 Afternoon, 1 Night)"
+      },
+      {
+        "name": "OnlyVeda Prowal Synbiotic Gut Restorer",
+        "dose": "1-1-1 (1 Morning, 1 Afternoon, 1 Night)"
+      },
+      {
+        "name": "OnlyVeda Hepatreat Hepatic Tablets",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Kamdudha Ras",
+        "dose": "1-1-1"
+      }
+    ]
+  },
+  "ULCERATIVE COLITIS": {
+    "disease": "ULCERATIVE COLITIS",
+    "category": "STOMACH",
+    "localized_names": {
+      "en": "ULCERATIVE COLITIS",
+      "hi": "ULCERATIVE COLITIS",
+      "gu": "ULCERATIVE COLITIS",
+      "mr": "ULCERATIVE COLITIS",
+      "bn": "ULCERATIVE COLITIS",
+      "te": "ULCERATIVE COLITIS",
+      "ta": "ULCERATIVE COLITIS",
+      "kn": "ULCERATIVE COLITIS",
+      "or": "ULCERATIVE COLITIS",
+      "ml": "ULCERATIVE COLITIS",
+      "ur": "ULCERATIVE COLITIS"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda Ashyuka Plus Syrup",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Active 365 Daily Essential",
+        "dose": "1-1-1"
+      },
+      {
+        "name": "OnlyVeda Arogyavardhini Vati",
+        "dose": "1-1-1"
+      }
+    ]
+  },
+  "IRRITABLE BOWEL SYNDROME (IBS)": {
+    "disease": "IRRITABLE BOWEL SYNDROME (IBS)",
+    "category": "STOMACH",
+    "localized_names": {
+      "en": "IRRITABLE BOWEL SYNDROME (IBS)",
+      "hi": "IRRITABLE BOWEL SYNDROME (IBS)",
+      "gu": "IRRITABLE BOWEL SYNDROME (IBS)",
+      "mr": "IRRITABLE BOWEL SYNDROME (IBS)",
+      "bn": "IRRITABLE BOWEL SYNDROME (IBS)",
+      "te": "IRRITABLE BOWEL SYNDROME (IBS)",
+      "ta": "IRRITABLE BOWEL SYNDROME (IBS)",
+      "kn": "IRRITABLE BOWEL SYNDROME (IBS)",
+      "or": "IRRITABLE BOWEL SYNDROME (IBS)",
+      "ml": "IRRITABLE BOWEL SYNDROME (IBS)",
+      "ur": "IRRITABLE BOWEL SYNDROME (IBS)"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda Prowal Synbiotic Gut Restorer",
+        "dose": "1-1-1"
+      },
+      {
+        "name": "OnlyVeda Ashyuka Plus Syrup",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Hepatreat Hepatic Tablets",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "ENLARGED FATTY LIVER": {
+    "disease": "ENLARGED FATTY LIVER",
+    "category": "STOMACH",
+    "localized_names": {
+      "en": "ENLARGED FATTY LIVER",
+      "hi": "ENLARGED FATTY LIVER",
+      "gu": "ENLARGED FATTY LIVER",
+      "mr": "ENLARGED FATTY LIVER",
+      "bn": "ENLARGED FATTY LIVER",
+      "te": "ENLARGED FATTY LIVER",
+      "ta": "ENLARGED FATTY LIVER",
+      "kn": "ENLARGED FATTY LIVER",
+      "or": "ENLARGED FATTY LIVER",
+      "ml": "ENLARGED FATTY LIVER",
+      "ur": "ENLARGED FATTY LIVER"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda Milk Thistle Silymarin Detox",
+        "dose": "1-0-0"
+      },
+      {
+        "name": "OnlyVeda Ashyuka Plus Syrup",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Hepatreat Hepatic Care",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "CIRRHOSIS": {
+    "disease": "CIRRHOSIS",
+    "category": "STOMACH",
+    "localized_names": {
+      "en": "CIRRHOSIS",
+      "hi": "CIRRHOSIS",
+      "gu": "CIRRHOSIS",
+      "mr": "CIRRHOSIS",
+      "bn": "CIRRHOSIS",
+      "te": "CIRRHOSIS",
+      "ta": "CIRRHOSIS",
+      "kn": "CIRRHOSIS",
+      "or": "CIRRHOSIS",
+      "ml": "CIRRHOSIS",
+      "ur": "CIRRHOSIS"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda Milk Thistle Silymarin Detox",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Immuferin Immuno-Shield",
+        "dose": "1-1-1"
+      },
+      {
+        "name": "OnlyVeda Arogyavardhini Vati",
+        "dose": "1-1-1"
+      },
+      {
+        "name": "OnlyVeda Hepatreat Hepatic Care",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "HEPATITIS": {
+    "disease": "HEPATITIS",
+    "category": "STOMACH",
+    "localized_names": {
+      "en": "HEPATITIS",
+      "hi": "HEPATITIS",
+      "gu": "HEPATITIS",
+      "mr": "HEPATITIS",
+      "bn": "HEPATITIS",
+      "te": "HEPATITIS",
+      "ta": "HEPATITIS",
+      "kn": "HEPATITIS",
+      "or": "HEPATITIS",
+      "ml": "HEPATITIS",
+      "ur": "HEPATITIS"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda Milk Thistle Silymarin Detox",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Immuferin Immuno-Shield",
+        "dose": "1-1-1"
+      },
+      {
+        "name": "OnlyVeda Daily Complete Multivitamin",
+        "dose": "1-0-0"
+      }
+    ]
+  },
+  "KIDNEY STONE": {
+    "disease": "KIDNEY STONE",
+    "category": "STOMACH",
+    "localized_names": {
+      "en": "KIDNEY STONE",
+      "hi": "KIDNEY STONE",
+      "gu": "KIDNEY STONE",
+      "mr": "KIDNEY STONE",
+      "bn": "KIDNEY STONE",
+      "te": "KIDNEY STONE",
+      "ta": "KIDNEY STONE",
+      "kn": "KIDNEY STONE",
+      "or": "KIDNEY STONE",
+      "ml": "KIDNEY STONE",
+      "ur": "KIDNEY STONE"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda Stowip Kidney & Urinary Kit",
+        "dose": "1-1-1"
+      },
+      {
+        "name": "OnlyVeda Kidney Detox Formula",
+        "dose": "1-0-0"
+      },
+      {
+        "name": "OnlyVeda Panch Tulsi Drops",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Rhiza Mucosal Gut Shield",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "GALL BLADDER STONE": {
+    "disease": "GALL BLADDER STONE",
+    "category": "STOMACH",
+    "localized_names": {
+      "en": "GALL BLADDER STONE",
+      "hi": "GALL BLADDER STONE",
+      "gu": "GALL BLADDER STONE",
+      "mr": "GALL BLADDER STONE",
+      "bn": "GALL BLADDER STONE",
+      "te": "GALL BLADDER STONE",
+      "ta": "GALL BLADDER STONE",
+      "kn": "GALL BLADDER STONE",
+      "or": "GALL BLADDER STONE",
+      "ml": "GALL BLADDER STONE",
+      "ur": "GALL BLADDER STONE"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda Stowip Kidney & Urinary Kit",
+        "dose": "as per kit"
+      },
+      {
+        "name": "OnlyVeda Ashyuka Plus Syrup",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Panch Tulsi Drops",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Rhiza Mucosal Gut Shield",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "KIDNEY CARE": {
+    "disease": "KIDNEY CARE",
+    "category": "STOMACH",
+    "localized_names": {
+      "en": "KIDNEY CARE",
+      "hi": "KIDNEY CARE",
+      "gu": "KIDNEY CARE",
+      "mr": "KIDNEY CARE",
+      "bn": "KIDNEY CARE",
+      "te": "KIDNEY CARE",
+      "ta": "KIDNEY CARE",
+      "kn": "KIDNEY CARE",
+      "or": "KIDNEY CARE",
+      "ml": "KIDNEY CARE",
+      "ur": "KIDNEY CARE"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda Kidney Detox Formula",
+        "dose": "1-0-0"
+      },
+      {
+        "name": "OnlyVeda Stowip Kidney & Urinary Kit",
+        "dose": "as per kit"
+      }
+    ]
+  },
+  "PILES": {
+    "disease": "PILES",
+    "category": "STOMACH",
+    "localized_names": {
+      "en": "PILES",
+      "hi": "PILES",
+      "gu": "PILES",
+      "mr": "PILES",
+      "bn": "PILES",
+      "te": "PILES",
+      "ta": "PILES",
+      "kn": "PILES",
+      "or": "PILES",
+      "ml": "PILES",
+      "ur": "PILES"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda Active 365 Daily Essential",
+        "dose": "1-1-1"
+      },
+      {
+        "name": "OnlyVeda Anurect Piles Capsules",
+        "dose": "1-1-1"
+      },
+      {
+        "name": "OnlyVeda Anurect Piles Ointment",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Hepatreat Hepatic Care",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "ANAL FISSURE": {
+    "disease": "ANAL FISSURE",
+    "category": "STOMACH",
+    "localized_names": {
+      "en": "ANAL FISSURE",
+      "hi": "ANAL FISSURE",
+      "gu": "ANAL FISSURE",
+      "mr": "ANAL FISSURE",
+      "bn": "ANAL FISSURE",
+      "te": "ANAL FISSURE",
+      "ta": "ANAL FISSURE",
+      "kn": "ANAL FISSURE",
+      "or": "ANAL FISSURE",
+      "ml": "ANAL FISSURE",
+      "ur": "ANAL FISSURE"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda Immuferin Immuno-Shield",
+        "dose": "1-1-1"
+      },
+      {
+        "name": "OnlyVeda Anurect Piles Capsules",
+        "dose": "1-1-1"
+      },
+      {
+        "name": "OnlyVeda Anurect Piles Ointment",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Hepatreat Hepatic Care",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Triphala Satwik Pure Digestive Detox",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Laxia Gentle Overnight Colon Cleanse",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "FISTULLA": {
+    "disease": "FISTULLA",
+    "category": "STOMACH",
+    "localized_names": {
+      "en": "FISTULLA",
+      "hi": "FISTULLA",
+      "gu": "FISTULLA",
+      "mr": "FISTULLA",
+      "bn": "FISTULLA",
+      "te": "FISTULLA",
+      "ta": "FISTULLA",
+      "kn": "FISTULLA",
+      "or": "FISTULLA",
+      "ml": "FISTULLA",
+      "ur": "FISTULLA"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda Immuferin Immuno-Shield",
+        "dose": "1-1-1"
+      },
+      {
+        "name": "OnlyVeda Anurect Piles Capsules",
+        "dose": "1-1-1"
+      },
+      {
+        "name": "OnlyVeda Active 365 Daily Essential",
+        "dose": "1-1-1"
+      },
+      {
+        "name": "OnlyVeda Hepatreat Hepatic Care",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Triphala Satwik Pure Digestive Detox",
+        "dose": "0-0-1"
+      }
+    ]
+  },
+  "DYSENTRY": {
+    "disease": "DYSENTRY",
+    "category": "STOMACH",
+    "localized_names": {
+      "en": "DYSENTRY",
+      "hi": "DYSENTRY",
+      "gu": "DYSENTRY",
+      "mr": "DYSENTRY",
+      "bn": "DYSENTRY",
+      "te": "DYSENTRY",
+      "ta": "DYSENTRY",
+      "kn": "DYSENTRY",
+      "or": "DYSENTRY",
+      "ml": "DYSENTRY",
+      "ur": "DYSENTRY"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda Immuferin Immuno-Shield",
+        "dose": "1-1-1"
+      },
+      {
+        "name": "OnlyVeda Prowal Synbiotic Gut Restorer",
+        "dose": "1-1-1"
+      },
+      {
+        "name": "OnlyVeda ORS Electrolyte Effervescent",
+        "dose": "1-1-1"
+      }
+    ]
+  },
+  "VAGINAL INFECTION": {
+    "disease": "VAGINAL INFECTION",
+    "category": "STOMACH",
+    "localized_names": {
+      "en": "VAGINAL INFECTION",
+      "hi": "VAGINAL INFECTION",
+      "gu": "VAGINAL INFECTION",
+      "mr": "VAGINAL INFECTION",
+      "bn": "VAGINAL INFECTION",
+      "te": "VAGINAL INFECTION",
+      "ta": "VAGINAL INFECTION",
+      "kn": "VAGINAL INFECTION",
+      "or": "VAGINAL INFECTION",
+      "ml": "VAGINAL INFECTION",
+      "ur": "VAGINAL INFECTION"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda Cranberry Extract Capsules",
+        "dose": "1-1-1"
+      },
+      {
+        "name": "OnlyVeda Immuferin Immuno-Shield",
+        "dose": "1-1-1"
+      },
+      {
+        "name": "OnlyVeda U-She Plus Feminine Care",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Chandraprabha Vati",
+        "dose": "1-1-1"
+      }
+    ]
+  },
+  "MONORRHAGIA": {
+    "disease": "MONORRHAGIA",
+    "category": "STOMACH",
+    "localized_names": {
+      "en": "MONORRHAGIA",
+      "hi": "MONORRHAGIA",
+      "gu": "MONORRHAGIA",
+      "mr": "MONORRHAGIA",
+      "bn": "MONORRHAGIA",
+      "te": "MONORRHAGIA",
+      "ta": "MONORRHAGIA",
+      "kn": "MONORRHAGIA",
+      "or": "MONORRHAGIA",
+      "ml": "MONORRHAGIA",
+      "ur": "MONORRHAGIA"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda Daily Complete Multivitamin Women",
+        "dose": "1-0-0"
+      },
+      {
+        "name": "OnlyVeda Ferrof Iron & Folic Capsules",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Hepatreat Hepatic Care",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda U-She Plus Feminine Care",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "DYSMONORRHAGIA": {
+    "disease": "DYSMONORRHAGIA",
+    "category": "STOMACH",
+    "localized_names": {
+      "en": "DYSMONORRHAGIA",
+      "hi": "DYSMONORRHAGIA",
+      "gu": "DYSMONORRHAGIA",
+      "mr": "DYSMONORRHAGIA",
+      "bn": "DYSMONORRHAGIA",
+      "te": "DYSMONORRHAGIA",
+      "ta": "DYSMONORRHAGIA",
+      "kn": "DYSMONORRHAGIA",
+      "or": "DYSMONORRHAGIA",
+      "ml": "DYSMONORRHAGIA",
+      "ur": "DYSMONORRHAGIA"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda Cranberry Extract Capsules",
+        "dose": "1-1-1"
+      },
+      {
+        "name": "OnlyVeda Daily Complete Multivitamin Women",
+        "dose": "1-0-0"
+      },
+      {
+        "name": "OnlyVeda Evareg Menstrual Regulator",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda U-She Plus Feminine Care",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "AMONORRHAGIA": {
+    "disease": "AMONORRHAGIA",
+    "category": "STOMACH",
+    "localized_names": {
+      "en": "AMONORRHAGIA",
+      "hi": "AMONORRHAGIA",
+      "gu": "AMONORRHAGIA",
+      "mr": "AMONORRHAGIA",
+      "bn": "AMONORRHAGIA",
+      "te": "AMONORRHAGIA",
+      "ta": "AMONORRHAGIA",
+      "kn": "AMONORRHAGIA",
+      "or": "AMONORRHAGIA",
+      "ml": "AMONORRHAGIA",
+      "ur": "AMONORRHAGIA"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda Evareg Menstrual Regulator",
+        "dose": "2-0-2"
+      },
+      {
+        "name": "OnlyVeda Daily Complete Multivitamin Women",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda U-She Plus Feminine Care",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Hepatreat Hepatic Care",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "LEUCORRHOEA": {
+    "disease": "LEUCORRHOEA",
+    "category": "VAGINA",
+    "localized_names": {
+      "en": "LEUCORRHOEA",
+      "hi": "LEUCORRHOEA",
+      "gu": "LEUCORRHOEA",
+      "mr": "LEUCORRHOEA",
+      "bn": "LEUCORRHOEA",
+      "te": "LEUCORRHOEA",
+      "ta": "LEUCORRHOEA",
+      "kn": "LEUCORRHOEA",
+      "or": "LEUCORRHOEA",
+      "ml": "LEUCORRHOEA",
+      "ur": "LEUCORRHOEA"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda Daily Complete Multivitamin Women",
+        "dose": "1-0-0"
+      },
+      {
+        "name": "OnlyVeda Immuferin Immuno-Shield",
+        "dose": "1-1-1"
+      },
+      {
+        "name": "OnlyVeda U-She Plus Feminine Care",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "LOW LIBIDO MALE": {
+    "disease": "LOW LIBIDO MALE",
+    "category": "SEX",
+    "localized_names": {
+      "en": "LOW LIBIDO MALE",
+      "hi": "LOW LIBIDO MALE",
+      "gu": "LOW LIBIDO MALE",
+      "mr": "LOW LIBIDO MALE",
+      "bn": "LOW LIBIDO MALE",
+      "te": "LOW LIBIDO MALE",
+      "ta": "LOW LIBIDO MALE",
+      "kn": "LOW LIBIDO MALE",
+      "or": "LOW LIBIDO MALE",
+      "ml": "LOW LIBIDO MALE",
+      "ur": "LOW LIBIDO MALE"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda Hot Male Plus",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Pure Shilajit Capsules",
+        "dose": "0-0-2"
+      }
+    ]
+  },
+  "ERECTILE DYSFUNCTION": {
+    "disease": "ERECTILE DYSFUNCTION",
+    "category": "STOMACH",
+    "localized_names": {
+      "en": "ERECTILE DYSFUNCTION",
+      "hi": "ERECTILE DYSFUNCTION",
+      "gu": "ERECTILE DYSFUNCTION",
+      "mr": "ERECTILE DYSFUNCTION",
+      "bn": "ERECTILE DYSFUNCTION",
+      "te": "ERECTILE DYSFUNCTION",
+      "ta": "ERECTILE DYSFUNCTION",
+      "kn": "ERECTILE DYSFUNCTION",
+      "or": "ERECTILE DYSFUNCTION",
+      "ml": "ERECTILE DYSFUNCTION",
+      "ur": "ERECTILE DYSFUNCTION"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda T-Booster Testosterone Support",
+        "dose": "1-0-0"
+      },
+      {
+        "name": "OnlyVeda L-Arginine Plus",
+        "dose": "0-0-1"
+      },
+      {
+        "name": "OnlyVeda Hot Male Oil",
+        "dose": "0-0-1"
+      }
+    ]
+  },
+  "LOW SEMEN COUNT": {
+    "disease": "LOW SEMEN COUNT",
+    "category": "SEX",
+    "localized_names": {
+      "en": "LOW SEMEN COUNT",
+      "hi": "LOW SEMEN COUNT",
+      "gu": "LOW SEMEN COUNT",
+      "mr": "LOW SEMEN COUNT",
+      "bn": "LOW SEMEN COUNT",
+      "te": "LOW SEMEN COUNT",
+      "ta": "LOW SEMEN COUNT",
+      "kn": "LOW SEMEN COUNT",
+      "or": "LOW SEMEN COUNT",
+      "ml": "LOW SEMEN COUNT",
+      "ur": "LOW SEMEN COUNT"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda Hot Male Plus",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Pure Shilajit Capsules",
+        "dose": "0-0-2"
+      }
+    ]
+  },
+  "INFERTILITY MALE": {
+    "disease": "INFERTILITY MALE",
+    "category": "SEX",
+    "localized_names": {
+      "en": "INFERTILITY MALE",
+      "hi": "INFERTILITY MALE",
+      "gu": "INFERTILITY MALE",
+      "mr": "INFERTILITY MALE",
+      "bn": "INFERTILITY MALE",
+      "te": "INFERTILITY MALE",
+      "ta": "INFERTILITY MALE",
+      "kn": "INFERTILITY MALE",
+      "or": "INFERTILITY MALE",
+      "ml": "INFERTILITY MALE",
+      "ur": "INFERTILITY MALE"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda T-Booster Testosterone Support",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "LOW LIBIDO FEMALE": {
+    "disease": "LOW LIBIDO FEMALE",
+    "category": "SEX",
+    "localized_names": {
+      "en": "LOW LIBIDO FEMALE",
+      "hi": "LOW LIBIDO FEMALE",
+      "gu": "LOW LIBIDO FEMALE",
+      "mr": "LOW LIBIDO FEMALE",
+      "bn": "LOW LIBIDO FEMALE",
+      "te": "LOW LIBIDO FEMALE",
+      "ta": "LOW LIBIDO FEMALE",
+      "kn": "LOW LIBIDO FEMALE",
+      "or": "LOW LIBIDO FEMALE",
+      "ml": "LOW LIBIDO FEMALE",
+      "ur": "LOW LIBIDO FEMALE"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda Hot X Female Vitality",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda T-Booster Testosterone Support",
+        "dose": "0-0-1"
+      },
+      {
+        "name": "OnlyVeda L-Arginine Plus",
+        "dose": "0-0-1"
+      }
+    ]
+  },
+  "POSRIASIS": {
+    "disease": "POSRIASIS",
+    "category": "SKIN",
+    "localized_names": {
+      "en": "POSRIASIS",
+      "hi": "POSRIASIS",
+      "gu": "POSRIASIS",
+      "mr": "POSRIASIS",
+      "bn": "POSRIASIS",
+      "te": "POSRIASIS",
+      "ta": "POSRIASIS",
+      "kn": "POSRIASIS",
+      "or": "POSRIASIS",
+      "ml": "POSRIASIS",
+      "ur": "POSRIASIS"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda Liver Detox Formula",
+        "dose": "0-1-0"
+      },
+      {
+        "name": "OnlyVeda Lohasu Blood Purifier Tablet",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Ashyuka Plus Syrup",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "ECZEMA": {
+    "disease": "ECZEMA",
+    "category": "SKIN",
+    "localized_names": {
+      "en": "ECZEMA",
+      "hi": "ECZEMA",
+      "gu": "ECZEMA",
+      "mr": "ECZEMA",
+      "bn": "ECZEMA",
+      "te": "ECZEMA",
+      "ta": "ECZEMA",
+      "kn": "ECZEMA",
+      "or": "ECZEMA",
+      "ml": "ECZEMA",
+      "ur": "ECZEMA"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda Immuferin Immuno-Shield",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Ashyuka Plus Syrup",
+        "dose": "1-0-0"
+      },
+      {
+        "name": "OnlyVeda Khuj Guard Anti-Itch Cream",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Neem Purify Tablet",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "SKIN ALLERGY": {
+    "disease": "SKIN ALLERGY",
+    "category": "SKIN",
+    "localized_names": {
+      "en": "SKIN ALLERGY",
+      "hi": "SKIN ALLERGY",
+      "gu": "SKIN ALLERGY",
+      "mr": "SKIN ALLERGY",
+      "bn": "SKIN ALLERGY",
+      "te": "SKIN ALLERGY",
+      "ta": "SKIN ALLERGY",
+      "kn": "SKIN ALLERGY",
+      "or": "SKIN ALLERGY",
+      "ml": "SKIN ALLERGY",
+      "ur": "SKIN ALLERGY"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda Immuferin Immuno-Shield",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Ashyuka Plus Syrup",
+        "dose": "1-0-0"
+      },
+      {
+        "name": "OnlyVeda Lohasu Blood Purifier Tablet",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "ANTI AGEING": {
+    "disease": "ANTI AGEING",
+    "category": "SKIN",
+    "localized_names": {
+      "en": "ANTI AGEING",
+      "hi": "ANTI AGEING",
+      "gu": "ANTI AGEING",
+      "mr": "ANTI AGEING",
+      "bn": "ANTI AGEING",
+      "te": "ANTI AGEING",
+      "ta": "ANTI AGEING",
+      "kn": "ANTI AGEING",
+      "or": "ANTI AGEING",
+      "ml": "ANTI AGEING",
+      "ur": "ANTI AGEING"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda Active 365 Daily Essential",
+        "dose": "1-0-0"
+      },
+      {
+        "name": "OnlyVeda Daily Complete Multivitamin",
+        "dose": "1-0-0"
+      },
+      {
+        "name": "OnlyVeda Advanced Anti-Ageing Face Serum",
+        "dose": "1-0-0"
+      }
+    ]
+  },
+  "SKIN RASHES / RING WARM": {
+    "disease": "SKIN RASHES / RING WARM",
+    "category": "SKIN",
+    "localized_names": {
+      "en": "SKIN RASHES / RING WARM",
+      "hi": "SKIN RASHES / RING WARM",
+      "gu": "SKIN RASHES / RING WARM",
+      "mr": "SKIN RASHES / RING WARM",
+      "bn": "SKIN RASHES / RING WARM",
+      "te": "SKIN RASHES / RING WARM",
+      "ta": "SKIN RASHES / RING WARM",
+      "kn": "SKIN RASHES / RING WARM",
+      "or": "SKIN RASHES / RING WARM",
+      "ml": "SKIN RASHES / RING WARM",
+      "ur": "SKIN RASHES / RING WARM"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda Neem Purify Tablet",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Lohasu Blood Purifier Tablet",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Khuj Guard Anti-Itch Cream",
+        "dose": "0-0-1"
+      }
+    ]
+  },
+  "SINUS": {
+    "disease": "SINUS",
+    "category": "STOMACH",
+    "localized_names": {
+      "en": "SINUS",
+      "hi": "SINUS",
+      "gu": "SINUS",
+      "mr": "SINUS",
+      "bn": "SINUS",
+      "te": "SINUS",
+      "ta": "SINUS",
+      "kn": "SINUS",
+      "or": "SINUS",
+      "ml": "SINUS",
+      "ur": "SINUS"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda Immuferin Immuno-Shield",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda N-Acetyl Cysteine (NAC 600mg)",
+        "dose": "1-0-0"
+      },
+      {
+        "name": "OnlyVeda Daily Complete Multivitamin",
+        "dose": "1-0-0"
+      }
+    ]
+  },
+  "FLU": {
+    "disease": "FLU",
+    "category": "STOMACH",
+    "localized_names": {
+      "en": "FLU",
+      "hi": "FLU",
+      "gu": "FLU",
+      "mr": "FLU",
+      "bn": "FLU",
+      "te": "FLU",
+      "ta": "FLU",
+      "kn": "FLU",
+      "or": "FLU",
+      "ml": "FLU",
+      "ur": "FLU"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda Immuferin Immuno-Shield",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Throatwal Soothing Lozenges & Gargle",
+        "dose": "1-1-1"
+      },
+      {
+        "name": "OnlyVeda Walinctus Herbal Cough Syrup",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Sitopaladi Churna",
+        "dose": "1-1-1"
+      }
+    ]
+  },
+  "ALLERGIC COUGH / COUGH": {
+    "disease": "ALLERGIC COUGH / COUGH",
+    "category": "STOMACH",
+    "localized_names": {
+      "en": "ALLERGIC COUGH / COUGH",
+      "hi": "ALLERGIC COUGH / COUGH",
+      "gu": "ALLERGIC COUGH / COUGH",
+      "mr": "ALLERGIC COUGH / COUGH",
+      "bn": "ALLERGIC COUGH / COUGH",
+      "te": "ALLERGIC COUGH / COUGH",
+      "ta": "ALLERGIC COUGH / COUGH",
+      "kn": "ALLERGIC COUGH / COUGH",
+      "or": "ALLERGIC COUGH / COUGH",
+      "ml": "ALLERGIC COUGH / COUGH",
+      "ur": "ALLERGIC COUGH / COUGH"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda Immuferin Immuno-Shield",
+        "dose": "1-1-1"
+      },
+      {
+        "name": "OnlyVeda Walinctus Herbal Cough Syrup",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Respitone Pulmonary Shield",
+        "dose": "1-1-1"
+      }
+    ]
+  },
+  "VERTIGO": {
+    "disease": "VERTIGO",
+    "category": "STOMACH",
+    "localized_names": {
+      "en": "VERTIGO",
+      "hi": "VERTIGO",
+      "gu": "VERTIGO",
+      "mr": "VERTIGO",
+      "bn": "VERTIGO",
+      "te": "VERTIGO",
+      "ta": "VERTIGO",
+      "kn": "VERTIGO",
+      "or": "VERTIGO",
+      "ml": "VERTIGO",
+      "ur": "VERTIGO"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda Daily Complete Multivitamin",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Intelget Brain & Memory Capsules",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "VERICOSE VEINS": {
+    "disease": "VERICOSE VEINS",
+    "category": "LEGS",
+    "localized_names": {
+      "en": "VERICOSE VEINS",
+      "hi": "VERICOSE VEINS",
+      "gu": "VERICOSE VEINS",
+      "mr": "VERICOSE VEINS",
+      "bn": "VERICOSE VEINS",
+      "te": "VERICOSE VEINS",
+      "ta": "VERICOSE VEINS",
+      "kn": "VERICOSE VEINS",
+      "or": "VERICOSE VEINS",
+      "ml": "VERICOSE VEINS",
+      "ur": "VERICOSE VEINS"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda L-Arginine Plus",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Ashyuka Plus Syrup",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "TUBERCULOSIS": {
+    "disease": "TUBERCULOSIS",
+    "category": "STOMACH",
+    "localized_names": {
+      "en": "TUBERCULOSIS",
+      "hi": "TUBERCULOSIS",
+      "gu": "TUBERCULOSIS",
+      "mr": "TUBERCULOSIS",
+      "bn": "TUBERCULOSIS",
+      "te": "TUBERCULOSIS",
+      "ta": "TUBERCULOSIS",
+      "kn": "TUBERCULOSIS",
+      "or": "TUBERCULOSIS",
+      "ml": "TUBERCULOSIS",
+      "ur": "TUBERCULOSIS"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda Daily Complete Multivitamin",
+        "dose": "1-0-0"
+      },
+      {
+        "name": "OnlyVeda Liver Detox Formula",
+        "dose": "0-1-0"
+      },
+      {
+        "name": "OnlyVeda Immuferin Immuno-Shield",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Respitone Pulmonary Shield",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "PARKINSONS": {
+    "disease": "PARKINSONS",
+    "category": "STOMACH",
+    "localized_names": {
+      "en": "PARKINSONS",
+      "hi": "PARKINSONS",
+      "gu": "PARKINSONS",
+      "mr": "PARKINSONS",
+      "bn": "PARKINSONS",
+      "te": "PARKINSONS",
+      "ta": "PARKINSONS",
+      "kn": "PARKINSONS",
+      "or": "PARKINSONS",
+      "ml": "PARKINSONS",
+      "ur": "PARKINSONS"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda Daily Complete Multivitamin",
+        "dose": "1-0-0"
+      },
+      {
+        "name": "OnlyVeda Ashyuka Plus Syrup",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "SLEEP DISORDERS": {
+    "disease": "SLEEP DISORDERS",
+    "category": "STOMACH",
+    "localized_names": {
+      "en": "SLEEP DISORDERS",
+      "hi": "SLEEP DISORDERS",
+      "gu": "SLEEP DISORDERS",
+      "mr": "SLEEP DISORDERS",
+      "bn": "SLEEP DISORDERS",
+      "te": "SLEEP DISORDERS",
+      "ta": "SLEEP DISORDERS",
+      "kn": "SLEEP DISORDERS",
+      "or": "SLEEP DISORDERS",
+      "ml": "SLEEP DISORDERS",
+      "ur": "SLEEP DISORDERS"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda Melatonin Sleep Spray",
+        "dose": "0-0-1"
+      },
+      {
+        "name": "OnlyVeda Ashyuka Plus Syrup",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "CYTICA": {
+    "disease": "CYTICA",
+    "category": "LEGS",
+    "localized_names": {
+      "en": "CYTICA",
+      "hi": "CYTICA",
+      "gu": "CYTICA",
+      "mr": "CYTICA",
+      "bn": "CYTICA",
+      "te": "CYTICA",
+      "ta": "CYTICA",
+      "kn": "CYTICA",
+      "or": "CYTICA",
+      "ml": "CYTICA",
+      "ur": "CYTICA"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda Immuferin Immuno-Shield",
+        "dose": "1-1-1"
+      },
+      {
+        "name": "OnlyVeda Mahayograj Guggul",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Strenus Pain Relief Capsules",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "STRESS / DEPRESSION": {
+    "disease": "STRESS / DEPRESSION",
+    "category": "HEAD",
+    "localized_names": {
+      "en": "STRESS / DEPRESSION",
+      "hi": "STRESS / DEPRESSION",
+      "gu": "STRESS / DEPRESSION",
+      "mr": "STRESS / DEPRESSION",
+      "bn": "STRESS / DEPRESSION",
+      "te": "STRESS / DEPRESSION",
+      "ta": "STRESS / DEPRESSION",
+      "kn": "STRESS / DEPRESSION",
+      "or": "STRESS / DEPRESSION",
+      "ml": "STRESS / DEPRESSION",
+      "ur": "STRESS / DEPRESSION"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda Ashyuka Plus Syrup",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Melatonin Sleep Spray",
+        "dose": "1-0-0"
+      },
+      {
+        "name": "OnlyVeda Intelget Brain & Memory Capsules",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "MIGRAINE": {
+    "disease": "MIGRAINE",
+    "category": "HEAD",
+    "localized_names": {
+      "en": "MIGRAINE",
+      "hi": "MIGRAINE",
+      "gu": "MIGRAINE",
+      "mr": "MIGRAINE",
+      "bn": "MIGRAINE",
+      "te": "MIGRAINE",
+      "ta": "MIGRAINE",
+      "kn": "MIGRAINE",
+      "or": "MIGRAINE",
+      "ml": "MIGRAINE",
+      "ur": "MIGRAINE"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda Ashyuka Plus Syrup",
+        "dose": "1-0-0"
+      },
+      {
+        "name": "OnlyVeda Daily Complete Multivitamin",
+        "dose": "1-0-0"
+      },
+      {
+        "name": "OnlyVeda Intelget Brain & Memory Capsules",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "HAIR FALL / HAIR GROW/GREY HAIR": {
+    "disease": "HAIR FALL / HAIR GROW/GREY HAIR",
+    "category": "HAIR",
+    "localized_names": {
+      "en": "HAIR FALL / HAIR GROW/GREY HAIR",
+      "hi": "HAIR FALL / HAIR GROW/GREY HAIR",
+      "gu": "HAIR FALL / HAIR GROW/GREY HAIR",
+      "mr": "HAIR FALL / HAIR GROW/GREY HAIR",
+      "bn": "HAIR FALL / HAIR GROW/GREY HAIR",
+      "te": "HAIR FALL / HAIR GROW/GREY HAIR",
+      "ta": "HAIR FALL / HAIR GROW/GREY HAIR",
+      "kn": "HAIR FALL / HAIR GROW/GREY HAIR",
+      "or": "HAIR FALL / HAIR GROW/GREY HAIR",
+      "ml": "HAIR FALL / HAIR GROW/GREY HAIR",
+      "ur": "HAIR FALL / HAIR GROW/GREY HAIR"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda Hair 2X Growth Formula",
+        "dose": "1-0-0"
+      }
+    ]
+  },
+  "THYROID": {
+    "disease": "THYROID",
+    "category": "NECK",
+    "localized_names": {
+      "en": "THYROID",
+      "hi": "THYROID",
+      "gu": "THYROID",
+      "mr": "THYROID",
+      "bn": "THYROID",
+      "te": "THYROID",
+      "ta": "THYROID",
+      "kn": "THYROID",
+      "or": "THYROID",
+      "ml": "THYROID",
+      "ur": "THYROID"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda Ashyuka Plus Syrup",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Immuferin Immuno-Shield",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "OBESITY": {
+    "disease": "OBESITY",
+    "category": "STOMACH",
+    "localized_names": {
+      "en": "OBESITY",
+      "hi": "OBESITY",
+      "gu": "OBESITY",
+      "mr": "OBESITY",
+      "bn": "OBESITY",
+      "te": "OBESITY",
+      "ta": "OBESITY",
+      "kn": "OBESITY",
+      "or": "OBESITY",
+      "ml": "OBESITY",
+      "ur": "OBESITY"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda Meal Replacement Shake",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Apple Cider Vinegar",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Biomelt Weight Management Liquid",
+        "dose": "1-0-0"
+      },
+      {
+        "name": "OnlyVeda Biomelt Weight Management Capsules",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Hepatreat Hepatic Tablets",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "EYE HEALTH": {
+    "disease": "EYE HEALTH",
+    "category": "EYE",
+    "localized_names": {
+      "en": "EYE HEALTH",
+      "hi": "EYE HEALTH",
+      "gu": "EYE HEALTH",
+      "mr": "EYE HEALTH",
+      "bn": "EYE HEALTH",
+      "te": "EYE HEALTH",
+      "ta": "EYE HEALTH",
+      "kn": "EYE HEALTH",
+      "or": "EYE HEALTH",
+      "ml": "EYE HEALTH",
+      "ur": "EYE HEALTH"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda I-Well Eye Health Capsules",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Saptamrit Loh Eye Tablet",
+        "dose": "1-1-1"
+      },
+      {
+        "name": "OnlyVeda Triphala Satwik Pure Digestive Detox",
+        "dose": "1-1-1"
+      }
+    ]
+  },
+  "PARALYSIS": {
+    "disease": "PARALYSIS",
+    "category": "BODY",
+    "localized_names": {
+      "en": "PARALYSIS",
+      "hi": "PARALYSIS",
+      "gu": "PARALYSIS",
+      "mr": "PARALYSIS",
+      "bn": "PARALYSIS",
+      "te": "PARALYSIS",
+      "ta": "PARALYSIS",
+      "kn": "PARALYSIS",
+      "or": "PARALYSIS",
+      "ml": "PARALYSIS",
+      "ur": "PARALYSIS"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda Daily Complete Multivitamin",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Ashyuka Plus Syrup",
+        "dose": "1-0-0"
+      },
+      {
+        "name": "OnlyVeda CoQ10 (Coenzyme Q10)",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda KSM-66 Ashwagandha Pure Tablet",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "APPETITEE": {
+    "disease": "APPETITEE",
+    "category": "BODY",
+    "localized_names": {
+      "en": "APPETITEE",
+      "hi": "APPETITEE",
+      "gu": "APPETITEE",
+      "mr": "APPETITEE",
+      "bn": "APPETITEE",
+      "te": "APPETITEE",
+      "ta": "APPETITEE",
+      "kn": "APPETITEE",
+      "or": "APPETITEE",
+      "ml": "APPETITEE",
+      "ur": "APPETITEE"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda Prowal Synbiotic Gut Restorer",
+        "dose": "0-1-0"
+      },
+      {
+        "name": "OnlyVeda Walzyme Digestive Enzymes",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "WEAKNESS AND FOTIGUE": {
+    "disease": "WEAKNESS AND FOTIGUE",
+    "category": "BODY",
+    "localized_names": {
+      "en": "WEAKNESS AND FOTIGUE",
+      "hi": "WEAKNESS AND FOTIGUE",
+      "gu": "WEAKNESS AND FOTIGUE",
+      "mr": "WEAKNESS AND FOTIGUE",
+      "bn": "WEAKNESS AND FOTIGUE",
+      "te": "WEAKNESS AND FOTIGUE",
+      "ta": "WEAKNESS AND FOTIGUE",
+      "kn": "WEAKNESS AND FOTIGUE",
+      "or": "WEAKNESS AND FOTIGUE",
+      "ml": "WEAKNESS AND FOTIGUE",
+      "ur": "WEAKNESS AND FOTIGUE"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda Milk Thistle Silymarin Detox",
+        "dose": "1-0-0"
+      }
+    ]
+  },
+  "DENGUE": {
+    "disease": "DENGUE",
+    "category": "SKIN",
+    "localized_names": {
+      "en": "DENGUE",
+      "hi": "DENGUE",
+      "gu": "DENGUE",
+      "mr": "DENGUE",
+      "bn": "DENGUE",
+      "te": "DENGUE",
+      "ta": "DENGUE",
+      "kn": "DENGUE",
+      "or": "DENGUE",
+      "ml": "DENGUE",
+      "ur": "DENGUE"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda Cariwal Platelet Support",
+        "dose": "1-1-1"
+      },
+      {
+        "name": "OnlyVeda Daily Complete Multivitamin",
+        "dose": "1-0-0"
+      },
+      {
+        "name": "OnlyVeda Maha Sudarshan Tablet",
+        "dose": "1-1-1"
+      },
+      {
+        "name": "OnlyVeda Rhiza Mucosal Gut Shield",
+        "dose": "1-0-1"
+      },
+      {
+        "name": "OnlyVeda Hepatreat Hepatic Tablets",
+        "dose": "1-0-1"
+      }
+    ]
+  },
+  "OTHER FEVER": {
+    "disease": "OTHER FEVER",
+    "category": "FEVER",
+    "localized_names": {
+      "en": "OTHER FEVER",
+      "hi": "OTHER FEVER",
+      "gu": "OTHER FEVER",
+      "mr": "OTHER FEVER",
+      "bn": "OTHER FEVER",
+      "te": "OTHER FEVER",
+      "ta": "OTHER FEVER",
+      "kn": "OTHER FEVER",
+      "or": "OTHER FEVER",
+      "ml": "OTHER FEVER",
+      "ur": "OTHER FEVER"
+    },
+    "supplements": [
+      {
+        "name": "OnlyVeda Daily Complete Multivitamin",
+        "dose": "1-0-0"
+      },
+      {
+        "name": "OnlyVeda Maha Sudarshan Tablet",
+        "dose": "1-1-1"
+      },
+      {
+        "name": "OnlyVeda Rhiza Mucosal Gut Shield",
+        "dose": "1-0-1"
+      }
+    ]
+  }
+}

@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OnlyVeda | Multilingual Nutraceutical Assistant</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap');
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #f7f9f6;
+    }
+    .serif-title {
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #f1f5f0;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #cbd5c8;
+      border-radius: 4px;
+    }
+  </style>
+  <link rel="icon" type="image/png" href="/logo.png" />
+</head>
+<body class="h-screen flex flex-col bg-[#f4f7f4] text-slate-800">
+
+  <!-- Navbar -->
+  <header class="bg-[#1b4332] text-white px-6 py-3 shadow-md flex items-center justify-between border-b border-[#2d6a4f] shrink-0">
+    <div class="flex items-center gap-3.5">
+      <!-- Official Logo Container -->
+      <a href="/" class="bg-white/95 hover:bg-white px-3 py-1.5 rounded-xl shadow-xs border border-white/30 flex items-center transition">
+        <img src="/logo.png" alt="OnlyVeda" class="h-8 md:h-9 object-contain" />
+      </a>
+      <div class="hidden sm:block">
+        <div class="flex items-center gap-2">
+          <span class="text-[10px] bg-[#52b788] text-[#081c15] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">AI Nutraceutical</span>
+          <span class="text-xs text-[#b7e4c7] font-medium">• 10 Indic Languages</span>
+        </div>
+        <p class="text-[11px] text-[#d8f3dc]/80">Ayurvedic Intelligence & Health Advisor</p>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="flex items-center gap-3">
+      <!-- Language Selector -->
+      <div class="flex items-center bg-[#2d6a4f] rounded-lg px-3 py-1.5 border border-[#40916c] text-sm shadow-sm">
+        <i class="fa-solid fa-globe text-[#b7e4c7] mr-2"></i>
+        <label for="languageSelect" class="sr-only">Language</label>
+        <select id="languageSelect" onchange="changeLanguage()" class="bg-transparent text-white font-medium focus:outline-none cursor-pointer">
+          <option value="auto" class="text-gray-900" selected>🌐 Auto-Detect Language</option>
+          <option value="en" class="text-gray-900">English</option>
+          <option value="hi" class="text-gray-900">हिन्दी (Hindi)</option>
+          <option value="bn" class="text-gray-900">বাংলা (Bengali)</option>
+          <option value="mr" class="text-gray-900">मराठी (Marathi)</option>
+          <option value="te" class="text-gray-900">తెలుగు (Telugu)</option>
+          <option value="ta" class="text-gray-900">தமிழ் (Tamil)</option>
+          <option value="gu" class="text-gray-900">ગુજરાતી (Gujarati)</option>
+          <option value="ur" class="text-gray-900">اردو (Urdu)</option>
+          <option value="kn" class="text-gray-900">ಕನ್ನಡ (Kannada)</option>
+          <option value="or" class="text-gray-900">ଓଡ଼ିଆ (Odia)</option>
+          <option value="ml" class="text-gray-900">മലയാളം (Malayalam)</option>
+        </select>
+      </div>
+
+      <!-- Feed Data Button -->
+      <button onclick="toggleDrawer('catalogDrawer')" class="flex items-center gap-2 bg-[#d8f3dc] hover:bg-[#b7e4c7] text-[#1b4332] px-3.5 py-1.5 rounded-lg text-sm font-semibold transition shadow-sm">
+        <i class="fa-solid fa-database"></i>
+        <span>Feed Data & Catalog (<span id="productCountBadge">0</span>)</span>
+      </button>
+
+      <!-- Settings / API Modal Trigger -->
+      <button onclick="toggleDrawer('settingsDrawer')" class="p-2 rounded-lg bg-[#2d6a4f] hover:bg-[#40916c] text-white transition" title="Settings & API Key">
+        <i class="fa-solid fa-gear"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="flex-1 flex overflow-hidden relative">
+    
+    <!-- Chat Section -->
+    <main class="flex-1 flex flex-col h-full bg-[#f8faf7] max-w-4xl mx-auto w-full border-x border-[#e2e8df] shadow-sm">
+      
+      <!-- Quick Health Concerns Pill Bar -->
+      <div class="bg-white px-4 py-2.5 border-b border-[#e5ebe3] flex items-center gap-2 overflow-x-auto custom-scrollbar shrink-0 text-xs">
+        <span class="text-gray-500 font-semibold uppercase tracking-wider shrink-0 flex items-center gap-1">
+          <i class="fa-solid fa-wand-magic-sparkles text-[#2d6a4f]"></i> Quick Inquiries:
+        </span>
+        <button onclick="sendQuickQuery('मुझे हाई ब्लड प्रेशर की शिकायत है')" class="shrink-0 bg-[#f0f7f2] hover:bg-[#d8f3dc] text-[#1b4332] px-2.5 py-1 rounded-full border border-[#c3dec9] transition">
+          🩸 High BP (हाई बीपी)
+        </button>
+        <button onclick="sendQuickQuery('I have severe joint and knee pain and stiffness in morning')" class="shrink-0 bg-[#f0f7f2] hover:bg-[#d8f3dc] text-[#1b4332] px-2.5 py-1 rounded-full border border-[#c3dec9] transition">
+          🦴 Joint & Knee Pain
+        </button>
+        <button onclick="sendQuickQuery('আমার খুব গ্যাস ও অ্যাসিডিটি হচ্ছে')" class="shrink-0 bg-[#f0f7f2] hover:bg-[#d8f3dc] text-[#1b4332] px-2.5 py-1 rounded-full border border-[#c3dec9] transition">
+          🌱 গ্যাস ও অম্বল (Acidity)
+        </button>
+        <button onclick="sendQuickQuery('నాకు తీవ్రమైన మలబద్ధకం ఉంది, పొట్ట సాఫీగా కావడం లేదు')" class="shrink-0 bg-[#f0f7f2] hover:bg-[#d8f3dc] text-[#1b4332] px-2.5 py-1 rounded-full border border-[#c3dec9] transition">
+          🚽 మలబద్ధకం (Constipation)
+        </button>
+        <button onclick="sendQuickQuery('எனக்கு வாயில் புண் அதிகமாக உள்ளது')" class="shrink-0 bg-[#f0f7f2] hover:bg-[#d8f3dc] text-[#1b4332] px-2.5 py-1 rounded-full border border-[#c3dec9] transition">
+          👄 வாயில் புண் (Mouth Ulcers)
+        </button>
+        <button onclick="sendQuickQuery('મારા ચહેરા પર ખૂબ ખીલ અને પિમ્પલ્સ છે')" class="shrink-0 bg-[#f0f7f2] hover:bg-[#d8f3dc] text-[#1b4332] px-2.5 py-1 rounded-full border border-[#c3dec9] transition">
+          ✨ ખીલ અને પિમ્પલ્સ (Acne)
+        </button>
+        <button onclick="sendQuickQuery('ನನಗೆ ಉಬ್ಬಸ ಮತ್ತು ಆಸ್ತಮಾ ತೊಂದರೆ ಇದೆ')" class="shrink-0 bg-[#f0f7f2] hover:bg-[#d8f3dc] text-[#1b4332] px-2.5 py-1 rounded-full border border-[#c3dec9] transition">
+          🫁 ಉಬ್ಬಸ & ಆಸ್ತಮಾ (Asthma)
+        </button>
+        <button onclick="sendQuickQuery('मुझे कमर और पीठ में तेज दर्द है')" class="shrink-0 bg-[#f0f7f2] hover:bg-[#d8f3dc] text-[#1b4332] px-2.5 py-1 rounded-full border border-[#c3dec9] transition">
+          ⚡ कमर दर्द (Back Pain)
+        </button>
+      </div>
+
+      <!-- Messages Stream -->
+      <div id="messagesContainer" class="flex-1 overflow-y-auto p-4 space-y-4 custom-scrollbar">
+        <!-- Welcome Message -->
+        <div class="flex items-start gap-3 max-w-3xl">
+          <div class="w-9 h-9 rounded-full bg-white border border-[#c2d6c0] flex items-center justify-center shrink-0 p-1 shadow-xs">
+            <img src="/logo.png" alt="OnlyVeda" class="w-full h-full object-contain" />
+          </div>
+          <div class="bg-white border border-[#e2ece1] rounded-2xl rounded-tl-none p-4 shadow-sm text-sm text-gray-800 space-y-3">
+            <div class="flex items-center justify-between border-b border-gray-100 pb-2.5">
+              <img src="/logo.png" alt="OnlyVeda Logo" class="h-6 md:h-7 object-contain" />
+              <span class="text-[10px] bg-[#d8f3dc] text-[#1b4332] px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider flex items-center gap-1">
+                <i class="fa-solid fa-circle-check text-green-600"></i> Official Wellness AI
+              </span>
+            </div>
+            <p id="welcomeGreeting" class="font-medium text-gray-900 leading-relaxed">
+              Namaste! Welcome to OnlyVeda. I am your Ayurvedic & Nutraceutical Wellness Assistant. How can I help you today?
+            </p>
+            <div class="text-xs bg-[#f4f8f4] text-[#2d6a4f] p-2.5 rounded-lg border border-[#d8ecd6]">
+              🌿 <strong>Supports 10 Regional Languages:</strong> Hindi, Bengali, Marathi, Telugu, Tamil, Gujarati, Urdu, Kannada, Odia, and Malayalam.
+            </div>
+            <p class="text-xs text-gray-400 italic">
+              ⚠️ Disclaimer: Nutraceuticals and herbal supplements support holistic wellness. They are not substitutes for professional medical diagnosis or prescription drugs.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Input Bar -->
+      <div class="p-3.5 bg-white border-t border-[#e2ece1] shrink-0">
+        <form id="chatForm" onsubmit="handleChatSubmit(event)" class="flex items-center gap-2">
+          <div class="relative flex-1">
+            <input 
+              type="text" 
+              id="userInput" 
+              placeholder="Ask in Hindi, Bengali, Tamil, Telugu, English..." 
+              class="w-full bg-[#f6f9f6] border border-[#d1ded0] focus:border-[#2d6a4f] focus:bg-white rounded-xl py-3 px-4 pr-24 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#52b788]/30 transition shadow-inner"
+              autocomplete="off"
+            />
+            <button type="button" onclick="clearChat()" class="absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-500 hover:text-[#1b4332] text-xs flex items-center gap-1.5 bg-gray-100 hover:bg-[#d8f3dc] px-2.5 py-1.5 rounded-lg border border-gray-200 transition" title="Start New Consultation & Reset Memory">
+              <i class="fa-solid fa-rotate-left text-[11px]"></i>
+              <span class="text-[11px] font-medium">New Chat</span>
+            </button>
+          </div>
+          <button 
+            type="submit" 
+            id="sendBtn" 
+            class="bg-[#1b4332] hover:bg-[#2d6a4f] text-white px-5 py-3 rounded-xl font-medium text-sm flex items-center gap-2 shadow-sm transition disabled:opacity-50"
+          >
+            <span>Consult</span>
+            <i class="fa-solid fa-paper-plane text-xs"></i>
+          </button>
+        </form>
+        <div class="flex items-center justify-between mt-2 px-1 text-[11px] text-gray-500">
+          <span class="flex items-center gap-1.5 text-[#2d6a4f] font-medium">
+            <i class="fa-solid fa-database text-xs text-[#52b788]"></i>
+            <span>Persistent Memory Active</span>
+          </span>
+          <span id="sessionDisplay" class="text-gray-400 font-mono text-[10px]"></span>
+        </div>
+      </div>
+    </main>
+
+    <!-- Drawer: Feed Data & Catalog Management -->
+    <div id="catalogDrawer" class="hidden fixed inset-y-0 right-0 w-full md:w-[480px] bg-white shadow-2xl z-50 flex flex-col border-l border-gray-200">
+      <!-- Drawer Header -->
+      <div class="bg-[#1b4332] text-white px-5 py-3.5 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="bg-white px-2.5 py-1 rounded-lg">
+            <img src="/logo.png" alt="OnlyVeda" class="h-6 object-contain" />
+          </div>
+          <div>
+            <h2 class="font-bold text-sm">Feed Product Catalog</h2>
+            <p class="text-[11px] text-[#b7e4c7]">Add products or bulk import via CSV/JSON</p>
+          </div>
+        </div>
+        <button onclick="toggleDrawer('catalogDrawer')" class="text-gray-300 hover:text-white p-1">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <!-- Drawer Tabs -->
+      <div class="flex border-b border-gray-200 bg-gray-50 text-xs font-semibold">
+        <button onclick="switchCatalogTab('view')" id="tabViewBtn" class="flex-1 py-2.5 text-center text-[#1b4332] border-b-2 border-[#1b4332] bg-white">
+          Current Products (<span id="tabCount">0</span>)
+        </button>
+        <button onclick="switchCatalogTab('add')" id="tabAddBtn" class="flex-1 py-2.5 text-center text-gray-500 hover:text-gray-800">
+          + Add New Product
+        </button>
+        <button onclick="switchCatalogTab('import')" id="tabImportBtn" class="flex-1 py-2.5 text-center text-gray-500 hover:text-gray-800">
+          Bulk CSV Import
+        </button>
+      </div>
+
+      <!-- Drawer Content -->
+      <div class="flex-1 overflow-y-auto p-4 custom-scrollbar">
+        
+        <!-- Tab 1: Current Products -->
+        <div id="tabContent_view" class="space-y-3">
+          <div class="flex items-center justify-between pb-2 border-b border-gray-100">
+            <input type="text" id="catalogSearch" oninput="filterCatalog()" placeholder="Search catalog..." class="text-xs border rounded-lg px-2.5 py-1.5 w-full mr-2" />
+            <a href="/api/products/export-csv" class="text-xs bg-gray-100 hover:bg-gray-200 text-gray-700 px-2 py-1.5 rounded flex items-center gap-1 shrink-0" download>
+              <i class="fa-solid fa-download"></i> CSV
+            </a>
+          </div>
+          <div id="productsList" class="space-y-2.5">
+            <!-- Dynamic product cards -->
+          </div>
+        </div>
+
+        <!-- Tab 2: Add New Product Form -->
+        <div id="tabContent_add" class="hidden space-y-3 text-xs">
+          <form id="addProductForm" onsubmit="handleAddProduct(event)" class="space-y-3">
+            <div>
+              <label class="block font-medium text-gray-700 mb-1">Product Name *</label>
+              <input type="text" name="name" required placeholder="e.g. OnlyVeda Brahmi Memory Booster" class="w-full border rounded-lg p-2 focus:ring-1 focus:ring-green-700 focus:outline-none" />
+            </div>
+
+            <div class="grid grid-cols-2 gap-2">
+              <div>
+                <label class="block font-medium text-gray-700 mb-1">Category *</label>
+                <select name="category" class="w-full border rounded-lg p-2 focus:ring-1 focus:ring-green-700 focus:outline-none bg-white">
+                  <option value="Joint & Bone Care">Joint & Bone Care</option>
+                  <option value="Sleep & Stress Relief">Sleep & Stress Relief</option>
+                  <option value="Digestive Health">Digestive Health</option>
+                  <option value="Vitality & Energy">Vitality & Energy</option>
+                  <option value="Skin & Hair Wellness">Skin & Hair Wellness</option>
+                  <option value="Immunity & Respiratory Health">Immunity & Respiratory</option>
+                  <option value="Metabolic & Sugar Balance">Metabolic & Sugar</option>
+                  <option value="Heart & Brain Health">Heart & Brain</option>
+                  <option value="Liver Health & Detox">Liver Health & Detox</option>
+                </select>
+              </div>
+              <div>
+                <label class="block font-medium text-gray-700 mb-1">Price (INR) & Size</label>
+                <div class="flex gap-1">
+                  <input type="number" name="price_inr" placeholder="₹" class="w-1/2 border rounded-lg p-2" />
+                  <input type="text" name="size" placeholder="60 Caps" class="w-1/2 border rounded-lg p-2" />
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <label class="block font-medium text-gray-700 mb-1">Key Active Ingredients * (comma-separated)</label>
+              <input type="text" name="key_ingredients" required placeholder="e.g. Brahmi Extract 500mg, Shankhpushpi, Ashwagandha" class="w-full border rounded-lg p-2 focus:ring-1 focus:ring-green-700 focus:outline-none" />
+            </div>
+
+            <div>
+              <label class="block font-medium text-gray-700 mb-1">Health Benefits & Action *</label>
+              <textarea name="benefits" rows="2" required placeholder="Explains memory boost, calm concentration, reduced mental fatigue..." class="w-full border rounded-lg p-2 focus:ring-1 focus:ring-green-700 focus:outline-none"></textarea>
+            </div>
+
+            <div>
+              <label class="block font-medium text-gray-700 mb-1">Health Concerns / Symptoms relieved (comma-separated)</label>
+              <input type="text" name="health_concerns" placeholder="e.g. memory, brain fog, fatigue, exam stress" class="w-full border rounded-lg p-2 focus:ring-1 focus:ring-green-700 focus:outline-none" />
+            </div>
+
+            <div>
+              <label class="block font-medium text-gray-700 mb-1">Recommended Usage & Timing *</label>
+              <input type="text" name="dosage_and_usage" required placeholder="e.g. 1 capsule twice daily with milk after meals" class="w-full border rounded-lg p-2 focus:ring-1 focus:ring-green-700 focus:outline-none" />
+            </div>
+
+            <div>
+              <label class="block font-medium text-gray-700 mb-1">Safety / Contraindications</label>
+              <input type="text" name="contraindications" placeholder="e.g. Consult doctor during pregnancy" class="w-full border rounded-lg p-2 focus:ring-1 focus:ring-green-700 focus:outline-none" />
+            </div>
+
+            <div>
+              <label class="block font-medium text-gray-700 mb-1">Multilingual Keywords & Tags (comma-separated)</label>
+              <input type="text" name="tags" placeholder="e.g. memory, दिमाग, স্মৃতি, జ్ఞాపకశక్తి, జ్ఞాపకం" class="w-full border rounded-lg p-2 focus:ring-1 focus:ring-green-700 focus:outline-none" />
+            </div>
+
+            <button type="submit" class="w-full bg-[#1b4332] text-white py-2.5 rounded-lg font-semibold hover:bg-[#2d6a4f] transition shadow">
+              Save Product to OnlyVeda Catalog
+            </button>
+          </form>
+        </div>
+
+        <!-- Tab 3: Bulk CSV Import -->
+        <div id="tabContent_import" class="hidden space-y-4 text-xs">
+          <div class="bg-amber-50 border border-amber-200 rounded-lg p-3 text-amber-800">
+            <p class="font-bold flex items-center gap-1.5">
+              <i class="fa-solid fa-file-csv text-amber-600"></i> Bulk Nutraceutical Data Ingestion
+            </p>
+            <p class="mt-1 text-[11px] leading-relaxed">
+              Upload a CSV containing your products. Required columns: <code>name</code>, <code>category</code>, <code>key_ingredients</code>, <code>benefits</code>, <code>dosage_and_usage</code>.
+            </p>
+          </div>
+
+          <div class="p-4 border-2 border-dashed border-gray-300 rounded-xl text-center space-y-3 bg-gray-50">
+            <i class="fa-solid fa-cloud-arrow-up text-3xl text-gray-400"></i>
+            <div>
+              <label class="cursor-pointer bg-white px-3 py-1.5 border border-gray-300 rounded-lg shadow-sm hover:bg-gray-50 font-medium">
+                Select CSV File
+                <input type="file" id="csvFileInput" accept=".csv" class="hidden" onchange="handleFileSelected(this)" />
+              </label>
+              <p id="selectedFileName" class="text-[11px] text-gray-500 mt-2">No file selected</p>
+            </div>
+            <button onclick="uploadCsvFile()" id="uploadCsvBtn" class="bg-[#1b4332] text-white px-4 py-2 rounded-lg font-semibold hover:bg-[#2d6a4f] disabled:opacity-40 transition" disabled>
+              Upload & Ingest Products
+            </button>
+          </div>
+
+          <div class="pt-2">
+            <a href="/data/products_template.csv" download class="text-blue-600 hover:underline flex items-center gap-1 font-medium">
+              <i class="fa-solid fa-file-arrow-down"></i> Download Sample CSV Template
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Drawer: Settings & API Configuration -->
+    <div id="settingsDrawer" class="hidden fixed inset-y-0 right-0 w-full md:w-96 bg-white shadow-2xl z-50 flex flex-col border-l border-gray-200">
+      <div class="bg-slate-800 text-white px-5 py-4 flex items-center justify-between">
+        <h2 class="font-bold text-base flex items-center gap-2">
+          <i class="fa-solid fa-sliders"></i> Model & Settings
+        </h2>
+        <button onclick="toggleDrawer('settingsDrawer')" class="text-gray-300 hover:text-white p-1">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <div class="p-5 space-y-5 flex-1 overflow-y-auto text-xs">
+        <div class="bg-green-50 border border-green-200 rounded-lg p-3 text-green-800">
+          <div class="flex items-center gap-2 font-bold">
+            <i class="fa-solid fa-circle-check text-green-600"></i>
+            <span>Zero-Dependency Native Engine Active</span>
+          </div>
+          <p class="text-[11px] mt-1 text-green-700">
+            The chatbot works 100% offline out-of-the-box using the built-in Indic semantic matching and localized response generator for all 10 languages.
+          </p>
+        </div>
+
+        <div class="space-y-2">
+          <label class="block font-semibold text-gray-700">Optional: Google Gemini API Key</label>
+          <p class="text-[11px] text-gray-500">
+            For advanced generative conversational capabilities, provide a Gemini API Key. If empty, the fast local Indic engine is used.
+          </p>
+          <input type="password" id="apiKeyInput" placeholder="AIzaSy..." class="w-full border rounded-lg p-2.5 text-xs font-mono" />
+          <button onclick="saveApiKey()" class="w-full bg-slate-800 text-white py-2 rounded-lg font-medium hover:bg-slate-700 transition">
+            Update API Key
+          </button>
+        </div>
+
+        <div class="border-t pt-4 space-y-2">
+          <h3 class="font-bold text-gray-800">Supported Indic Languages (10)</h3>
+          <div class="grid grid-cols-2 gap-1.5 text-gray-600 text-[11px]">
+            <span>• हिन्दी (Hindi)</span>
+            <span>• বাংলা (Bengali)</span>
+            <span>• मराठी (Marathi)</span>
+            <span>• తెలుగు (Telugu)</span>
+            <span>• தமிழ் (Tamil)</span>
+            <span>• ગુજરાતી (Gujarati)</span>
+            <span>• اردو (Urdu)</span>
+            <span>• ಕನ್ನಡ (Kannada)</span>
+            <span>• ଓଡ଼ିଆ (Odia)</span>
+            <span>• മലയാളം (Malayalam)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    let allProducts = [];
+    let currentLang = "auto";
+    let currentSessionId = localStorage.getItem("onlyveda_session_id") || null;
+
+    function getSessionId() {
+      if (!currentSessionId) {
+        currentSessionId = "sess_" + Date.now() + "_" + Math.random().toString(36).substring(2, 7);
+        localStorage.setItem("onlyveda_session_id", currentSessionId);
+      }
+      const sessEl = document.getElementById("sessionDisplay");
+      if (sessEl) sessEl.textContent = "ID: " + currentSessionId.slice(-8);
+      return currentSessionId;
+    }
+
+    // Load initial data
+    window.addEventListener("DOMContentLoaded", async () => {
+      getSessionId();
+      await loadProducts();
+      await checkStatus();
+      await loadChatHistory();
+    });
+
+    async function loadChatHistory() {
+      const sessId = localStorage.getItem("onlyveda_session_id");
+      if (!sessId) return;
+
+      try {
+        const res = await fetch(`/api/history/${sessId}`);
+        if (!res.ok) return;
+        const data = await res.json();
+        if (data.history && data.history.length > 0) {
+          data.history.forEach(msg => {
+            if (msg.role === "user") {
+              appendUserMessage(msg.content);
+            } else if (msg.role === "assistant" || msg.role === "model") {
+              appendBotResponse({
+                response: msg.content,
+                language: msg.language,
+                products: msg.products || [],
+                disease_protocol: msg.disease_protocol || null,
+                session_id: sessId
+              });
+            }
+          });
+        }
+      } catch (e) {
+        console.warn("Could not load chat history:", e);
+      }
+    }
+
+    async function checkStatus() {
+      try {
+        const res = await fetch("/api/status");
+        const data = await res.json();
+        if (data.has_api_key) {
+          document.getElementById("apiKeyInput").placeholder = "•••••••••••••••• (API Key Active)";
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    async function loadProducts() {
+      try {
+        const res = await fetch("/api/products");
+        allProducts = await res.json();
+        document.getElementById("productCountBadge").textContent = allProducts.length;
+        document.getElementById("tabCount").textContent = allProducts.length;
+        renderProductsList(allProducts);
+      } catch (e) {
+        console.error("Failed to load products:", e);
+      }
+    }
+
+    function renderProductsList(products) {
+      const container = document.getElementById("productsList");
+      if (!products.length) {
+        container.innerHTML = `<p class="text-xs text-gray-500 italic py-4 text-center">No products in catalog yet.</p>`;
+        return;
+      }
+
+      container.innerHTML = products.map(p => `
+        <div class="bg-gray-50 border border-gray-200 rounded-lg p-3 hover:border-[#2d6a4f] transition text-xs">
+          <div class="flex justify-between items-start gap-2">
+            <h4 class="font-bold text-gray-900 text-[13px]">${p.name}</h4>
+            <span class="font-bold text-green-700 shrink-0">₹${p.price_inr || 'N/A'}</span>
+          </div>
+          <p class="text-gray-500 text-[11px] mt-0.5"><span class="font-semibold text-gray-600">${p.category}</span> • ${p.size || ''}</p>
+          <p class="text-gray-700 mt-1 line-clamp-2">${p.benefits}</p>
+          <div class="mt-2 text-[10px] text-gray-500 bg-white p-1.5 rounded border">
+            <strong>Key Herbs:</strong> ${(p.key_ingredients || []).join(", ")}
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function filterCatalog() {
+      const query = document.getElementById("catalogSearch").value.toLowerCase();
+      const filtered = allProducts.filter(p => 
+        p.name.toLowerCase().includes(query) || 
+        p.category.toLowerCase().includes(query) || 
+        p.benefits.toLowerCase().includes(query) ||
+        (p.key_ingredients || []).join(" ").toLowerCase().includes(query)
+      );
+      renderProductsList(filtered);
+    }
+
+    function toggleDrawer(id) {
+      const drawer = document.getElementById(id);
+      drawer.classList.toggle("hidden");
+    }
+
+    function switchCatalogTab(tab) {
+      ["view", "add", "import"].forEach(t => {
+        document.getElementById(`tabContent_${t}`).classList.add("hidden");
+        const btn = document.getElementById(`tab${t.charAt(0).toUpperCase() + t.slice(1)}Btn`);
+        btn.classList.remove("text-[#1b4332]", "border-b-2", "border-[#1b4332]", "bg-white");
+        btn.classList.add("text-gray-500");
+      });
+      document.getElementById(`tabContent_${tab}`).classList.remove("hidden");
+      const activeBtn = document.getElementById(`tab${tab.charAt(0).toUpperCase() + tab.slice(1)}Btn`);
+      activeBtn.classList.add("text-[#1b4332]", "border-b-2", "border-[#1b4332]", "bg-white");
+      activeBtn.classList.remove("text-gray-500");
+    }
+
+    async function changeLanguage() {
+      const select = document.getElementById("languageSelect");
+      currentLang = select.value;
+      if (currentLang !== "auto") {
+        try {
+          const res = await fetch(`/api/languages`);
+          const langs = await res.json();
+          if (langs[currentLang]) {
+            document.getElementById("welcomeGreeting").textContent = langs[currentLang].greeting;
+            document.getElementById("userInput").placeholder = langs[currentLang].placeholder;
+          }
+        } catch (e) {}
+      }
+    }
+
+    function sendQuickQuery(text) {
+      document.getElementById("userInput").value = text;
+      handleChatSubmit(new Event("submit"));
+    }
+
+    async function handleChatSubmit(e) {
+      e.preventDefault();
+      const input = document.getElementById("userInput");
+      const message = input.value.trim();
+      if (!message) return;
+
+      input.value = "";
+      appendUserMessage(message);
+
+      // Add loading indicator
+      const loadingId = appendLoadingBubble();
+      document.getElementById("sendBtn").disabled = true;
+
+      const sessionId = getSessionId();
+
+      try {
+        const res = await fetch("/api/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            message: message,
+            language: currentLang,
+            session_id: sessionId
+          })
+        });
+        const data = await res.json();
+        if (data.session_id) {
+          currentSessionId = data.session_id;
+          localStorage.setItem("onlyveda_session_id", data.session_id);
+          const sessEl = document.getElementById("sessionDisplay");
+          if (sessEl) sessEl.textContent = "ID: " + currentSessionId.slice(-8);
+        }
+        removeLoadingBubble(loadingId);
+        appendBotResponse(data);
+      } catch (err) {
+        removeLoadingBubble(loadingId);
+        appendErrorMessage("Sorry, an error occurred while connecting. Please try again.");
+      } finally {
+        document.getElementById("sendBtn").disabled = false;
+      }
+    }
+
+    function appendUserMessage(text) {
+      const container = document.getElementById("messagesContainer");
+      const div = document.createElement("div");
+      div.className = "flex justify-end";
+      div.innerHTML = `
+        <div class="bg-[#1b4332] text-white rounded-2xl rounded-tr-none px-4 py-3 max-w-xl text-sm shadow-sm">
+          ${escapeHtml(text)}
+        </div>
+      `;
+      container.appendChild(div);
+      container.scrollTop = container.scrollHeight;
+    }
+
+    function appendLoadingBubble() {
+      const container = document.getElementById("messagesContainer");
+      const id = "loading-" + Date.now();
+      const div = document.createElement("div");
+      div.id = id;
+      div.className = "flex items-start gap-3 max-w-2xl";
+      div.innerHTML = `
+        <div class="w-8 h-8 rounded-full bg-white border border-[#c2d6c0] flex items-center justify-center shrink-0 p-1 shadow-xs animate-pulse">
+          <img src="/logo.png" alt="OnlyVeda" class="w-full h-full object-contain" />
+        </div>
+        <div class="bg-white border border-[#e2ece1] rounded-2xl rounded-tl-none p-3 shadow-sm text-sm text-gray-500 flex items-center gap-2">
+          <i class="fa-solid fa-spinner fa-spin text-[#2d6a4f]"></i>
+          <span>Consulting OnlyVeda Ayurvedic Knowledgebase...</span>
+        </div>
+      `;
+      container.appendChild(div);
+      container.scrollTop = container.scrollHeight;
+      return id;
+    }
+
+    function removeLoadingBubble(id) {
+      const el = document.getElementById(id);
+      if (el) el.remove();
+    }
+
+    function appendBotResponse(data) {
+      const container = document.getElementById("messagesContainer");
+      const div = document.createElement("div");
+      div.className = "flex items-start gap-3 max-w-3xl";
+
+      let protocolBanner = "";
+      if (data.disease_protocol && data.disease_protocol.disease) {
+        protocolBanner = `
+          <div class="mb-2 bg-[#d8f3dc] border border-[#b7e4c7] text-[#1b4332] rounded-lg px-3 py-1.5 text-xs font-semibold flex items-center gap-2">
+            <i class="fa-solid fa-file-prescription text-[#2d6a4f]"></i>
+            <span>Official Formulary Protocol: <strong>${escapeHtml(data.disease_protocol.disease)}</strong></span>
+          </div>
+        `;
+      }
+
+      let productsHtml = "";
+      if (data.products && data.products.length > 0) {
+        productsHtml = `
+          <div class="mt-4 pt-3 border-t border-gray-100 grid grid-cols-1 sm:grid-cols-2 gap-3">
+            ${data.products.map(p => `
+              <div class="bg-[#f7faf7] border border-[#d8e8d7] rounded-xl p-3 flex flex-col justify-between shadow-xs hover:shadow transition">
+                <div>
+                  <div class="flex items-center justify-between gap-1 mb-1">
+                    <span class="text-[10px] bg-[#d8f3dc] text-[#1b4332] font-bold px-2 py-0.5 rounded-full uppercase">${p.category}</span>
+                    <span class="font-bold text-[#1b4332] text-xs">₹${p.price_inr}</span>
+                  </div>
+                  <h4 class="font-bold text-gray-900 text-xs">${escapeHtml(p.name)}</h4>
+                  ${p.prescribed_dose ? `
+                    <div class="mt-1 bg-[#e8f5e9] border border-[#c8e6c9] text-[#1b4332] px-2 py-0.5 rounded text-[10.5px] font-semibold flex items-center gap-1.5">
+                      <i class="fa-solid fa-prescription text-[#2d6a4f]"></i>
+                      <span>Dose: <strong>${escapeHtml(p.prescribed_dose)}</strong></span>
+                    </div>
+                  ` : ''}
+                  <p class="text-[11px] text-gray-600 mt-1 line-clamp-2">${escapeHtml(p.benefits || '')}</p>
+                  <p class="text-[10px] text-[#2d6a4f] mt-1.5 font-medium">🌿 <strong>Herbs:</strong> ${(p.key_ingredients || []).slice(0, 3).map(escapeHtml).join(", ")}</p>
+                </div>
+                <div class="mt-2 pt-1.5 border-t border-[#e2ede1] flex items-center justify-between text-[10px] text-gray-500">
+                  <span>${escapeHtml(p.size || 'In Stock')}</span>
+                  <span class="text-[#2d6a4f] font-medium"><i class="fa-solid fa-check text-[9px]"></i> OnlyVeda Official</span>
+                </div>
+              </div>
+            `).join("")}
+          </div>
+        `;
+      }
+
+      const formattedMarkdown = marked.parse(data.response || "");
+
+      div.innerHTML = `
+        <div class="w-8 h-8 rounded-full bg-white border border-[#c2d6c0] flex items-center justify-center shrink-0 p-1 shadow-xs">
+          <img src="/logo.png" alt="OnlyVeda" class="w-full h-full object-contain" />
+        </div>
+        <div class="bg-white border border-[#e2ece1] rounded-2xl rounded-tl-none p-4 shadow-sm text-sm text-gray-800 space-y-2 flex-1">
+          ${protocolBanner}
+          <div class="prose prose-sm max-w-none text-gray-800 leading-relaxed text-[13.5px]">
+            ${formattedMarkdown}
+          </div>
+          ${productsHtml}
+          <div class="flex items-center justify-between text-[10px] text-gray-400 pt-2 border-t border-gray-100">
+            <span>Language: <strong>${data.language_name || data.language}</strong></span>
+            <span>OnlyVeda Nutraceutical Engine</span>
+          </div>
+        </div>
+      `;
+      container.appendChild(div);
+      container.scrollTop = container.scrollHeight;
+    }
+
+    function appendErrorMessage(msg) {
+      const container = document.getElementById("messagesContainer");
+      const div = document.createElement("div");
+      div.className = "flex items-start gap-3 max-w-2xl";
+      div.innerHTML = `
+        <div class="w-8 h-8 rounded-full bg-red-600 text-white flex items-center justify-center shrink-0 text-sm">
+          <i class="fa-solid fa-circle-exclamation"></i>
+        </div>
+        <div class="bg-red-50 border border-red-200 text-red-800 rounded-2xl rounded-tl-none p-3 shadow-sm text-xs">
+          ${escapeHtml(msg)}
+        </div>
+      `;
+      container.appendChild(div);
+      container.scrollTop = container.scrollHeight;
+    }
+
+    async function clearChat() {
+      const sessId = localStorage.getItem("onlyveda_session_id");
+      if (sessId) {
+        try {
+          await fetch(`/api/history/${sessId}`, { method: "DELETE" });
+        } catch (e) {
+          console.error(e);
+        }
+      }
+      localStorage.removeItem("onlyveda_session_id");
+      currentSessionId = null;
+      getSessionId();
+
+      const container = document.getElementById("messagesContainer");
+      while (container.children.length > 1) {
+        container.removeChild(container.lastChild);
+      }
+    }
+
+    async function handleAddProduct(e) {
+      e.preventDefault();
+      const form = e.target;
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      try {
+        const res = await fetch("/api/products", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        });
+        const result = await res.json();
+        if (result.success) {
+          alert("Product added successfully!");
+          form.reset();
+          await loadProducts();
+          switchCatalogTab("view");
+        } else {
+          alert("Error: " + result.message);
+        }
+      } catch (err) {
+        alert("Failed to save product: " + err.message);
+      }
+    }
+
+    function handleFileSelected(input) {
+      if (input.files.length > 0) {
+        document.getElementById("selectedFileName").textContent = input.files[0].name;
+        document.getElementById("uploadCsvBtn").disabled = false;
+      }
+    }
+
+    async function uploadCsvFile() {
+      const input = document.getElementById("csvFileInput");
+      if (!input.files.length) return;
+
+      const formData = new FormData();
+      formData.append("file", input.files[0]);
+
+      const btn = document.getElementById("uploadCsvBtn");
+      btn.disabled = true;
+      btn.textContent = "Ingesting Products...";
+
+      try {
+        const res = await fetch("/api/products/upload-csv", {
+          method: "POST",
+          body: formData
+        });
+        const result = await res.json();
+        if (result.success) {
+          alert(`Success! Ingested ${result.added} products.`);
+          input.value = "";
+          document.getElementById("selectedFileName").textContent = "No file selected";
+          await loadProducts();
+          switchCatalogTab("view");
+        } else {
+          alert("Upload issue: " + JSON.stringify(result.errors));
+        }
+      } catch (e) {
+        alert("Upload failed: " + e.message);
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "Upload & Ingest Products";
+      }
+    }
+
+    async function saveApiKey() {
+      const key = document.getElementById("apiKeyInput").value.trim();
+      try {
+        const res = await fetch("/api/settings", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ api_key: key })
+        });
+        const result = await res.json();
+        alert(result.message);
+      } catch (e) {
+        alert("Failed to update setting: " + e.message);
+      }
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement("div");
+      div.textContent = text;
+      return div.innerHTML;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+.pytest_cache/
+cloudflared.exe
+*.log
+.system_generated/
+scripts/
