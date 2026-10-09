@@ -23,11 +23,27 @@ from src.config import (
     WELLNESS_PATTERNS,
     NON_HEALTH_PATTERNS,
     TREATMENT_OVERRIDE_PATTERNS,
-    OFFLINE_EDUCATIONAL_KNOWLEDGE
+    OFFLINE_EDUCATIONAL_KNOWLEDGE,
+    SYSTEM_PROMPT_BODY_COACH,
+    SYSTEM_PROMPT_NUTRITION_COACH,
+    SYSTEM_PROMPT_HEALTH_EDUCATOR,
+    SYSTEM_PROMPT_PRODUCT_GUIDE,
+    SYSTEM_PROMPT_CAREER_COACH,
+    SYSTEM_PROMPT_NUTRITRAINER,
+    SYSTEM_PROMPT_VOICE_AGENT
+)
+from src.coaches import (
+    MedicalSafetyEngine,
+    CoachModule,
+    COACH_METADATA,
+    OrchestratorEngine,
+    WellnessDiscoveryEngine,
+    NutritrainerCurriculum
 )
 from src.data_manager import ProductDataManager
 from src.recommender import NutraceuticalRecommender
 from src.memory_manager import ConversationMemory
+
 
 
 class OnlyVedaChatbot:
@@ -790,14 +806,23 @@ class OnlyVedaChatbot:
 
         return "\n".join(response_lines)
 
-    def chat(self, user_message: str, selected_lang: Optional[str] = None, session_id: Optional[str] = None) -> Dict[str, Any]:
+    def chat(
+        self,
+        user_message: str,
+        selected_lang: Optional[str] = None,
+        session_id: Optional[str] = None,
+        coach_module: Optional[str] = None,
+        perspective: Optional[str] = "beginner",
+        voice_mode: Optional[str] = None,
+        user_profile: Optional[Dict[str, Any]] = None
+    ) -> Dict[str, Any]:
         """
-        Process user query with full persistent multi-turn conversational memory:
-        1. Manages persistent SQLite sessions and loads conversation history.
-        2. Intelligently decides from user prompt whether to suggest a product or not.
-        3. For educational/conceptual questions, explains thoroughly first, and AFTER THIS suggests accurate products.
-        4. Matches exact disease protocols from diseases_wise_1.csv.
-        5. Saves user and assistant turns to memory.
+        ONLYVEDAA AI™ Wellness & Learning Companion Engine:
+        1. Medical Safety Engine: Intercepts emergency red flags immediately.
+        2. 6 AI Coaches (Body, Nutrition, Health, Product, Career, Nutritrainer, Discovery).
+        3. Perspective customizer ("Explain Like I'm...": Beginner, Entrepreneur, Student, Professional).
+        4. Voice Mode Support (Quick 30s, Learn 3-5m, Deep Dive, Quiz, Daily Coach).
+        5. Knowledge Before Recommendation: Educates first, recommends OnlyVeda products responsibly.
         """
         clean_msg = user_message.strip()
         session_id = self.memory.get_or_create_session(session_id)
@@ -815,12 +840,39 @@ class OnlyVedaChatbot:
 
         lang_cfg = SUPPORTED_LANGUAGES.get(lang, SUPPORTED_LANGUAGES["en"])
 
-        # Central Decision Engine
+        # 1. MEDICAL SAFETY ENGINE: Red Flag Interceptor
+        emergency_warning = MedicalSafetyEngine.check_red_flags(clean_msg, lang)
+        if emergency_warning:
+            self.memory.add_message(session_id=session_id, role="user", content=clean_msg, language=lang)
+            self.memory.add_message(session_id=session_id, role="assistant", content=emergency_warning, language=lang)
+            return {
+                "session_id": session_id,
+                "response": emergency_warning,
+                "language": lang,
+                "language_name": lang_cfg["name"],
+                "coach_module": "safety_engine",
+                "coach_info": {"title": "🚨 Medical Safety Alert", "badge": "Emergency Protection"},
+                "is_emergency": True,
+                "products": [],
+                "disease_protocol": None,
+                "suggestions": [],
+                "has_api_key": bool(self.api_key)
+            }
+
+        # 2. RESOLVE ACTIVE COACH MODULE
+        active_coach = OrchestratorEngine.classify_intent(clean_msg, coach_module)
+        coach_info = COACH_METADATA.get(active_coach, {
+            "title": "🧠 ONLYVEDAA AI™ Orchestrator",
+            "badge": "Wellness & Learning Guide"
+        })
+
+        # Central Decision Engine for Products
         decision = self.decide_product_suggestion(clean_msg, lang, session_ctx)
         should_suggest = decision["should_suggest"]
         intent = decision["intent"]
         topic = decision["topic"]
-        # Deduplicate products by name (keep first occurrence)
+
+        # Deduplicate products by name
         seen_names = set()
         deduped = []
         for p in decision["products"]:
@@ -831,89 +883,15 @@ class OnlyVedaChatbot:
         suggested_products = deduped
         disease_protocol = decision["disease_protocol"]
 
+        # If user explicitly asked Body, Nutrition, Career, or Nutritrainer, DO NOT push products unless asked
+        if active_coach in [CoachModule.BODY, CoachModule.NUTRITION, CoachModule.CAREER, CoachModule.NUTRITRAINER]:
+            should_suggest = False
+            suggested_products = []
 
-
-        # 1. CATEGORY: DO NOT SUGGEST PRODUCT (Greetings, Identity, Gratitude, Farewell, Non-Health, Educational)
-        if not should_suggest:
-            if intent == "educational":
-                # Short, crisp educational answer — NO products
-                reply = ""
-                if self.api_key:
-                    edu_prompt = SYSTEM_PROMPT_NUTRACEUTICAL_EXPLANATION.format(
-                        language_name=lang_cfg['name'],
-                        native_name=lang_cfg['native_name'],
-                        clean_msg=clean_msg,
-                        catalog_context=""
-                    )
-                    reply = self._call_gemini_api(edu_prompt, lang, conversation_history=history) or ""
-                if not reply:
-
-                    # Offline fallback: pull just first 2 sentences from offline knowledge
-                    topic_knowledge = OFFLINE_EDUCATIONAL_KNOWLEDGE.get(topic or "general", OFFLINE_EDUCATIONAL_KNOWLEDGE.get("general", {}))
-                    full_text = topic_knowledge.get(lang, topic_knowledge.get("en", ""))
-                    if full_text:
-                        # Extract just the first plain paragraph (before any heading/bullet)
-                        plain_lines = [l.strip() for l in full_text.split("\n") if l.strip() and not l.strip().startswith("#") and not l.strip().startswith("-") and not l.strip().startswith("*") and not l.strip().startswith("####")]
-                        short_answer = " ".join(plain_lines[:2]) if plain_lines else full_text[:300]
-                    else:
-                        short_answer = lang_cfg["greeting"]
-                    # Add invite to share personal symptoms
-                    invite = {
-                        "en": "\n\nIf you are personally experiencing this condition and want OnlyVeda product recommendations, please share your symptoms!",
-                        "hi": "\n\nयदि आप स्वयं इस समस्या से पीड़ित हैं और OnlyVeda उत्पाद जानना चाहते हैं, तो कृपया अपने लक्षण बताएं!",
-                        "gu": "\n\nજો તમે આ સ્થિતિથી પ્રભાવિત છો અને OnlyVeda ઉત્પાદો જાણવા ઇચ્છો છો, તો કૃપા કરીને તમારા લક્ષણો જણાવો!",
-                        "mr": "\n\nजर तुम्हाला स्वतःला ही समस्या आहे आणि OnlyVeda उत्पादने जाणून घ्यायची असतील, तर कृपया तुमची लक्षणे सांगा!",
-                        "bn": "\n\nআপনি যদি নিজে এই সমস্যায় ভুগছেন এবং OnlyVeda পণ্যের পরামর্শ চান, তাহলে দয়া করে আপনার উপসর্গ জানান!",
-                        "te": "\n\nమీరు స్వయంగా ఈ సమస్యతో బాధపడుతుంటే మరియు OnlyVeda ఉత్పత్తులు తెలుసుకోవాలంటే, దయచేసి మీ లక్షణాలు చెప్పండి!",
-                        "ta": "\n\nநீங்கள் தனிப்பட்ட முறையில் இந்த நிலையை அனுபவிக்கிறீர்களா? OnlyVeda தயாரிப்புகள் பெற உங்கள் அறிகுறிகளை பகிர்ந்துகொள்ளுங்கள்!",
-                        "kn": "\n\nನೀವು ಈ ಸಮಸ್ಯೆಯಿಂದ ಬಳಲುತ್ತಿದ್ದರೆ ಮತ್ತು OnlyVeda ಉತ್ಪನ್ನಗಳ ಬಗ್ಗೆ ತಿಳಿಯಲು ಬಯಸಿದರೆ, ದಯವಿಟ್ಟು ನಿಮ್ಮ ರೋಗಲಕ್ಷಣಗಳನ್ನು ಹೇಳಿ!",
-                        "or": "\n\nଯଦି ଆପଣ ଏହି ସମସ୍ୟାରେ ପୀଡ଼ିତ ଏବଂ OnlyVeda ଉତ୍ପାଦ ଜାଣିବାକୁ ଚାହୁଁଛନ୍ତି, ଆପଣଙ୍କ ଲକ୍ଷଣ ଜଣାନ୍ତୁ!",
-                        "ml": "\n\nനിങ്ങൾ ഈ അവസ്ഥ അനുഭവിക്കുന്നുണ്ടെങ്കിൽ, OnlyVeda ഉൽപ്പന്ന ശുപാർശകൾക്ക് നിങ്ങളുടെ ലക്ഷണങ്ങൾ പങ്കിടൂ!",
-                        "ur": "\n\nاگر آپ خود اس مسئلے سے پریشان ہیں اور OnlyVeda مصنوعات جاننا چاہتے ہیں، تو اپنی علامات بتائیں!"
-                    }
-                    reply = short_answer + invite.get(lang, invite["en"])
-                if not reply:
-                    reply = lang_cfg["greeting"]
-            elif intent in CONVERSATIONAL_RESPONSES:
-                intent_responses = CONVERSATIONAL_RESPONSES.get(intent, {})
-                reply = intent_responses.get(lang, intent_responses.get("en", lang_cfg["greeting"]))
-            elif intent == "non_health":
-                non_health_replies = {
-                    "en": "Namaste! 🙏 I am your **OnlyVeda Ayurvedic & Nutraceutical Wellness Assistant**.\n\nI specialize in natural herbal medicine, Ayurvedic principles, and our clinical wellness formulations (such as solutions for Blood Pressure, Joint Pain, Acidity, Immunity, Diabetes support, and Skin Care).\n\nI am unable to assist with non-health topics. Please feel free to ask me any health or wellness question!",
-                    "hi": "नमस्ते! 🙏 मैं आपका **OnlyVeda आयुर्वेदिक और न्यूट्रास्युटिकल सलाहकार** हूँ।\n\nमेरी विशेषज्ञता प्राकृतिक जड़ी-बूटियों, आयुर्वेद और स्वास्थ्य सप्लीमेंट्स (जैसे ब्लड प्रेशर, जोड़ों का दर्द, गैस-एसिडिटी, इम्युनिटी, त्वचा आदि) में है।\n\nमैं गैर-स्वास्थ्य विषयों पर जानकारी देने में असमर्थ हूँ। कृपया बेझिझक अपने स्वास्थ्य से संबंधित कोई भी प्रश्न पूछें!",
-                    "gu": "નમસ્તે! 🙏 હું તમારો **OnlyVeda આયુર્વેદિક અને ન્યુટ્રાસ્યુટિકલ સહાયક** છું.\n\nહું કુદરતી આયુર્વેદિક ઉપચારો અને સ્વાસ્થ્ય પ્રોડક્ટ્સ (જેમ કે હાઈ બીપી, સાંધાનો દુખાવો, એસિડિટી, રોગપ્રતિકારક શક્તિ, ત્વચા સંભાળ વગેરે) માટે મદદ કરું છું.\n\nહું બિન-આરોગ્ય વિષયો પર માહિતી આપી શકતો નથી. કૃપા કરીને તમારા સ્વાસ્થ્ય સંબંધી કોઈપણ પ્રશ્ન પૂછો!",
-                    "mr": "नमस्कार! 🙏 मी आपला **OnlyVeda आयुर्वेदिक आणि न्यूट्रास्युटिकल वेलनेस असिस्टंट** आहे.\n\nमी आरोग्य, आजार आणि नैसर्गिक सप्लिमेंट्सबद्दल मार्गदर्शन करतो. कृपया आपल्या आरोग्याशी संबंधित प्रश्न विचारा!",
-                    "bn": "নমস্কার! 🙏 আমি আপনার **OnlyVeda আয়ুর্বেদিক ও নিউট্রাসিউটিক্যাল স্বাস্থ্য সহকারী**।\n\nআমি কেবল স্বাস্থ্য ও ভেষজ চিকিৎসা সংক্রান্ত বিষয়ে সহায়তা করি। অনুগ্রহ করে আপনার স্বাস্থ্য সমস্যা সম্পর্কে জানান!",
-                    "te": "నమస్కారం! 🙏 నేను మీ **OnlyVeda ఆయుర్వేద & న్యూట్రాస్యూటికల్ వెల్నెస్ అసిస్టెంట్**.\n\nనేను ఆరోగ్య సమస్యలు మరియు మూలికా ఉత్పత్తుల గురించి మాత్రమే మార్గదర్శనం చేస్తాను.",
-                    "ta": "வணக்கம்! 🙏 நான் உங்கள் **OnlyVeda ஆயுர்வேத மற்றும் நல்வாழ்வு உதவியாளர்**.\n\nநான் உடல்நலம் மற்றும் மூலிகை தயாரிப்புகள் பற்றிய தகவல்களை மட்டுமே வழங்குகிறேன்.",
-                    "kn": "ನಮಸ್ಕಾರ! 🙏 ನಾನು ನಿಮ್ಮ **OnlyVeda ಆಯುರ್ವೇದ ಆರೋಗ್ಯ ಸಹಾಯಕ**.\n\nನಾನು ಕೇವಲ ಆರೋಗ್ಯ ಮತ್ತು ಆಯುರ್ವೇದ ಉತ್ಪನ್ನಗಳ ಬಗ್ಗೆ ಮಾರ್ಗದರ್ಶನ ನೀಡುತ್ತೇನೆ.",
-                    "or": "ନମସ୍କାର! 🙏 ମୁଁ ଆପଣଙ୍କ **OnlyVeda ଆୟୁର୍ବେଦିକ ସ୍ୱାସ୍ଥ୍ୟ ସହାୟକ**।\n\nମୁଁ କେବଳ ସ୍ୱାସ୍ଥ୍ୟ ଏବଂ ଆୟୁର୍ବେଦିକ ଉତ୍ପାଦ ବିଷୟରେ ପରାମର୍ଶ ଦେଇଥାଏ।",
-                    "ml": "നമസ്കാരം! 🙏 ഞാൻ നിങ്ങളുടെ **OnlyVeda ആയുർവേദ വെൽനസ് അസിസ്റ്റന്റാണ്**.\n\nഞാൻ ആരോഗ്യ കാര്യങ്ങളിൽ മാത്രമേ സഹായിക്കുകയുള്ളൂ.",
-                    "ur": "السلام علیکم! 🙏 میں آپ کا **OnlyVeda آیورویدک ہیلتھ اسسٹنٹ** ہوں۔\n\nمیں صرف صحت اور قدرتی سپلیمنٹس سے متعلق رہنمائی فراہم کرتا ہوں۔"
-                }
-                reply = non_health_replies.get(lang, non_health_replies["en"]) + f"\n\n---\n{lang_cfg['disclaimer']}"
-            else:
-                reply = lang_cfg["greeting"]
-
-
-
-            self.memory.add_message(session_id=session_id, role="user", content=clean_msg, language=lang)
-            self.memory.add_message(session_id=session_id, role="assistant", content=reply, language=lang)
-            return {
-                "session_id": session_id,
-                "response": reply,
-                "language": lang,
-                "language_name": lang_cfg["name"],
-                "products": [],
-                "disease_protocol": None,
-                "suggestions": [],
-                "has_api_key": bool(self.api_key)
-            }
-
-        # 2. CATEGORY: SUGGEST PRODUCT ACCURATELY
+        # 3. GENERATION VIA SPECIALIZED COACH MODULES
         generated_text = None
 
-        # Build catalog summary for LLM context
+        # Build catalog summary
         catalog_summary = []
         for p in suggested_products:
             catalog_summary.append(
@@ -927,40 +905,95 @@ class OnlyVedaChatbot:
         catalog_context_str = "\n\n".join(catalog_summary) if catalog_summary else "OnlyVeda standardized herbal extracts and clinical nutraceuticals."
 
         if self.api_key:
-            if intent == "educational":
-                prompt = SYSTEM_PROMPT_NUTRACEUTICAL_EXPLANATION.format(
-                    language_name=lang_cfg['name'],
-                    native_name=lang_cfg['native_name'],
-                    clean_msg=clean_msg,
-                    catalog_context=catalog_context_str
-                )
-                generated_text = self._call_gemini_api(prompt, lang, conversation_history=history)
-            elif intent == "disease_protocol":
-                dis_name = disease_protocol.get("disease", "Clinical Condition") if disease_protocol else "Clinical Condition"
+            if voice_mode and voice_mode in ['quick', 'learn', 'deep_dive', 'quiz', 'daily']:
                 prompt = (
-                    f"{SYSTEM_PROMPT_INDIC_TEMPLATE.format(language_name=lang_cfg['name'], native_name=lang_cfg['native_name'], catalog_context=catalog_context_str)}\n\n"
-                    f"Target Condition: {dis_name}\n"
-                    f"STRICT INSTRUCTION: Recommend ONLY the OnlyVeda products listed above with their exact prescribed doses. Explain why these products help, how to take them, and relevant Ayurvedic dietary tips.\n\n"
+                    f"{SYSTEM_PROMPT_VOICE_AGENT.format(language_name=lang_cfg['name'], native_name=lang_cfg['native_name'], voice_mode=voice_mode, perspective=perspective or 'beginner')}\n\n"
                     f"User ({lang_cfg['name']}): \"{clean_msg}\"\n\n"
-                    f"Please reply in {lang_cfg['name']} ({lang_cfg['native_name']}) now:"
+                    f"Please provide your speech response now in {lang_cfg['name']} ({lang_cfg['native_name']}):"
                 )
                 generated_text = self._call_gemini_api(prompt, lang, conversation_history=history)
-            elif intent == "followup":
-                dis_name = topic or "Prior Condition"
+
+            elif active_coach == CoachModule.BODY:
                 prompt = (
-                    f"{SYSTEM_PROMPT_INDIC_TEMPLATE.format(language_name=lang_cfg['name'], native_name=lang_cfg['native_name'], catalog_context=catalog_context_str)}\n\n"
-                    f"Previously prescribed condition: {dis_name}\n"
-                    f"STRICT INSTRUCTION: The user is asking a follow-up question regarding their previously prescribed condition/products. Answer their question accurately in {lang_cfg['name']} ({lang_cfg['native_name']}) as OnlyVeda Assistant. Emphasize proper usage of the discussed OnlyVeda products.\n\n"
-                    f"User Question ({lang_cfg['name']}): \"{clean_msg}\"\n\n"
-                    f"Please reply in {lang_cfg['name']} ({lang_cfg['native_name']}) as OnlyVeda Assistant now:"
+                    f"{SYSTEM_PROMPT_BODY_COACH.format(language_name=lang_cfg['name'], native_name=lang_cfg['native_name'])}\n\n"
+                    f"Perspective: {perspective or 'beginner'}\n"
+                    f"User Query: \"{clean_msg}\"\n\n"
+                    f"Teach the relevant anatomy and physiological mechanism in {lang_cfg['name']} ({lang_cfg['native_name']}), concluding with an interactive learning check-in question:"
                 )
                 generated_text = self._call_gemini_api(prompt, lang, conversation_history=history)
+
+            elif active_coach == CoachModule.NUTRITION:
+                prompt = (
+                    f"{SYSTEM_PROMPT_NUTRITION_COACH.format(language_name=lang_cfg['name'], native_name=lang_cfg['native_name'])}\n\n"
+                    f"Perspective: {perspective or 'beginner'}\n"
+                    f"User Query: \"{clean_msg}\"\n\n"
+                    f"Provide practical nutrition guidance and dietary habit education in {lang_cfg['name']} ({lang_cfg['native_name']}):"
+                )
+                generated_text = self._call_gemini_api(prompt, lang, conversation_history=history)
+
+            elif active_coach == CoachModule.CAREER:
+                prompt = (
+                    f"{SYSTEM_PROMPT_CAREER_COACH.format(language_name=lang_cfg['name'], native_name=lang_cfg['native_name'])}\n\n"
+                    f"User Query: \"{clean_msg}\"\n\n"
+                    f"Provide an empowering, honest, ethical explanation of Onlyvedaa's community commerce and wellness career in {lang_cfg['name']} ({lang_cfg['native_name']}):"
+                )
+                generated_text = self._call_gemini_api(prompt, lang, conversation_history=history)
+
+            elif active_coach == CoachModule.NUTRITRAINER:
+                prompt = (
+                    f"{SYSTEM_PROMPT_NUTRITRAINER.format(language_name=lang_cfg['name'], native_name=lang_cfg['native_name'])}\n\n"
+                    f"User Query: \"{clean_msg}\"\n\n"
+                    f"Deliver the lesson concisely following 'Explain → Ask → Check → Advance' in {lang_cfg['name']} ({lang_cfg['native_name']}):"
+                )
+                generated_text = self._call_gemini_api(prompt, lang, conversation_history=history)
+
+            elif not should_suggest:
+                if intent == "educational":
+                    edu_prompt = (
+                        f"{SYSTEM_PROMPT_HEALTH_EDUCATOR.format(language_name=lang_cfg['name'], native_name=lang_cfg['native_name'])}\n\n"
+                        f"Perspective: {perspective or 'beginner'}\n"
+                        f"User Query: \"{clean_msg}\"\n\n"
+                        f"Explain the condition's causes, basic physiology, and lifestyle considerations concisely (3-4 sentences, no medicine prescription) in {lang_cfg['name']} ({lang_cfg['native_name']}):"
+                    )
+                    generated_text = self._call_gemini_api(edu_prompt, lang, conversation_history=history)
+                elif intent in CONVERSATIONAL_RESPONSES:
+                    intent_responses = CONVERSATIONAL_RESPONSES.get(intent, {})
+                    generated_text = intent_responses.get(lang, intent_responses.get("en", lang_cfg["greeting"]))
+                elif intent == "non_health":
+                    generated_text = (
+                        f"Namaste! 🙏 I am your **ONLYVEDAA AI™ Wellness & Learning Companion**.\n\n"
+                        f"I specialize in human physiology, nutrition science, Ayurveda, and wellness education.\n"
+                        f"I cannot answer off-topic queries, but please feel free to ask me anything about your body, nutrition, or health goals!\n\n---\n{lang_cfg['disclaimer']}"
+                    )
             else:
-                prompt = (
-                    f"{SYSTEM_PROMPT_NUTRACEUTICAL_EXPLANATION.format(language_name=lang_cfg['name'], native_name=lang_cfg['native_name'], clean_msg=clean_msg, catalog_context=catalog_context_str)}\n\n"
-                    f"Please provide an empathetic, knowledgeable Ayurvedic wellness response in {lang_cfg['name']} ({lang_cfg['native_name']}) concluding with recommending the listed OnlyVeda products:"
-                )
-                generated_text = self._call_gemini_api(prompt, lang, conversation_history=history)
+                if intent == "disease_protocol":
+                    dis_name = disease_protocol.get("disease", "Clinical Condition") if disease_protocol else "Clinical Condition"
+                    prompt = (
+                        f"{SYSTEM_PROMPT_INDIC_TEMPLATE.format(language_name=lang_cfg['name'], native_name=lang_cfg['native_name'], catalog_context=catalog_context_str)}\n\n"
+                        f"Target Condition: {dis_name}\n"
+                        f"STRICT INSTRUCTION: Recommend ONLY the OnlyVeda products listed above with their exact prescribed doses. Explain why these products help, how to take them, and relevant Ayurvedic dietary tips.\n\n"
+                        f"User ({lang_cfg['name']}): \"{clean_msg}\"\n\n"
+                        f"Please reply in {lang_cfg['name']} ({lang_cfg['native_name']}) now:"
+                    )
+                    generated_text = self._call_gemini_api(prompt, lang, conversation_history=history)
+                elif intent == "followup":
+                    dis_name = topic or "Prior Condition"
+                    prompt = (
+                        f"{SYSTEM_PROMPT_INDIC_TEMPLATE.format(language_name=lang_cfg['name'], native_name=lang_cfg['native_name'], catalog_context=catalog_context_str)}\n\n"
+                        f"Previously prescribed condition: {dis_name}\n"
+                        f"STRICT INSTRUCTION: The user is asking a follow-up question regarding their previously prescribed condition/products. Answer their question accurately in {lang_cfg['name']} ({lang_cfg['native_name']}) as OnlyVeda Assistant. Emphasize proper usage of the discussed OnlyVeda products.\n\n"
+                        f"User Question ({lang_cfg['name']}): \"{clean_msg}\"\n\n"
+                        f"Please reply in {lang_cfg['name']} ({lang_cfg['native_name']}) as OnlyVeda Assistant now:"
+                    )
+                    generated_text = self._call_gemini_api(prompt, lang, conversation_history=history)
+                else:
+                    prompt = (
+                        f"{SYSTEM_PROMPT_PRODUCT_GUIDE.format(language_name=lang_cfg['name'], native_name=lang_cfg['native_name'], catalog_context=catalog_context_str)}\n\n"
+                        f"User Query: \"{clean_msg}\"\n\n"
+                        f"Please provide an empathetic, knowledgeable Ayurvedic wellness response in {lang_cfg['name']} ({lang_cfg['native_name']}) concluding with recommending the listed OnlyVeda products:"
+                    )
+                    generated_text = self._call_gemini_api(prompt, lang, conversation_history=history)
+
 
         # Fallback to local generator if offline, rate limited, or API returned empty
         if not generated_text:
@@ -1053,8 +1086,51 @@ class OnlyVedaChatbot:
             "response": generated_text,
             "language": lang,
             "language_name": lang_cfg["name"],
+            "coach_module": active_coach,
+            "coach_info": coach_info,
+            "perspective": perspective,
+            "voice_mode": voice_mode,
+            "is_emergency": False,
             "products": suggested_products,
             "disease_protocol": disease_protocol,
             "suggestions": [],
             "has_api_key": bool(self.api_key)
         }
+
+    def voice_chat(
+        self,
+        user_speech: str,
+        selected_lang: Optional[str] = "en",
+        session_id: Optional[str] = None,
+        voice_mode: str = "quick",
+        perspective: str = "beginner",
+        coach_module: Optional[str] = None
+    ) -> Dict[str, Any]:
+        """
+        Specialized Voice Agent entrypoint:
+        1. Formats speech prompt with Google Gemini API for warm, articulate spoken audio.
+        2. Produces clean 'speech_text' stripped of markdown asterisks/hashtags for seamless Text-to-Speech.
+        3. Returns display_text for screen display and suggested OnlyVeda products when appropriate.
+        """
+        result = self.chat(
+            user_message=user_speech,
+            selected_lang=selected_lang,
+            session_id=session_id,
+            coach_module=coach_module,
+            perspective=perspective,
+            voice_mode=voice_mode
+        )
+        
+        # Prepare speech_text stripped of formatting for smooth TTS
+        raw_text = result.get("response", "")
+        clean_speech = re.sub(r'#{1,6}\s*', '', raw_text)
+        clean_speech = re.sub(r'[*_~`]', '', clean_speech)
+        clean_speech = re.sub(r'\[([^\]]+)\]\([^)]+\)', r'\1', clean_speech)
+        clean_speech = re.sub(r'---\s*', '', clean_speech)
+        clean_speech = re.sub(r'⚠️\s*Disclaimer:.*', '', clean_speech, flags=re.DOTALL)
+        clean_speech = " ".join(clean_speech.split())
+        
+        result["speech_text"] = clean_speech
+        result["display_text"] = raw_text
+        return result
+

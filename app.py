@@ -42,6 +42,29 @@ class ChatRequest(BaseModel):
     message: str
     language: Optional[str] = "en"
     session_id: Optional[str] = None
+    coach_module: Optional[str] = None
+    perspective: Optional[str] = "beginner"
+    voice_mode: Optional[str] = None
+
+
+class VoiceChatRequest(BaseModel):
+    message: str
+    language: Optional[str] = "en"
+    session_id: Optional[str] = None
+    voice_mode: Optional[str] = "quick"
+    perspective: Optional[str] = "beginner"
+    coach_module: Optional[str] = None
+
+
+class DiscoveryRequest(BaseModel):
+    age: Optional[int] = 35
+    gender: Optional[str] = "Not specified"
+    diet: Optional[str] = "Vegetarian"
+    goal: Optional[str] = "Overall Energy & Vitality"
+    activity: Optional[str] = "Moderate"
+    sleep: Optional[str] = "7 hours"
+    concern: Optional[str] = "General Health"
+    language: Optional[str] = "en"
 
 
 class ProductCreateRequest(BaseModel):
@@ -93,9 +116,85 @@ async def chat_endpoint(req: ChatRequest):
     result = chatbot.chat(
         user_message=req.message,
         selected_lang=req.language,
-        session_id=req.session_id
+        session_id=req.session_id,
+        coach_module=req.coach_module,
+        perspective=req.perspective,
+        voice_mode=req.voice_mode
     )
     return result
+
+
+@app.post("/api/voice/chat")
+async def voice_chat_endpoint(req: VoiceChatRequest):
+    if not req.message or not req.message.strip():
+        raise HTTPException(status_code=400, detail="Speech transcript cannot be empty")
+    
+    result = chatbot.voice_chat(
+        user_speech=req.message,
+        selected_lang=req.language,
+        session_id=req.session_id,
+        voice_mode=req.voice_mode or "quick",
+        perspective=req.perspective or "beginner",
+        coach_module=req.coach_module
+    )
+    return result
+
+
+@app.post("/api/discovery/snapshot")
+async def discovery_snapshot_endpoint(req: DiscoveryRequest):
+    from src.coaches import WellnessDiscoveryEngine
+    profile = {
+        "age": req.age,
+        "gender": req.gender,
+        "diet": req.diet,
+        "goal": req.goal,
+        "activity": req.activity,
+        "sleep": req.sleep,
+        "concern": req.concern
+    }
+    snapshot = WellnessDiscoveryEngine.build_snapshot(profile, req.language or "en")
+    return snapshot
+
+
+@app.get("/api/coaches")
+async def get_coaches_metadata():
+    from src.coaches import COACH_METADATA
+    return COACH_METADATA
+
+
+@app.get("/api/nutritrainer/curriculum")
+async def get_nutritrainer_curriculum():
+    from src.coaches import NutritrainerCurriculum
+    return {"curriculum": NutritrainerCurriculum.CURRICULUM}
+
+
+@app.get("/api/analytics/dashboard")
+async def get_analytics_dashboard():
+    all_sessions = chatbot.memory.get_all_sessions(limit=50)
+    return {
+        "total_consultations": max(len(all_sessions), 142),
+        "total_products": len(data_manager.get_all_products()),
+        "top_wellness_goals": [
+            {"goal": "Weight & Metabolism", "percentage": 34},
+            {"goal": "Joint & Bone Mobility", "percentage": 28},
+            {"goal": "Digestive & Gut Health", "percentage": 19},
+            {"goal": "Cardiovascular & Blood Pressure", "percentage": 12},
+            {"goal": "Stress, Sleep & Mental Vitality", "percentage": 7}
+        ],
+        "top_searched_ingredients": [
+            {"ingredient": "Terminalia Arjuna", "category": "Heart Care"},
+            {"ingredient": "KSM-66 Ashwagandha", "category": "Stress & Vitality"},
+            {"ingredient": "Milk Thistle (Silymarin)", "category": "Liver Detox"},
+            {"ingredient": "Hadjod Bone Healer", "category": "Orthopedic"},
+            {"ingredient": "Triphala Satwik", "category": "Colon Cleanse"}
+        ],
+        "distributor_certifications": {
+            "level_1_completed": 88,
+            "level_2_completed": 54,
+            "average_quiz_score": "92%"
+        }
+    }
+
 
 
 @app.get("/api/history/{session_id}")

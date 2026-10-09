@@ -3,448 +3,1104 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OnlyVeda | Multilingual Nutraceutical Assistant</title>
+  <title>ONLYVEDAA AI™ | Personal Wellness & Learning Companion</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap');
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: #f7f9f6;
+      background-color: #f6f9f5;
     }
     .serif-title {
       font-family: 'Playfair Display', Georgia, serif;
     }
     .custom-scrollbar::-webkit-scrollbar {
-      width: 6px;
+      width: 5px;
+      height: 5px;
     }
     .custom-scrollbar::-webkit-scrollbar-track {
-      background: #f1f5f0;
+      background: #eef3ed;
     }
     .custom-scrollbar::-webkit-scrollbar-thumb {
-      background: #cbd5c8;
+      background: #c3d9c0;
       border-radius: 4px;
+    }
+    /* Voice Orb Animation */
+    @keyframes pulse-orb {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 125, 50, 0.7); }
+      70% { transform: scale(1.1); box-shadow: 0 0 0 25px rgba(46, 125, 50, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 125, 50, 0); }
+    }
+    @keyframes speaking-wave {
+      0%, 100% { height: 12px; }
+      50% { height: 44px; }
+    }
+    .pulse-animation {
+      animation: pulse-orb 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+    }
+    .wave-bar {
+      animation: speaking-wave 1.2s infinite ease-in-out;
     }
   </style>
   <link rel="icon" type="image/png" href="/logo.png" />
 </head>
-<body class="h-screen flex flex-col bg-[#f4f7f4] text-slate-800">
+<body class="h-screen flex flex-col bg-[#f4f7f4] text-slate-800 overflow-hidden">
 
-  <!-- Navbar -->
-  <header class="bg-[#1b4332] text-white px-6 py-3 shadow-md flex items-center justify-between border-b border-[#2d6a4f] shrink-0">
-    <div class="flex items-center gap-3.5">
-      <!-- Official Logo Container -->
+  <!-- ========================================================================= -->
+  <!-- NAVBAR -->
+  <!-- ========================================================================= -->
+  <header class="bg-[#12372a] text-white px-4 md:px-6 py-2.5 shadow-md flex items-center justify-between border-b border-[#1b4332] shrink-0 z-20">
+    <div class="flex items-center gap-3">
       <a href="/" class="bg-white/95 hover:bg-white px-3 py-1.5 rounded-xl shadow-xs border border-white/30 flex items-center transition">
-        <img src="/logo.png" alt="OnlyVeda" class="h-8 md:h-9 object-contain" />
+        <img src="/logo.png" alt="OnlyVeda" class="h-7 md:h-8 object-contain" />
       </a>
-      <div class="hidden sm:block">
+      <div>
         <div class="flex items-center gap-2">
-          <span class="text-[10px] bg-[#52b788] text-[#081c15] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">AI Nutraceutical</span>
-          <span class="text-xs text-[#b7e4c7] font-medium">• 10 Indic Languages</span>
+          <span class="text-[10px] bg-[#43a047] text-white font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider">ONLYVEDAA AI™</span>
+          <span class="hidden sm:inline text-xs text-[#c8e6c9] font-medium">• Understand. Learn. Live Better.</span>
         </div>
-        <p class="text-[11px] text-[#d8f3dc]/80">Ayurvedic Intelligence & Health Advisor</p>
+        <p class="text-[11px] text-[#e8f5e9]/70 hidden md:block">Knowledge Before Recommendation • Right Nutrition • Right Purpose</p>
       </div>
     </div>
 
     <!-- Controls -->
-    <div class="flex items-center gap-3">
-      <!-- Language Selector -->
-      <div class="flex items-center bg-[#2d6a4f] rounded-lg px-3 py-1.5 border border-[#40916c] text-sm shadow-sm">
-        <i class="fa-solid fa-globe text-[#b7e4c7] mr-2"></i>
-        <label for="languageSelect" class="sr-only">Language</label>
-        <select id="languageSelect" onchange="changeLanguage()" class="bg-transparent text-white font-medium focus:outline-none cursor-pointer">
-          <option value="auto" class="text-gray-900" selected>🌐 Auto-Detect Language</option>
-          <option value="en" class="text-gray-900">English</option>
-          <option value="hi" class="text-gray-900">हिन्दी (Hindi)</option>
-          <option value="bn" class="text-gray-900">বাংলা (Bengali)</option>
-          <option value="mr" class="text-gray-900">मराठी (Marathi)</option>
-          <option value="te" class="text-gray-900">తెలుగు (Telugu)</option>
-          <option value="ta" class="text-gray-900">தமிழ் (Tamil)</option>
-          <option value="gu" class="text-gray-900">ગુજરાતી (Gujarati)</option>
-          <option value="ur" class="text-gray-900">اردو (Urdu)</option>
-          <option value="kn" class="text-gray-900">ಕನ್ನಡ (Kannada)</option>
-          <option value="or" class="text-gray-900">ଓଡ଼ିଆ (Odia)</option>
-          <option value="ml" class="text-gray-900">മലയാളം (Malayalam)</option>
+    <div class="flex items-center gap-2 md:gap-3">
+      <!-- Perspective Selector -->
+      <div class="hidden lg:flex items-center bg-[#1e4635] rounded-lg px-2.5 py-1 text-xs border border-[#2d6a4f]">
+        <span class="text-[#a5d6a7] mr-1.5 font-semibold"><i class="fa-solid fa-graduation-cap"></i> Level:</span>
+        <select id="perspectiveSelect" onchange="updatePerspective()" class="bg-transparent text-white font-medium focus:outline-none cursor-pointer">
+          <option value="beginner" class="text-gray-900" selected>🟢 Beginner</option>
+          <option value="entrepreneur" class="text-gray-900">🟡 Entrepreneur</option>
+          <option value="student" class="text-gray-900">🔵 Nutrition Student</option>
+          <option value="professional" class="text-gray-900">🟣 Healthcare Pro</option>
         </select>
       </div>
 
-      <!-- Feed Data Button -->
-      <button onclick="toggleDrawer('catalogDrawer')" class="flex items-center gap-2 bg-[#d8f3dc] hover:bg-[#b7e4c7] text-[#1b4332] px-3.5 py-1.5 rounded-lg text-sm font-semibold transition shadow-sm">
-        <i class="fa-solid fa-database"></i>
-        <span>Feed Data & Catalog (<span id="productCountBadge">0</span>)</span>
+      <!-- Language Selector -->
+      <div class="flex items-center bg-[#1e4635] rounded-lg px-2.5 py-1 text-xs border border-[#2d6a4f]">
+        <i class="fa-solid fa-globe text-[#a5d6a7] mr-1.5"></i>
+        <select id="languageSelect" onchange="changeLanguage()" class="bg-transparent text-white font-medium focus:outline-none cursor-pointer">
+          <option value="auto" class="text-gray-900" selected>🌐 Auto-Detect</option>
+          <option value="en" class="text-gray-900">English</option>
+          <option value="hi" class="text-gray-900">हिन्दी (Hindi)</option>
+          <option value="gu" class="text-gray-900">ગુજરાતી (Gujarati)</option>
+          <option value="mr" class="text-gray-900">मराठी (Marathi)</option>
+          <option value="bn" class="text-gray-900">বাংলা (Bengali)</option>
+          <option value="te" class="text-gray-900">తెలుగు (Telugu)</option>
+          <option value="ta" class="text-gray-900">தமிழ் (Tamil)</option>
+          <option value="kn" class="text-gray-900">ಕನ್ನಡ (Kannada)</option>
+          <option value="or" class="text-gray-900">ଓଡ଼ିଆ (Odia)</option>
+          <option value="ml" class="text-gray-900">മലയാളം (Malayalam)</option>
+          <option value="ur" class="text-gray-900">اردو (Urdu)</option>
+        </select>
+      </div>
+
+      <!-- Live Voice Agent Trigger Button -->
+      <button onclick="openVoiceModal()" class="flex items-center gap-1.5 bg-gradient-to-r from-[#2e7d32] to-[#43a047] hover:from-[#1b5e20] hover:to-[#2e7d32] text-white px-3.5 py-1.5 rounded-lg text-xs md:text-sm font-bold shadow-md hover:shadow-lg transition">
+        <i class="fa-solid fa-microphone-lines text-yellow-300 animate-pulse"></i>
+        <span>AI Voice Agent</span>
       </button>
 
-      <!-- Settings / API Modal Trigger -->
-      <button onclick="toggleDrawer('settingsDrawer')" class="p-2 rounded-lg bg-[#2d6a4f] hover:bg-[#40916c] text-white transition" title="Settings & API Key">
-        <i class="fa-solid fa-gear"></i>
+      <!-- More Menu / Settings -->
+      <button onclick="toggleDrawer('catalogDrawer')" class="p-1.5 px-2.5 rounded-lg bg-[#1e4635] hover:bg-[#2d6a4f] text-[#c8e6c9] text-xs font-semibold transition" title="Catalog & Feeds">
+        <i class="fa-solid fa-boxes-stacked"></i> <span class="hidden sm:inline" id="productCountBadge">129</span>
+      </button>
+      <button onclick="toggleDrawer('settingsDrawer')" class="p-1.5 rounded-lg bg-[#1e4635] hover:bg-[#2d6a4f] text-white transition" title="Settings">
+        <i class="fa-solid fa-gear text-xs"></i>
       </button>
     </div>
   </header>
 
-  <!-- Main Container -->
+  <!-- ========================================================================= -->
+  <!-- 6 AI COACHES NAVIGATION BAR -->
+  <!-- ========================================================================= -->
+  <nav class="bg-[#1b4332] text-white px-3 py-1.5 flex items-center gap-2 overflow-x-auto custom-scrollbar shrink-0 shadow-inner text-xs border-b border-[#2d6a4f]">
+    <span class="text-[#a5d6a7] font-bold uppercase tracking-wider text-[10px] shrink-0 mr-1">
+      <i class="fa-solid fa-compass"></i> Coaches:
+    </span>
+    <button onclick="selectCoachModule('orchestrator')" id="coachBtn-orchestrator" class="coach-pill shrink-0 bg-[#2d6a4f] text-white px-2.5 py-1 rounded-md font-semibold border border-[#52b788] transition flex items-center gap-1">
+      <span>🧠 All-in-One AI</span>
+    </button>
+    <button onclick="selectCoachModule('body')" id="coachBtn-body" class="coach-pill shrink-0 bg-[#12372a]/60 hover:bg-[#2d6a4f] text-[#e8f5e9] px-2.5 py-1 rounded-md font-medium border border-[#2d6a4f] transition flex items-center gap-1">
+      <span>🧬 Know Your Body™</span>
+    </button>
+    <button onclick="selectCoachModule('nutrition')" id="coachBtn-nutrition" class="coach-pill shrink-0 bg-[#12372a]/60 hover:bg-[#2d6a4f] text-[#e8f5e9] px-2.5 py-1 rounded-md font-medium border border-[#2d6a4f] transition flex items-center gap-1">
+      <span>🥗 Nutrition Coach</span>
+    </button>
+    <button onclick="selectCoachModule('health')" id="coachBtn-health" class="coach-pill shrink-0 bg-[#12372a]/60 hover:bg-[#2d6a4f] text-[#e8f5e9] px-2.5 py-1 rounded-md font-medium border border-[#2d6a4f] transition flex items-center gap-1">
+      <span>🩺 Health Educator</span>
+    </button>
+    <button onclick="selectCoachModule('product')" id="coachBtn-product" class="coach-pill shrink-0 bg-[#12372a]/60 hover:bg-[#2d6a4f] text-[#e8f5e9] px-2.5 py-1 rounded-md font-medium border border-[#2d6a4f] transition flex items-center gap-1">
+      <span>🌿 Product Brain</span>
+    </button>
+    <button onclick="selectCoachModule('career')" id="coachBtn-career" class="coach-pill shrink-0 bg-[#12372a]/60 hover:bg-[#2d6a4f] text-[#e8f5e9] px-2.5 py-1 rounded-md font-medium border border-[#2d6a4f] transition flex items-center gap-1">
+      <span>🚀 Career Coach</span>
+    </button>
+    <button onclick="openNutritrainerModal()" class="shrink-0 bg-amber-600/80 hover:bg-amber-600 text-white px-2.5 py-1 rounded-md font-semibold transition flex items-center gap-1">
+      <i class="fa-solid fa-award"></i> <span>🎓 Nutritrainer Academy</span>
+    </button>
+    <button onclick="openDiscoveryModal()" class="shrink-0 bg-emerald-600/80 hover:bg-emerald-600 text-white px-2.5 py-1 rounded-md font-semibold transition flex items-center gap-1">
+      <i class="fa-solid fa-clipboard-check"></i> <span>📋 Discovery Session</span>
+    </button>
+    <button onclick="openProductExplorerModal()" class="shrink-0 bg-teal-600/80 hover:bg-teal-600 text-white px-2.5 py-1 rounded-md font-semibold transition flex items-center gap-1">
+      <i class="fa-solid fa-qrcode"></i> <span>Scan & Explore</span>
+    </button>
+    <button onclick="openAnalyticsModal()" class="shrink-0 bg-blue-700/80 hover:bg-blue-700 text-white px-2.5 py-1 rounded-md font-semibold transition flex items-center gap-1">
+      <i class="fa-solid fa-chart-line"></i> <span>Analytics</span>
+    </button>
+  </nav>
+
+  <!-- ========================================================================= -->
+  <!-- MAIN CHAT AREA -->
+  <!-- ========================================================================= -->
   <div class="flex-1 flex overflow-hidden relative">
-    
-    <!-- Chat Section -->
-    <main class="flex-1 flex flex-col h-full bg-[#f8faf7] max-w-4xl mx-auto w-full border-x border-[#e2e8df] shadow-sm">
+    <main class="flex-1 flex flex-col h-full bg-[#f8faf7] max-w-4xl mx-auto w-full border-x border-[#e2e8df] shadow-xs">
       
-      <!-- Quick Health Concerns Pill Bar -->
-      <div class="bg-white px-4 py-2.5 border-b border-[#e5ebe3] flex items-center gap-2 overflow-x-auto custom-scrollbar shrink-0 text-xs">
-        <span class="text-gray-500 font-semibold uppercase tracking-wider shrink-0 flex items-center gap-1">
-          <i class="fa-solid fa-wand-magic-sparkles text-[#2d6a4f]"></i> Quick Inquiries:
+      <!-- Current Coach Banner -->
+      <div id="activeCoachBanner" class="bg-[#e8f5e9] border-b border-[#c8e6c9] px-4 py-2 flex items-center justify-between text-xs text-[#1b5e20] shrink-0">
+        <div class="flex items-center gap-2">
+          <span id="activeCoachTitle" class="font-bold text-sm">🧠 ONLYVEDAA AI™ Master Coach</span>
+          <span id="activeCoachBadge" class="bg-[#c8e6c9] text-[#1b5e20] px-2 py-0.5 rounded-full text-[10px] font-bold uppercase">All-in-One</span>
+        </div>
+        <div class="text-[11px] text-[#2e7d32] italic hidden sm:block">
+          "Knowledge Before Recommendation"
+        </div>
+      </div>
+
+      <!-- Quick Topics Pill Bar -->
+      <div class="bg-white px-4 py-2 border-b border-[#e5ebe3] flex items-center gap-2 overflow-x-auto custom-scrollbar shrink-0 text-xs">
+        <span class="text-gray-500 font-semibold uppercase tracking-wider shrink-0 text-[10px]">
+          <i class="fa-solid fa-sparkles text-[#2e7d32]"></i> Try Asking:
         </span>
-        <button onclick="sendQuickQuery('मुझे हाई ब्लड प्रेशर की शिकायत है')" class="shrink-0 bg-[#f0f7f2] hover:bg-[#d8f3dc] text-[#1b4332] px-2.5 py-1 rounded-full border border-[#c3dec9] transition">
-          🩸 High BP (हाई बीपी)
+        <button onclick="sendQuickQuery('How does human digestion and nutrient absorption work?')" class="shrink-0 bg-[#f1f8e9] hover:bg-[#dcedc8] text-[#33691e] px-2.5 py-1 rounded-full border border-[#c5e1a5] transition">
+          🧬 How Digestion Works
         </button>
-        <button onclick="sendQuickQuery('I have severe joint and knee pain and stiffness in morning')" class="shrink-0 bg-[#f0f7f2] hover:bg-[#d8f3dc] text-[#1b4332] px-2.5 py-1 rounded-full border border-[#c3dec9] transition">
-          🦴 Joint & Knee Pain
+        <button onclick="sendQuickQuery('Why do people get fatty liver and how to care for it?')" class="shrink-0 bg-[#f1f8e9] hover:bg-[#dcedc8] text-[#33691e] px-2.5 py-1 rounded-full border border-[#c5e1a5] transition">
+          🩺 Fatty Liver Physiology
         </button>
-        <button onclick="sendQuickQuery('আমার খুব গ্যাস ও অ্যাসিডিটি হচ্ছে')" class="shrink-0 bg-[#f0f7f2] hover:bg-[#d8f3dc] text-[#1b4332] px-2.5 py-1 rounded-full border border-[#c3dec9] transition">
-          🌱 গ্যাস ও অম্বল (Acidity)
+        <button onclick="sendQuickQuery('Why Onlyvedaa? Explain the community commerce model and career.')" class="shrink-0 bg-[#f1f8e9] hover:bg-[#dcedc8] text-[#33691e] px-2.5 py-1 rounded-full border border-[#c5e1a5] transition">
+          🚀 Why Onlyvedaa Career
         </button>
-        <button onclick="sendQuickQuery('నాకు తీవ్రమైన మలబద్ధకం ఉంది, పొట్ట సాఫీగా కావడం లేదు')" class="shrink-0 bg-[#f0f7f2] hover:bg-[#d8f3dc] text-[#1b4332] px-2.5 py-1 rounded-full border border-[#c3dec9] transition">
-          🚽 మలబద్ధకం (Constipation)
+        <button onclick="sendQuickQuery('I have high blood pressure, what OnlyVeda products support cardio health?')" class="shrink-0 bg-[#f1f8e9] hover:bg-[#dcedc8] text-[#33691e] px-2.5 py-1 rounded-full border border-[#c5e1a5] transition">
+          🩸 High BP & Linopress
         </button>
-        <button onclick="sendQuickQuery('எனக்கு வாயில் புண் அதிகமாக உள்ளது')" class="shrink-0 bg-[#f0f7f2] hover:bg-[#d8f3dc] text-[#1b4332] px-2.5 py-1 rounded-full border border-[#c3dec9] transition">
-          👄 வாயில் புண் (Mouth Ulcers)
-        </button>
-        <button onclick="sendQuickQuery('મારા ચહેરા પર ખૂબ ખીલ અને પિમ્પલ્સ છે')" class="shrink-0 bg-[#f0f7f2] hover:bg-[#d8f3dc] text-[#1b4332] px-2.5 py-1 rounded-full border border-[#c3dec9] transition">
-          ✨ ખીલ અને પિમ્પલ્સ (Acne)
-        </button>
-        <button onclick="sendQuickQuery('ನನಗೆ ಉಬ್ಬಸ ಮತ್ತು ಆಸ್ತಮಾ ತೊಂದರೆ ಇದೆ')" class="shrink-0 bg-[#f0f7f2] hover:bg-[#d8f3dc] text-[#1b4332] px-2.5 py-1 rounded-full border border-[#c3dec9] transition">
-          🫁 ಉಬ್ಬಸ & ಆಸ್ತಮಾ (Asthma)
-        </button>
-        <button onclick="sendQuickQuery('मुझे कमर और पीठ में तेज दर्द है')" class="shrink-0 bg-[#f0f7f2] hover:bg-[#d8f3dc] text-[#1b4332] px-2.5 py-1 rounded-full border border-[#c3dec9] transition">
-          ⚡ कमर दर्द (Back Pain)
+        <button onclick="sendQuickQuery('I have severe joint and knee pain in morning')" class="shrink-0 bg-[#f1f8e9] hover:bg-[#dcedc8] text-[#33691e] px-2.5 py-1 rounded-full border border-[#c5e1a5] transition">
+          🦴 Joint & Knee Care
         </button>
       </div>
 
-      <!-- Messages Stream -->
-      <div id="messagesContainer" class="flex-1 overflow-y-auto p-4 space-y-4 custom-scrollbar">
+      <!-- Chat Messages Container -->
+      <div id="messagesContainer" class="flex-1 overflow-y-auto px-4 md:px-6 py-4 space-y-4 custom-scrollbar">
         <!-- Welcome Message -->
         <div class="flex items-start gap-3 max-w-3xl">
-          <div class="w-9 h-9 rounded-full bg-white border border-[#c2d6c0] flex items-center justify-center shrink-0 p-1 shadow-xs">
-            <img src="/logo.png" alt="OnlyVeda" class="w-full h-full object-contain" />
+          <div class="w-8 h-8 rounded-full bg-[#1b4332] text-white flex items-center justify-center shrink-0 shadow-xs font-bold text-xs">
+            🌿
           </div>
-          <div class="bg-white border border-[#e2ece1] rounded-2xl rounded-tl-none p-4 shadow-sm text-sm text-gray-800 space-y-3">
-            <div class="flex items-center justify-between border-b border-gray-100 pb-2.5">
-              <img src="/logo.png" alt="OnlyVeda Logo" class="h-6 md:h-7 object-contain" />
-              <span class="text-[10px] bg-[#d8f3dc] text-[#1b4332] px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider flex items-center gap-1">
-                <i class="fa-solid fa-circle-check text-green-600"></i> Official Wellness AI
-              </span>
-            </div>
-            <p id="welcomeGreeting" class="font-medium text-gray-900 leading-relaxed">
-              Namaste! Welcome to OnlyVeda. I am your Ayurvedic & Nutraceutical Wellness Assistant. How can I help you today?
+          <div class="bg-white rounded-2xl rounded-tl-sm p-4 border border-[#e0e8de] shadow-xs text-sm leading-relaxed text-slate-800">
+            <h3 class="font-bold text-[#1b4332] text-base mb-1">Namaste & Welcome to ONLYVEDAA AI™</h3>
+            <p class="text-xs text-[#2d6a4f] font-semibold mb-2">Your Personal Wellness, Physiology & Learning Companion</p>
+            <p class="mb-3 text-slate-600">
+              I am your always-available guide based on the core philosophy: <strong>Health Before Wealth • Knowledge Before Recommendation</strong>. 
             </p>
-            <div class="text-xs bg-[#f4f8f4] text-[#2d6a4f] p-2.5 rounded-lg border border-[#d8ecd6]">
-              🌿 <strong>Supports 10 Regional Languages:</strong> Hindi, Bengali, Marathi, Telugu, Tamil, Gujarati, Urdu, Kannada, Odia, and Malayalam.
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs mb-3">
+              <div class="bg-[#f1f8e9] p-2.5 rounded-lg border border-[#dcedc8]">
+                <strong class="text-[#2e7d32] block mb-0.5">🧬 Know Your Body™</strong>
+                Learn human anatomy, liver, heart, gut microbiome & energy systems.
+              </div>
+              <div class="bg-[#f1f8e9] p-2.5 rounded-lg border border-[#dcedc8]">
+                <strong class="text-[#2e7d32] block mb-0.5">🥗 Nutrition & Lifestyle</strong>
+                Master protein, hydration, fiber, and sustainable eating habits.
+              </div>
+              <div class="bg-[#f1f8e9] p-2.5 rounded-lg border border-[#dcedc8]">
+                <strong class="text-[#2e7d32] block mb-0.5">🌿 OnlyVeda Product Brain</strong>
+                129 standardized formulations with exact ingredients & dosages.
+              </div>
+              <div class="bg-[#f1f8e9] p-2.5 rounded-lg border border-[#dcedc8]">
+                <strong class="text-[#2e7d32] block mb-0.5">🎙️ Live Voice Agent</strong>
+                Talk hands-free in English, Hindi, Gujarati, or any Indic language.
+              </div>
             </div>
-            <p class="text-xs text-gray-400 italic">
-              ⚠️ Disclaimer: Nutraceuticals and herbal supplements support holistic wellness. They are not substitutes for professional medical diagnosis or prescription drugs.
+            <p class="text-xs text-slate-500">
+              Ask any question, tap the <strong>AI Voice Agent</strong> button to talk, or click a coach above to begin your journey!
             </p>
           </div>
         </div>
       </div>
 
-      <!-- Input Bar -->
-      <div class="p-3.5 bg-white border-t border-[#e2ece1] shrink-0">
-        <form id="chatForm" onsubmit="handleChatSubmit(event)" class="flex items-center gap-2">
-          <div class="relative flex-1">
-            <input 
-              type="text" 
-              id="userInput" 
-              placeholder="Ask in Hindi, Bengali, Tamil, Telugu, English..." 
-              class="w-full bg-[#f6f9f6] border border-[#d1ded0] focus:border-[#2d6a4f] focus:bg-white rounded-xl py-3 px-4 pr-24 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#52b788]/30 transition shadow-inner"
-              autocomplete="off"
-            />
-            <button type="button" onclick="clearChat()" class="absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-500 hover:text-[#1b4332] text-xs flex items-center gap-1.5 bg-gray-100 hover:bg-[#d8f3dc] px-2.5 py-1.5 rounded-lg border border-gray-200 transition" title="Start New Consultation & Reset Memory">
-              <i class="fa-solid fa-rotate-left text-[11px]"></i>
-              <span class="text-[11px] font-medium">New Chat</span>
-            </button>
-          </div>
-          <button 
-            type="submit" 
-            id="sendBtn" 
-            class="bg-[#1b4332] hover:bg-[#2d6a4f] text-white px-5 py-3 rounded-xl font-medium text-sm flex items-center gap-2 shadow-sm transition disabled:opacity-50"
-          >
-            <span>Consult</span>
-            <i class="fa-solid fa-paper-plane text-xs"></i>
+      <!-- Typing Indicator -->
+      <div id="typingIndicator" class="hidden px-6 py-2">
+        <div class="flex items-center gap-2 text-xs text-[#2d6a4f] font-medium bg-white/80 w-fit px-3 py-1.5 rounded-full border border-[#d8f3dc]">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#2d6a4f] animate-ping"></span>
+          <span>ONLYVEDAA AI is consulting the knowledge base...</span>
+        </div>
+      </div>
+
+      <!-- Chat Input Area -->
+      <footer class="p-3 bg-white border-t border-[#e2e8df] shrink-0">
+        <form id="chatForm" onsubmit="handleSendMessage(event)" class="flex items-end gap-2 bg-[#f4f7f4] p-1.5 rounded-2xl border border-[#d0ded0] focus-within:border-[#2d6a4f] focus-within:ring-2 focus-within:ring-[#52b788]/20 transition">
+          <!-- Voice Quick Button inside input -->
+          <button type="button" onclick="startInlineVoiceInput()" id="inlineMicBtn" class="p-2 text-[#2d6a4f] hover:text-[#1b4332] transition rounded-xl hover:bg-white" title="Voice Input">
+            <i class="fa-solid fa-microphone text-base"></i>
+          </button>
+          
+          <textarea id="messageInput" rows="1" placeholder="Ask about your body, nutrition, condition, career, or products..." class="flex-1 bg-transparent px-2 py-1.5 text-sm focus:outline-none resize-none max-h-32 text-slate-800" onkeydown="handleTextareaKeydown(event)"></textarea>
+
+          <button type="submit" id="sendBtn" class="bg-[#1b4332] hover:bg-[#2d6a4f] text-white p-2.5 rounded-xl transition shadow-xs flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-arrow-up text-sm"></i>
           </button>
         </form>
-        <div class="flex items-center justify-between mt-2 px-1 text-[11px] text-gray-500">
-          <span class="flex items-center gap-1.5 text-[#2d6a4f] font-medium">
-            <i class="fa-solid fa-database text-xs text-[#52b788]"></i>
-            <span>Persistent Memory Active</span>
-          </span>
-          <span id="sessionDisplay" class="text-gray-400 font-mono text-[10px]"></span>
+        <div class="flex items-center justify-between text-[10px] text-gray-500 mt-1.5 px-2">
+          <span>⚠️ Holistic wellness guide. Not a substitute for emergency medicine.</span>
+          <button onclick="clearChatHistory()" class="hover:text-red-600 transition">Clear Chat</button>
         </div>
-      </div>
+      </footer>
     </main>
-
-    <!-- Drawer: Feed Data & Catalog Management -->
-    <div id="catalogDrawer" class="hidden fixed inset-y-0 right-0 w-full md:w-[480px] bg-white shadow-2xl z-50 flex flex-col border-l border-gray-200">
-      <!-- Drawer Header -->
-      <div class="bg-[#1b4332] text-white px-5 py-3.5 flex items-center justify-between">
-        <div class="flex items-center gap-3">
-          <div class="bg-white px-2.5 py-1 rounded-lg">
-            <img src="/logo.png" alt="OnlyVeda" class="h-6 object-contain" />
-          </div>
-          <div>
-            <h2 class="font-bold text-sm">Feed Product Catalog</h2>
-            <p class="text-[11px] text-[#b7e4c7]">Add products or bulk import via CSV/JSON</p>
-          </div>
-        </div>
-        <button onclick="toggleDrawer('catalogDrawer')" class="text-gray-300 hover:text-white p-1">
-          <i class="fa-solid fa-xmark text-lg"></i>
-        </button>
-      </div>
-
-      <!-- Drawer Tabs -->
-      <div class="flex border-b border-gray-200 bg-gray-50 text-xs font-semibold">
-        <button onclick="switchCatalogTab('view')" id="tabViewBtn" class="flex-1 py-2.5 text-center text-[#1b4332] border-b-2 border-[#1b4332] bg-white">
-          Current Products (<span id="tabCount">0</span>)
-        </button>
-        <button onclick="switchCatalogTab('add')" id="tabAddBtn" class="flex-1 py-2.5 text-center text-gray-500 hover:text-gray-800">
-          + Add New Product
-        </button>
-        <button onclick="switchCatalogTab('import')" id="tabImportBtn" class="flex-1 py-2.5 text-center text-gray-500 hover:text-gray-800">
-          Bulk CSV Import
-        </button>
-      </div>
-
-      <!-- Drawer Content -->
-      <div class="flex-1 overflow-y-auto p-4 custom-scrollbar">
-        
-        <!-- Tab 1: Current Products -->
-        <div id="tabContent_view" class="space-y-3">
-          <div class="flex items-center justify-between pb-2 border-b border-gray-100">
-            <input type="text" id="catalogSearch" oninput="filterCatalog()" placeholder="Search catalog..." class="text-xs border rounded-lg px-2.5 py-1.5 w-full mr-2" />
-            <a href="/api/products/export-csv" class="text-xs bg-gray-100 hover:bg-gray-200 text-gray-700 px-2 py-1.5 rounded flex items-center gap-1 shrink-0" download>
-              <i class="fa-solid fa-download"></i> CSV
-            </a>
-          </div>
-          <div id="productsList" class="space-y-2.5">
-            <!-- Dynamic product cards -->
-          </div>
-        </div>
-
-        <!-- Tab 2: Add New Product Form -->
-        <div id="tabContent_add" class="hidden space-y-3 text-xs">
-          <form id="addProductForm" onsubmit="handleAddProduct(event)" class="space-y-3">
-            <div>
-              <label class="block font-medium text-gray-700 mb-1">Product Name *</label>
-              <input type="text" name="name" required placeholder="e.g. OnlyVeda Brahmi Memory Booster" class="w-full border rounded-lg p-2 focus:ring-1 focus:ring-green-700 focus:outline-none" />
-            </div>
-
-            <div class="grid grid-cols-2 gap-2">
-              <div>
-                <label class="block font-medium text-gray-700 mb-1">Category *</label>
-                <select name="category" class="w-full border rounded-lg p-2 focus:ring-1 focus:ring-green-700 focus:outline-none bg-white">
-                  <option value="Joint & Bone Care">Joint & Bone Care</option>
-                  <option value="Sleep & Stress Relief">Sleep & Stress Relief</option>
-                  <option value="Digestive Health">Digestive Health</option>
-                  <option value="Vitality & Energy">Vitality & Energy</option>
-                  <option value="Skin & Hair Wellness">Skin & Hair Wellness</option>
-                  <option value="Immunity & Respiratory Health">Immunity & Respiratory</option>
-                  <option value="Metabolic & Sugar Balance">Metabolic & Sugar</option>
-                  <option value="Heart & Brain Health">Heart & Brain</option>
-                  <option value="Liver Health & Detox">Liver Health & Detox</option>
-                </select>
-              </div>
-              <div>
-                <label class="block font-medium text-gray-700 mb-1">Price (INR) & Size</label>
-                <div class="flex gap-1">
-                  <input type="number" name="price_inr" placeholder="₹" class="w-1/2 border rounded-lg p-2" />
-                  <input type="text" name="size" placeholder="60 Caps" class="w-1/2 border rounded-lg p-2" />
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <label class="block font-medium text-gray-700 mb-1">Key Active Ingredients * (comma-separated)</label>
-              <input type="text" name="key_ingredients" required placeholder="e.g. Brahmi Extract 500mg, Shankhpushpi, Ashwagandha" class="w-full border rounded-lg p-2 focus:ring-1 focus:ring-green-700 focus:outline-none" />
-            </div>
-
-            <div>
-              <label class="block font-medium text-gray-700 mb-1">Health Benefits & Action *</label>
-              <textarea name="benefits" rows="2" required placeholder="Explains memory boost, calm concentration, reduced mental fatigue..." class="w-full border rounded-lg p-2 focus:ring-1 focus:ring-green-700 focus:outline-none"></textarea>
-            </div>
-
-            <div>
-              <label class="block font-medium text-gray-700 mb-1">Health Concerns / Symptoms relieved (comma-separated)</label>
-              <input type="text" name="health_concerns" placeholder="e.g. memory, brain fog, fatigue, exam stress" class="w-full border rounded-lg p-2 focus:ring-1 focus:ring-green-700 focus:outline-none" />
-            </div>
-
-            <div>
-              <label class="block font-medium text-gray-700 mb-1">Recommended Usage & Timing *</label>
-              <input type="text" name="dosage_and_usage" required placeholder="e.g. 1 capsule twice daily with milk after meals" class="w-full border rounded-lg p-2 focus:ring-1 focus:ring-green-700 focus:outline-none" />
-            </div>
-
-            <div>
-              <label class="block font-medium text-gray-700 mb-1">Safety / Contraindications</label>
-              <input type="text" name="contraindications" placeholder="e.g. Consult doctor during pregnancy" class="w-full border rounded-lg p-2 focus:ring-1 focus:ring-green-700 focus:outline-none" />
-            </div>
-
-            <div>
-              <label class="block font-medium text-gray-700 mb-1">Multilingual Keywords & Tags (comma-separated)</label>
-              <input type="text" name="tags" placeholder="e.g. memory, दिमाग, স্মৃতি, జ్ఞాపకశక్తి, జ్ఞాపకం" class="w-full border rounded-lg p-2 focus:ring-1 focus:ring-green-700 focus:outline-none" />
-            </div>
-
-            <button type="submit" class="w-full bg-[#1b4332] text-white py-2.5 rounded-lg font-semibold hover:bg-[#2d6a4f] transition shadow">
-              Save Product to OnlyVeda Catalog
-            </button>
-          </form>
-        </div>
-
-        <!-- Tab 3: Bulk CSV Import -->
-        <div id="tabContent_import" class="hidden space-y-4 text-xs">
-          <div class="bg-amber-50 border border-amber-200 rounded-lg p-3 text-amber-800">
-            <p class="font-bold flex items-center gap-1.5">
-              <i class="fa-solid fa-file-csv text-amber-600"></i> Bulk Nutraceutical Data Ingestion
-            </p>
-            <p class="mt-1 text-[11px] leading-relaxed">
-              Upload a CSV containing your products. Required columns: <code>name</code>, <code>category</code>, <code>key_ingredients</code>, <code>benefits</code>, <code>dosage_and_usage</code>.
-            </p>
-          </div>
-
-          <div class="p-4 border-2 border-dashed border-gray-300 rounded-xl text-center space-y-3 bg-gray-50">
-            <i class="fa-solid fa-cloud-arrow-up text-3xl text-gray-400"></i>
-            <div>
-              <label class="cursor-pointer bg-white px-3 py-1.5 border border-gray-300 rounded-lg shadow-sm hover:bg-gray-50 font-medium">
-                Select CSV File
-                <input type="file" id="csvFileInput" accept=".csv" class="hidden" onchange="handleFileSelected(this)" />
-              </label>
-              <p id="selectedFileName" class="text-[11px] text-gray-500 mt-2">No file selected</p>
-            </div>
-            <button onclick="uploadCsvFile()" id="uploadCsvBtn" class="bg-[#1b4332] text-white px-4 py-2 rounded-lg font-semibold hover:bg-[#2d6a4f] disabled:opacity-40 transition" disabled>
-              Upload & Ingest Products
-            </button>
-          </div>
-
-          <div class="pt-2">
-            <a href="/data/products_template.csv" download class="text-blue-600 hover:underline flex items-center gap-1 font-medium">
-              <i class="fa-solid fa-file-arrow-down"></i> Download Sample CSV Template
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Drawer: Settings & API Configuration -->
-    <div id="settingsDrawer" class="hidden fixed inset-y-0 right-0 w-full md:w-96 bg-white shadow-2xl z-50 flex flex-col border-l border-gray-200">
-      <div class="bg-slate-800 text-white px-5 py-4 flex items-center justify-between">
-        <h2 class="font-bold text-base flex items-center gap-2">
-          <i class="fa-solid fa-sliders"></i> Model & Settings
-        </h2>
-        <button onclick="toggleDrawer('settingsDrawer')" class="text-gray-300 hover:text-white p-1">
-          <i class="fa-solid fa-xmark text-lg"></i>
-        </button>
-      </div>
-
-      <div class="p-5 space-y-5 flex-1 overflow-y-auto text-xs">
-        <div class="bg-green-50 border border-green-200 rounded-lg p-3 text-green-800">
-          <div class="flex items-center gap-2 font-bold">
-            <i class="fa-solid fa-circle-check text-green-600"></i>
-            <span>Zero-Dependency Native Engine Active</span>
-          </div>
-          <p class="text-[11px] mt-1 text-green-700">
-            The chatbot works 100% offline out-of-the-box using the built-in Indic semantic matching and localized response generator for all 10 languages.
-          </p>
-        </div>
-
-        <div class="space-y-2">
-          <label class="block font-semibold text-gray-700">Optional: Google Gemini API Key</label>
-          <p class="text-[11px] text-gray-500">
-            For advanced generative conversational capabilities, provide a Gemini API Key. If empty, the fast local Indic engine is used.
-          </p>
-          <input type="password" id="apiKeyInput" placeholder="AIzaSy..." class="w-full border rounded-lg p-2.5 text-xs font-mono" />
-          <button onclick="saveApiKey()" class="w-full bg-slate-800 text-white py-2 rounded-lg font-medium hover:bg-slate-700 transition">
-            Update API Key
-          </button>
-        </div>
-
-        <div class="border-t pt-4 space-y-2">
-          <h3 class="font-bold text-gray-800">Supported Indic Languages (10)</h3>
-          <div class="grid grid-cols-2 gap-1.5 text-gray-600 text-[11px]">
-            <span>• हिन्दी (Hindi)</span>
-            <span>• বাংলা (Bengali)</span>
-            <span>• मराठी (Marathi)</span>
-            <span>• తెలుగు (Telugu)</span>
-            <span>• தமிழ் (Tamil)</span>
-            <span>• ગુજરાતી (Gujarati)</span>
-            <span>• اردو (Urdu)</span>
-            <span>• ಕನ್ನಡ (Kannada)</span>
-            <span>• ଓଡ଼ିଆ (Odia)</span>
-            <span>• മലയാളം (Malayalam)</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </div>
 
+  <!-- ========================================================================= -->
+  <!-- FULL AI VOICE AGENT MODAL (ChatGPT Voice / Gemini Live Style) -->
+  <!-- ========================================================================= -->
+  <div id="voiceModal" class="hidden fixed inset-0 bg-[#0d1f18]/90 backdrop-blur-md z-50 flex items-center justify-center p-4">
+    <div class="bg-[#12372a] border border-[#2d6a4f] rounded-3xl max-w-lg w-full p-6 text-white text-center shadow-2xl relative flex flex-col items-center">
+      <!-- Close button -->
+      <button onclick="closeVoiceModal()" class="absolute top-4 right-4 text-white/60 hover:text-white text-xl">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <!-- Header & Mode -->
+      <div class="mb-4">
+        <span class="text-[10px] bg-[#43a047] text-white font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">ONLYVEDAA LIVE VOICE AGENT</span>
+        <h2 class="text-xl font-bold mt-2 text-[#e8f5e9]">Speak Naturally to Your Coach</h2>
+        <p class="text-xs text-[#a5d6a7]">Supported in English, Hindi, Gujarati, Marathi & Indic languages</p>
+      </div>
+
+      <!-- Voice Mode Switcher -->
+      <div class="flex items-center gap-1.5 bg-[#1b4332] p-1 rounded-xl text-xs mb-6 border border-[#2d6a4f]">
+        <button onclick="setVoiceMode('quick')" id="vmode-quick" class="px-2.5 py-1 rounded-lg bg-[#2e7d32] text-white font-semibold transition">⚡ Quick (30s)</button>
+        <button onclick="setVoiceMode('learn')" id="vmode-learn" class="px-2.5 py-1 rounded-lg text-white/70 hover:text-white transition">📖 Learn (3m)</button>
+        <button onclick="setVoiceMode('deep_dive')" id="vmode-deep_dive" class="px-2.5 py-1 rounded-lg text-white/70 hover:text-white transition">🔬 Deep Dive</button>
+        <button onclick="setVoiceMode('quiz')" id="vmode-quiz" class="px-2.5 py-1 rounded-lg text-white/70 hover:text-white transition">❓ Quiz Me</button>
+      </div>
+
+      <!-- Central Visualizer / Orb -->
+      <div class="my-6 relative flex items-center justify-center">
+        <div id="voiceOrb" class="w-32 h-32 rounded-full bg-gradient-to-tr from-[#2e7d32] via-[#43a047] to-[#81c784] flex items-center justify-center shadow-2xl transition duration-300">
+          <i id="voiceOrbIcon" class="fa-solid fa-microphone text-3xl text-white"></i>
+        </div>
+        <!-- Speaking waves -->
+        <div id="voiceWaveContainer" class="hidden absolute flex items-center gap-1.5">
+          <span class="wave-bar w-1.5 bg-yellow-300 rounded-full" style="animation-delay: 0.1s"></span>
+          <span class="wave-bar w-1.5 bg-yellow-300 rounded-full" style="animation-delay: 0.3s"></span>
+          <span class="wave-bar w-1.5 bg-yellow-300 rounded-full" style="animation-delay: 0.2s"></span>
+          <span class="wave-bar w-1.5 bg-yellow-300 rounded-full" style="animation-delay: 0.4s"></span>
+          <span class="wave-bar w-1.5 bg-yellow-300 rounded-full" style="animation-delay: 0.1s"></span>
+        </div>
+      </div>
+
+      <!-- Live Voice Status Text -->
+      <div id="voiceStatusText" class="text-sm font-semibold text-[#c8e6c9] mb-2">Tap 'Start Listening' to talk</div>
+      
+      <!-- Speech Transcript Display -->
+      <div class="w-full bg-[#0d281e] p-3 rounded-xl border border-[#1b4332] min-h-[70px] max-h-32 overflow-y-auto custom-scrollbar text-xs text-left mb-6">
+        <div class="text-[10px] text-gray-400 uppercase font-semibold mb-1">Transcript:</div>
+        <p id="voiceTranscriptText" class="text-white/90 italic">Say something like: "Explain how protein works in our muscles..."</p>
+      </div>
+
+      <!-- Voice Control Buttons -->
+      <div class="flex items-center gap-4">
+        <button onclick="toggleVoiceListening()" id="voiceToggleBtn" class="bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-2.5 rounded-full font-bold shadow-lg flex items-center gap-2 transition">
+          <i class="fa-solid fa-play"></i> <span>Start Listening</span>
+        </button>
+        <button onclick="stopVoiceAudio()" class="bg-[#1b4332] hover:bg-[#2d6a4f] text-white p-3 rounded-full border border-[#2d6a4f] transition" title="Mute/Stop Speech">
+          <i class="fa-solid fa-volume-xmark"></i>
+        </button>
+        <button onclick="closeVoiceModal()" class="bg-red-900/60 hover:bg-red-800 text-white p-3 rounded-full transition" title="End Call">
+          <i class="fa-solid fa-phone-slash"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- NUTRITRAINER AI ACADEMY MODAL -->
+  <!-- ========================================================================= -->
+  <div id="nutritrainerModal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-2xl w-full p-6 text-slate-800 shadow-2xl relative max-h-[85vh] flex flex-col">
+      <div class="flex items-center justify-between pb-3 border-b border-gray-100 shrink-0">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center font-bold">🎓</div>
+          <div>
+            <h2 class="font-bold text-lg text-slate-900">Nutritrainer AI Academy</h2>
+            <p class="text-xs text-slate-500">Structured Nutrition & Product Science Certification</p>
+          </div>
+        </div>
+        <button onclick="closeNutritrainerModal()" class="text-gray-400 hover:text-gray-600 text-xl"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      
+      <div class="flex-1 overflow-y-auto py-4 space-y-4 custom-scrollbar text-sm" id="nutritrainerContent">
+        <!-- Interactive Levels -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div class="p-3 rounded-xl border border-amber-200 bg-amber-50/50">
+            <span class="text-[10px] font-bold uppercase text-amber-800 bg-amber-200 px-2 py-0.5 rounded-full">Level 1</span>
+            <h4 class="font-bold text-slate-800 mt-1">Nutrition Fundamentals</h4>
+            <p class="text-xs text-slate-600 mt-1">Macronutrients, micronutrients, protein, fiber & hydration pacing.</p>
+          </div>
+          <div class="p-3 rounded-xl border border-blue-200 bg-blue-50/50">
+            <span class="text-[10px] font-bold uppercase text-blue-800 bg-blue-200 px-2 py-0.5 rounded-full">Level 2</span>
+            <h4 class="font-bold text-slate-800 mt-1">Human Physiology</h4>
+            <p class="text-xs text-slate-600 mt-1">Digestion, liver detox, heart function & gut microbiome.</p>
+          </div>
+          <div class="p-3 rounded-xl border border-emerald-200 bg-emerald-50/50">
+            <span class="text-[10px] font-bold uppercase text-emerald-800 bg-emerald-200 px-2 py-0.5 rounded-full">Level 3</span>
+            <h4 class="font-bold text-slate-800 mt-1">Product Science</h4>
+            <p class="text-xs text-slate-600 mt-1">Formulations, bioavailability, and ethical recommendations.</p>
+          </div>
+        </div>
+
+        <!-- Sample Interactive Quiz -->
+        <div class="bg-gray-50 p-4 rounded-2xl border border-gray-200 mt-2">
+          <span class="text-xs font-bold text-amber-700 uppercase tracking-wider">Interactive Assessment Check</span>
+          <h4 class="font-semibold text-slate-800 mt-1 text-sm">Question: What is Onlyvedaa's core philosophical rule regarding product recommendations?</h4>
+          <div class="space-y-2 mt-3">
+            <button onclick="checkQuizAnswer(this, false)" class="w-full text-left p-2.5 rounded-xl border border-gray-200 bg-white hover:bg-gray-50 text-xs transition">
+              A. Pitch products immediately to every user on first contact
+            </button>
+            <button onclick="checkQuizAnswer(this, true)" class="w-full text-left p-2.5 rounded-xl border border-gray-200 bg-white hover:bg-gray-50 text-xs transition">
+              B. Knowledge Before Recommendation: Understand and educate the person first
+            </button>
+            <button onclick="checkQuizAnswer(this, false)" class="w-full text-left p-2.5 rounded-xl border border-gray-200 bg-white hover:bg-gray-50 text-xs transition">
+              C. Prescribe treatments for all medical diseases
+            </button>
+          </div>
+          <div id="quizFeedback" class="hidden mt-3 p-2.5 rounded-xl text-xs font-medium"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- WELLNESS DISCOVERY MODAL -->
+  <!-- ========================================================================= -->
+  <div id="discoveryModal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-xl w-full p-6 text-slate-800 shadow-2xl relative max-h-[85vh] flex flex-col">
+      <div class="flex items-center justify-between pb-3 border-b border-gray-100 shrink-0">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold">📋</div>
+          <div>
+            <h2 class="font-bold text-lg text-slate-900">Personal Wellness Discovery™</h2>
+            <p class="text-xs text-slate-500">Generate your personalized 30-Day Health Journey</p>
+          </div>
+        </div>
+        <button onclick="closeDiscoveryModal()" class="text-gray-400 hover:text-gray-600 text-xl"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <div class="flex-1 overflow-y-auto py-4 space-y-3 custom-scrollbar text-xs" id="discoveryBody">
+        <form id="discoveryForm" onsubmit="handleDiscoverySubmit(event)">
+          <div class="grid grid-cols-2 gap-3 mb-3">
+            <div>
+              <label class="font-semibold text-gray-700 block mb-1">Your Age</label>
+              <input type="number" id="discAge" value="38" class="w-full p-2 border rounded-xl" required />
+            </div>
+            <div>
+              <label class="font-semibold text-gray-700 block mb-1">Gender</label>
+              <select id="discGender" class="w-full p-2 border rounded-xl">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-3 mb-3">
+            <div>
+              <label class="font-semibold text-gray-700 block mb-1">Dietary Pattern</label>
+              <select id="discDiet" class="w-full p-2 border rounded-xl">
+                <option value="Vegetarian">Vegetarian</option>
+                <option value="Non-Vegetarian">Non-Vegetarian</option>
+                <option value="Vegan">Vegan</option>
+              </select>
+            </div>
+            <div>
+              <label class="font-semibold text-gray-700 block mb-1">Daily Sleep</label>
+              <select id="discSleep" class="w-full p-2 border rounded-xl">
+                <option value="5-6 hours">5-6 hours (Low)</option>
+                <option value="6-7 hours" selected>6-7 hours (Moderate)</option>
+                <option value="7-8 hours">7-8 hours (Optimal)</option>
+              </select>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="font-semibold text-gray-700 block mb-1">Primary Wellness Goal</label>
+            <select id="discGoal" class="w-full p-2 border rounded-xl">
+              <option value="Weight Management & Metabolism">Weight Management & Metabolism</option>
+              <option value="Joint Mobility & Bone Strength">Joint Mobility & Bone Strength</option>
+              <option value="Digestive & Gut Wellness">Digestive & Gut Wellness</option>
+              <option value="Cardiovascular & Energy Vitality">Cardiovascular & Energy Vitality</option>
+              <option value="Stress, Focus & Sound Sleep">Stress, Focus & Sound Sleep</option>
+            </select>
+          </div>
+          <div class="mb-4">
+            <label class="font-semibold text-gray-700 block mb-1">Current Health Concern (Optional)</label>
+            <input type="text" id="discConcern" placeholder="e.g. Morning joint stiffness, low energy after lunch" class="w-full p-2 border rounded-xl" />
+          </div>
+          <button type="submit" class="w-full bg-[#1b4332] hover:bg-[#2d6a4f] text-white p-2.5 rounded-xl font-bold transition">
+            Generate My Wellness Snapshot
+          </button>
+        </form>
+
+        <div id="discoveryResult" class="hidden space-y-3 pt-2"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- PRODUCT QR EXPLORER MODAL -->
+  <!-- ========================================================================= -->
+  <div id="productExplorerModal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-2xl w-full p-6 text-slate-800 shadow-2xl relative max-h-[85vh] flex flex-col">
+      <div class="flex items-center justify-between pb-3 border-b border-gray-100 shrink-0">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-full bg-teal-100 text-teal-800 flex items-center justify-center font-bold">🔍</div>
+          <div>
+            <h2 class="font-bold text-lg text-slate-900">Ask Anything About My Product</h2>
+            <p class="text-xs text-slate-500">Official Onlyvedaa Product Brain & Science Layer</p>
+          </div>
+        </div>
+        <button onclick="closeProductExplorerModal()" class="text-gray-400 hover:text-gray-600 text-xl"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <div class="p-3 bg-gray-50 border-b border-gray-200">
+        <input type="text" id="productSearchInput" onkeyup="filterProductsExplorer()" placeholder="Search products (e.g. Linopress, Hadjod, Active 365, Shilajit)..." class="w-full p-2 border rounded-xl text-xs bg-white" />
+      </div>
+
+      <div class="flex-1 overflow-y-auto py-3 space-y-2.5 custom-scrollbar text-xs" id="productExplorerList">
+        <!-- Dynamically filled with products -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- ANALYTICS DASHBOARD MODAL -->
+  <!-- ========================================================================= -->
+  <div id="analyticsModal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-2xl w-full p-6 text-slate-800 shadow-2xl relative max-h-[85vh] flex flex-col">
+      <div class="flex items-center justify-between pb-3 border-b border-gray-100 shrink-0">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-800 flex items-center justify-center font-bold">📊</div>
+          <div>
+            <h2 class="font-bold text-lg text-slate-900">Onlyvedaa Intelligence Dashboard</h2>
+            <p class="text-xs text-slate-500">Real-time Wellness Trends & Learning Metrics</p>
+          </div>
+        </div>
+        <button onclick="closeAnalyticsModal()" class="text-gray-400 hover:text-gray-600 text-xl"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="flex-1 overflow-y-auto py-4 space-y-4 custom-scrollbar text-xs" id="analyticsContent">
+        <!-- Dynamically loaded -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- CATALOG DRAWER (Existing Feature Preserved) -->
+  <!-- ========================================================================= -->
+  <div id="catalogDrawer" class="hidden fixed inset-y-0 right-0 w-full max-w-md bg-white shadow-2xl z-40 flex flex-col border-l border-gray-200">
+    <div class="bg-[#1b4332] text-white p-4 flex items-center justify-between">
+      <h3 class="font-bold text-sm flex items-center gap-2">
+        <i class="fa-solid fa-database"></i> Product Catalog & Knowledge
+      </h3>
+      <button onclick="toggleDrawer('catalogDrawer')" class="text-white/80 hover:text-white text-lg"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="flex border-b border-gray-200 text-xs font-semibold bg-gray-50">
+      <button onclick="switchCatalogTab('view')" id="tabViewBtn" class="flex-1 py-2.5 text-[#1b4332] border-b-2 border-[#1b4332]">View Catalog (<span id="drawerCount">0</span>)</button>
+      <button onclick="switchCatalogTab('add')" id="tabAddBtn" class="flex-1 py-2.5 text-gray-500">Feed Product</button>
+      <button onclick="switchCatalogTab('upload')" id="tabUploadBtn" class="flex-1 py-2.5 text-gray-500">Upload CSV</button>
+    </div>
+    <div id="catalogDrawerContent" class="flex-1 overflow-y-auto p-4 custom-scrollbar text-xs">
+      <div id="catalogViewSection" class="space-y-2"></div>
+      <div id="catalogAddSection" class="hidden">
+        <form onsubmit="handleAddProduct(event)" class="space-y-3">
+          <input type="text" name="name" placeholder="Product Name *" required class="w-full p-2 border rounded-lg" />
+          <input type="text" name="category" placeholder="Category *" required class="w-full p-2 border rounded-lg" />
+          <input type="text" name="key_ingredients" placeholder="Key Herbs (comma separated)" class="w-full p-2 border rounded-lg" />
+          <textarea name="benefits" placeholder="Benefits & Action *" required class="w-full p-2 border rounded-lg" rows="2"></textarea>
+          <input type="text" name="dosage_and_usage" placeholder="Dosage (e.g. 1-0-1)" required class="w-full p-2 border rounded-lg" />
+          <input type="number" name="price_inr" placeholder="Price (INR)" class="w-full p-2 border rounded-lg" />
+          <button type="submit" class="w-full bg-[#1b4332] text-white p-2 rounded-lg font-bold">Add Product</button>
+        </form>
+      </div>
+      <div id="catalogUploadSection" class="hidden space-y-3">
+        <input type="file" id="csvFileInput" accept=".csv" class="w-full text-xs" onchange="handleFileSelected(this)" />
+        <span id="selectedFileName" class="text-gray-400 block text-[11px]">No file selected</span>
+        <button onclick="uploadCsvFile()" id="uploadCsvBtn" disabled class="w-full bg-[#1b4332] disabled:opacity-50 text-white p-2 rounded-lg font-bold">Upload & Ingest</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- SETTINGS DRAWER -->
+  <!-- ========================================================================= -->
+  <div id="settingsDrawer" class="hidden fixed inset-y-0 right-0 w-full max-w-sm bg-white shadow-2xl z-40 flex flex-col border-l border-gray-200">
+    <div class="bg-[#1b4332] text-white p-4 flex items-center justify-between">
+      <h3 class="font-bold text-sm"><i class="fa-solid fa-gear"></i> Settings</h3>
+      <button onclick="toggleDrawer('settingsDrawer')" class="text-white/80 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="p-4 space-y-4 text-xs">
+      <div>
+        <label class="font-bold block mb-1 text-gray-700">Google Gemini API Key</label>
+        <input type="password" id="apiKeyInput" placeholder="Enter Gemini API Key..." class="w-full p-2 border rounded-lg mb-2" />
+        <button onclick="saveApiKey()" class="w-full bg-[#1b4332] text-white p-2 rounded-lg font-semibold">Save Key</button>
+      </div>
+      <div class="pt-2 border-t text-[11px] text-gray-500">
+        ONLYVEDAA AI™ runs seamlessly with native multi-model fallback and local Indic knowledge base.
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- JAVASCRIPT LOGIC & VOICE ENGINE -->
+  <!-- ========================================================================= -->
   <script>
+    let currentSessionId = localStorage.getItem("onlyveda_session_id") || "sess_" + Math.random().toString(36).substring(2, 10);
+    localStorage.setItem("onlyveda_session_id", currentSessionId);
+
+    let activeCoach = "orchestrator";
+    let activePerspective = "beginner";
+    let activeVoiceMode = "quick";
+    let speechRecognition = null;
+    let isListening = false;
     let allProducts = [];
-    let currentLang = "auto";
-    let currentSessionId = localStorage.getItem("onlyveda_session_id") || null;
+
+    // Initialize on page load
+    window.addEventListener("DOMContentLoaded", async () => {
+      await loadProducts();
+      initSpeechRecognition();
+    });
 
     function getSessionId() {
-      if (!currentSessionId) {
-        currentSessionId = "sess_" + Date.now() + "_" + Math.random().toString(36).substring(2, 7);
-        localStorage.setItem("onlyveda_session_id", currentSessionId);
-      }
-      const sessEl = document.getElementById("sessionDisplay");
-      if (sessEl) sessEl.textContent = "ID: " + currentSessionId.slice(-8);
       return currentSessionId;
     }
 
-    // Load initial data
-    window.addEventListener("DOMContentLoaded", async () => {
-      getSessionId();
-      await loadProducts();
-      await checkStatus();
-      await loadChatHistory();
-    });
+    // -------------------------------------------------------------
+    // COACH MODULE SWITCHER
+    // -------------------------------------------------------------
+    function selectCoachModule(moduleKey) {
+      activeCoach = moduleKey;
+      document.querySelectorAll(".coach-pill").forEach(btn => {
+        btn.classList.remove("bg-[#2d6a4f]", "border-[#52b788]");
+        btn.classList.add("bg-[#12372a]/60", "border-[#2d6a4f]");
+      });
+      const targetBtn = document.getElementById(`coachBtn-${moduleKey}`);
+      if (targetBtn) {
+        targetBtn.classList.add("bg-[#2d6a4f]", "border-[#52b788]");
+        targetBtn.classList.remove("bg-[#12372a]/60");
+      }
 
-    async function loadChatHistory() {
-      const sessId = localStorage.getItem("onlyveda_session_id");
-      if (!sessId) return;
+      const titles = {
+        "orchestrator": { title: "🧠 ONLYVEDAA AI™ Master Coach", badge: "All-in-One Guide" },
+        "body": { title: "🧬 Body Coach (Know Your Body™)", badge: "Anatomy & Physiology" },
+        "nutrition": { title: "🥗 Nutrition Coach", badge: "Nutrients & Diet" },
+        "health": { title: "🩺 Health Educator", badge: "Condition Education" },
+        "product": { title: "🌿 Onlyvedaa Wellness & Product Guide", badge: "Product Brain" },
+        "career": { title: "🚀 Onlyvedaa Career Coach", badge: "Community Commerce" }
+      };
+      const info = titles[moduleKey] || titles["orchestrator"];
+      document.getElementById("activeCoachTitle").textContent = info.title;
+      document.getElementById("activeCoachBadge").textContent = info.badge;
+    }
+
+    function updatePerspective() {
+      activePerspective = document.getElementById("perspectiveSelect").value;
+    }
+
+    function changeLanguage() {
+      // Language selected
+    }
+
+    // -------------------------------------------------------------
+    // CHAT MESSAGE SUBMISSION
+    // -------------------------------------------------------------
+    async function handleSendMessage(e) {
+      if (e) e.preventDefault();
+      const input = document.getElementById("messageInput");
+      const message = input.value.trim();
+      if (!message) return;
+
+      appendUserMessage(message);
+      input.value = "";
+      input.style.height = "auto";
+
+      document.getElementById("typingIndicator").classList.remove("hidden");
 
       try {
-        const res = await fetch(`/api/history/${sessId}`);
-        if (!res.ok) return;
+        const lang = document.getElementById("languageSelect").value;
+        const res = await fetch("/api/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            message: message,
+            language: lang,
+            session_id: currentSessionId,
+            coach_module: activeCoach,
+            perspective: activePerspective
+          })
+        });
         const data = await res.json();
-        if (data.history && data.history.length > 0) {
-          data.history.forEach(msg => {
-            if (msg.role === "user") {
-              appendUserMessage(msg.content);
-            } else if (msg.role === "assistant" || msg.role === "model") {
-              appendBotResponse({
-                response: msg.content,
-                language: msg.language,
-                products: msg.products || [],
-                disease_protocol: msg.disease_protocol || null,
-                session_id: sessId
-              });
-            }
-          });
-        }
-      } catch (e) {
-        console.warn("Could not load chat history:", e);
+        appendBotMessage(data);
+      } catch (err) {
+        appendBotMessage({ response: "Error communicating with server: " + err.message, products: [] });
+      } finally {
+        document.getElementById("typingIndicator").classList.add("hidden");
       }
     }
 
-    async function checkStatus() {
-      try {
-        const res = await fetch("/api/status");
-        const data = await res.json();
-        if (data.has_api_key) {
-          document.getElementById("apiKeyInput").placeholder = "•••••••••••••••• (API Key Active)";
-        }
-      } catch (err) {
-        console.error(err);
+    function sendQuickQuery(query) {
+      document.getElementById("messageInput").value = query;
+      handleSendMessage();
+    }
+
+    function handleTextareaKeydown(e) {
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        handleSendMessage();
       }
+    }
+
+    function appendUserMessage(text) {
+      const container = document.getElementById("messagesContainer");
+      const div = document.createElement("div");
+      div.className = "flex items-start gap-2.5 justify-end";
+      div.innerHTML = `
+        <div class="bg-[#1b4332] text-white rounded-2xl rounded-tr-xs p-3.5 max-w-2xl text-sm shadow-xs">
+          ${escapeHtml(text)}
+        </div>
+        <div class="w-7 h-7 rounded-full bg-[#52b788] text-white flex items-center justify-center font-bold text-xs shrink-0">
+          U
+        </div>
+      `;
+      container.appendChild(div);
+      container.scrollTop = container.scrollHeight;
+    }
+
+    function appendBotMessage(data) {
+      const container = document.getElementById("messagesContainer");
+      const div = document.createElement("div");
+      div.className = "flex items-start gap-3 max-w-3xl";
+
+      const coachBadge = data.coach_info ? `<span class="inline-block mb-1 text-[10px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full">${data.coach_info.title || "Onlyvedaa AI"}</span>` : '';
+      const emergencyBadge = data.is_emergency ? `<div class="mb-2 p-2 bg-red-100 border border-red-300 text-red-800 rounded-xl font-bold text-xs">🚨 Urgent Medical Notice</div>` : '';
+
+      let productsHtml = "";
+      if (data.products && data.products.length > 0) {
+        productsHtml = `<div class="mt-4 pt-3 border-t border-emerald-100">
+          <h4 class="text-xs font-bold text-[#1b4332] uppercase tracking-wider mb-2 flex items-center gap-1.5">
+            <i class="fa-solid fa-prescription-bottle-medical"></i> Prescribed OnlyVeda Formulations:
+          </h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            ${data.products.map(p => `
+              <div class="bg-[#f7faf7] border border-[#cde0ca] rounded-xl p-3 shadow-xs">
+                <div class="flex items-center justify-between font-bold text-slate-900 text-xs mb-1">
+                  <span>${p.name}</span>
+                  <span class="text-[#2e7d32]">₹${p.price_inr || 499}</span>
+                </div>
+                <div class="text-[11px] text-emerald-800 font-semibold mb-1">Dose: ${p.prescribed_dose || p.dosage_and_usage || '1-0-1'}</div>
+                <p class="text-[11px] text-slate-600 line-clamp-2">${p.benefits || ''}</p>
+              </div>
+            `).join('')}
+          </div>
+        </div>`;
+      }
+
+      div.innerHTML = `
+        <div class="w-8 h-8 rounded-full bg-[#1b4332] text-white flex items-center justify-center shrink-0 shadow-xs font-bold text-xs">
+          🌿
+        </div>
+        <div class="bg-white rounded-2xl rounded-tl-xs p-4 border border-[#e0e8de] shadow-xs text-sm leading-relaxed text-slate-800 w-full">
+          ${coachBadge}
+          ${emergencyBadge}
+          <div class="prose prose-sm max-w-none text-slate-800 text-sm">
+            ${marked.parse(data.response || '')}
+          </div>
+          ${productsHtml}
+        </div>
+      `;
+      container.appendChild(div);
+      container.scrollTop = container.scrollHeight;
+    }
+
+    // -------------------------------------------------------------
+    // LIVE AI VOICE AGENT ENGINE
+    // -------------------------------------------------------------
+    function initSpeechRecognition() {
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (SpeechRecognition) {
+        speechRecognition = new SpeechRecognition();
+        speechRecognition.continuous = false;
+        speechRecognition.interimResults = true;
+
+        speechRecognition.onstart = () => {
+          isListening = true;
+          setVoiceUIState("listening");
+        };
+
+        speechRecognition.onresult = (event) => {
+          let transcript = "";
+          for (let i = event.resultIndex; i < event.results.length; ++i) {
+            transcript += event.results[i][0].transcript;
+          }
+          document.getElementById("voiceTranscriptText").textContent = transcript;
+        };
+
+        speechRecognition.onerror = (event) => {
+          setVoiceUIState("error", event.error);
+        };
+
+        speechRecognition.onend = async () => {
+          isListening = false;
+          const transcript = document.getElementById("voiceTranscriptText").textContent.trim();
+          if (transcript && transcript.length > 3 && !transcript.startsWith("Say something")) {
+            await processVoiceQuery(transcript);
+          } else {
+            setVoiceUIState("idle");
+          }
+        };
+      }
+    }
+
+    function openVoiceModal() {
+      document.getElementById("voiceModal").classList.remove("hidden");
+      setVoiceUIState("idle");
+    }
+
+    function closeVoiceModal() {
+      stopVoiceAudio();
+      if (speechRecognition && isListening) speechRecognition.stop();
+      document.getElementById("voiceModal").classList.add("hidden");
+    }
+
+    function setVoiceMode(mode) {
+      activeVoiceMode = mode;
+      ["quick", "learn", "deep_dive", "quiz"].forEach(m => {
+        const btn = document.getElementById(`vmode-${m}`);
+        if (btn) {
+          if (m === mode) {
+            btn.className = "px-2.5 py-1 rounded-lg bg-[#2e7d32] text-white font-semibold transition";
+          } else {
+            btn.className = "px-2.5 py-1 rounded-lg text-white/70 hover:text-white transition";
+          }
+        }
+      });
+    }
+
+    function toggleVoiceListening() {
+      if (!speechRecognition) {
+        alert("Speech Recognition is not supported on this browser. Chrome or Edge is recommended.");
+        return;
+      }
+      if (isListening) {
+        speechRecognition.stop();
+      } else {
+        stopVoiceAudio();
+        // Set speech language to active language
+        const langMap = { "hi": "hi-IN", "gu": "gu-IN", "mr": "mr-IN", "bn": "bn-IN", "ta": "ta-IN", "te": "te-IN", "en": "en-IN" };
+        const sel = document.getElementById("languageSelect").value;
+        speechRecognition.lang = langMap[sel] || "en-IN";
+        speechRecognition.start();
+      }
+    }
+
+    function startInlineVoiceInput() {
+      if (!speechRecognition) {
+        alert("Voice recognition not supported on this browser.");
+        return;
+      }
+      stopVoiceAudio();
+      speechRecognition.lang = "en-IN";
+      speechRecognition.onresult = (e) => {
+        const text = e.results[0][0].transcript;
+        document.getElementById("messageInput").value = text;
+      };
+      speechRecognition.onend = () => {
+        const txt = document.getElementById("messageInput").value.trim();
+        if (txt) handleSendMessage();
+      };
+      speechRecognition.start();
+    }
+
+    function setVoiceUIState(state, detail = "") {
+      const orb = document.getElementById("voiceOrb");
+      const orbIcon = document.getElementById("voiceOrbIcon");
+      const waves = document.getElementById("voiceWaveContainer");
+      const status = document.getElementById("voiceStatusText");
+      const toggleBtn = document.getElementById("voiceToggleBtn");
+
+      if (state === "listening") {
+        orb.className = "w-32 h-32 rounded-full bg-emerald-500 pulse-animation flex items-center justify-center shadow-2xl";
+        orbIcon.className = "fa-solid fa-microphone text-3xl text-white";
+        waves.classList.add("hidden");
+        status.textContent = "Listening... Speak now";
+        toggleBtn.innerHTML = `<i class="fa-solid fa-stop"></i> <span>Stop Listening</span>`;
+      } else if (state === "thinking") {
+        orb.className = "w-32 h-32 rounded-full bg-blue-600 animate-spin flex items-center justify-center shadow-2xl";
+        orbIcon.className = "fa-solid fa-circle-notch text-3xl text-white";
+        waves.classList.add("hidden");
+        status.textContent = "Thinking with Google Gemini AI...";
+        toggleBtn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> <span>Processing...</span>`;
+      } else if (state === "speaking") {
+        orb.className = "w-32 h-32 rounded-full bg-gradient-to-tr from-amber-500 to-emerald-500 flex items-center justify-center shadow-2xl";
+        orbIcon.className = "fa-solid fa-volume-high text-3xl text-white";
+        waves.classList.remove("hidden");
+        status.textContent = "Onlyvedaa AI is speaking...";
+        toggleBtn.innerHTML = `<i class="fa-solid fa-microphone"></i> <span>Speak Again</span>`;
+      } else {
+        orb.className = "w-32 h-32 rounded-full bg-gradient-to-tr from-[#2e7d32] to-[#43a047] flex items-center justify-center shadow-2xl";
+        orbIcon.className = "fa-solid fa-microphone text-3xl text-white";
+        waves.classList.add("hidden");
+        status.textContent = detail ? `Notice: ${detail}` : "Tap 'Start Listening' to speak";
+        toggleBtn.innerHTML = `<i class="fa-solid fa-play"></i> <span>Start Listening</span>`;
+      }
+    }
+
+    async function processVoiceQuery(speechText) {
+      setVoiceUIState("thinking");
+      try {
+        const lang = document.getElementById("languageSelect").value;
+        const res = await fetch("/api/voice/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            message: speechText,
+            language: lang,
+            session_id: currentSessionId,
+            voice_mode: activeVoiceMode,
+            perspective: activePerspective,
+            coach_module: activeCoach
+          })
+        });
+        const data = await res.json();
+        
+        // Show in transcript
+        document.getElementById("voiceTranscriptText").textContent = data.speech_text || data.response;
+        
+        // Also add to chat log
+        appendUserMessage(speechText);
+        appendBotMessage(data);
+
+        // Speak aloud
+        speakText(data.speech_text || data.response, data.language);
+      } catch (err) {
+        setVoiceUIState("idle", "Error: " + err.message);
+      }
+    }
+
+    function speakText(text, lang = "en") {
+      if (!window.speechSynthesis) {
+        setVoiceUIState("idle");
+        return;
+      }
+      stopVoiceAudio();
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.rate = 1.0;
+      utterance.pitch = 1.0;
+
+      // Find appropriate Indic or English voice
+      const voices = window.speechSynthesis.getVoices();
+      const langPrefix = lang === "hi" ? "hi" : (lang === "gu" ? "gu" : "en");
+      const matchedVoice = voices.find(v => v.lang.startsWith(langPrefix));
+      if (matchedVoice) utterance.voice = matchedVoice;
+
+      utterance.onstart = () => setVoiceUIState("speaking");
+      utterance.onend = () => setVoiceUIState("idle");
+      utterance.onerror = () => setVoiceUIState("idle");
+
+      window.speechSynthesis.speak(utterance);
+    }
+
+    function stopVoiceAudio() {
+      if (window.speechSynthesis) window.speechSynthesis.cancel();
+      setVoiceUIState("idle");
+    }
+
+    // -------------------------------------------------------------
+    // NUTRITRAINER & QUIZ MODAL
+    // -------------------------------------------------------------
+    function openNutritrainerModal() {
+      document.getElementById("nutritrainerModal").classList.remove("hidden");
+    }
+    function closeNutritrainerModal() {
+      document.getElementById("nutritrainerModal").classList.add("hidden");
+    }
+    function checkQuizAnswer(btn, isCorrect) {
+      const fb = document.getElementById("quizFeedback");
+      fb.classList.remove("hidden");
+      if (isCorrect) {
+        fb.className = "mt-3 p-2.5 rounded-xl text-xs font-semibold bg-emerald-100 text-emerald-800 border border-emerald-300";
+        fb.innerHTML = `🎉 Correct! Onlyvedaa champions <strong>"Knowledge Before Recommendation"</strong>: we first educate users about their body and physiology before introducing any supplements.`;
+      } else {
+        fb.className = "mt-3 p-2.5 rounded-xl text-xs font-semibold bg-amber-100 text-amber-800 border border-amber-300";
+        fb.innerHTML = `Not quite. Onlyvedaa's core rule is <strong>"Knowledge Before Recommendation"</strong>: we never hard-sell or prescribe treatments; we educate first.`;
+      }
+    }
+
+    // -------------------------------------------------------------
+    // WELLNESS DISCOVERY SESSION
+    // -------------------------------------------------------------
+    function openDiscoveryModal() {
+      document.getElementById("discoveryModal").classList.remove("hidden");
+    }
+    function closeDiscoveryModal() {
+      document.getElementById("discoveryModal").classList.add("hidden");
+    }
+    async function handleDiscoverySubmit(e) {
+      e.preventDefault();
+      const payload = {
+        age: parseInt(document.getElementById("discAge").value),
+        gender: document.getElementById("discGender").value,
+        diet: document.getElementById("discDiet").value,
+        sleep: document.getElementById("discSleep").value,
+        goal: document.getElementById("discGoal").value,
+        concern: document.getElementById("discConcern").value
+      };
+
+      try {
+        const res = await fetch("/api/discovery/snapshot", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+        const snap = await res.json();
+        
+        const resDiv = document.getElementById("discoveryResult");
+        resDiv.classList.remove("hidden");
+        resDiv.innerHTML = `
+          <div class="bg-emerald-50 border border-emerald-200 p-3.5 rounded-2xl">
+            <h4 class="font-bold text-emerald-900 text-sm mb-1">${snap.title}</h4>
+            <p class="text-emerald-800 text-xs mb-2">${snap.profile_summary}</p>
+            <div class="space-y-1.5 my-2">
+              ${snap.focus_areas.map(fa => `
+                <div class="bg-white p-2 rounded-lg border border-emerald-100">
+                  <strong class="text-emerald-800">${fa.area}</strong> (${fa.status})<br/>
+                  <span class="text-slate-600">${fa.tip}</span>
+                </div>
+              `).join('')}
+            </div>
+            <h5 class="font-bold text-emerald-900 mt-3 mb-1">Your 30-Day Journey:</h5>
+            <div class="space-y-1 text-slate-700">
+              <p>• <strong>Days 1-10:</strong> ${snap.journey_plan_30_days.days_1_10}</p>
+              <p>• <strong>Days 11-20:</strong> ${snap.journey_plan_30_days.days_1_10}</p>
+              <p>• <strong>Days 21-30:</strong> ${snap.journey_plan_30_days.days_21_30}</p>
+            </div>
+          </div>
+        `;
+      } catch (err) {
+        alert("Failed to build snapshot: " + err.message);
+      }
+    }
+
+    // -------------------------------------------------------------
+    // PRODUCT QR EXPLORER MODAL
+    // -------------------------------------------------------------
+    function openProductExplorerModal() {
+      document.getElementById("productExplorerModal").classList.remove("hidden");
+      renderProductsExplorer(allProducts);
+    }
+    function closeProductExplorerModal() {
+      document.getElementById("productExplorerModal").classList.add("hidden");
+    }
+    function renderProductsExplorer(products) {
+      const container = document.getElementById("productExplorerList");
+      if (!products || products.length === 0) {
+        container.innerHTML = `<p class="text-center text-gray-500 py-4">No products found</p>`;
+        return;
+      }
+      container.innerHTML = products.slice(0, 30).map(p => `
+        <div class="p-3 bg-white border border-gray-200 rounded-xl hover:border-emerald-500 transition">
+          <div class="flex items-center justify-between font-bold text-slate-900 text-xs">
+            <span>${p.name}</span>
+            <span class="text-[#2e7d32]">₹${p.price_inr || 499}</span>
+          </div>
+          <div class="text-[11px] text-gray-500 mb-1">Category: ${p.category || 'Nutraceutical'} • Dose: ${p.dosage_and_usage || '1-0-1'}</div>
+          <p class="text-slate-600 text-[11px] mb-2">${p.benefits || ''}</p>
+          <div class="flex gap-2">
+            <button onclick="askAboutProduct('${escapeHtml(p.name)}')" class="bg-[#1b4332] text-white px-2.5 py-1 rounded-md text-[10px] font-semibold hover:bg-[#2d6a4f] transition">
+              <i class="fa-solid fa-sparkles"></i> Ask AI About This
+            </button>
+            ${p.link ? `<a href="${p.link}" target="_blank" class="border border-gray-300 text-gray-700 px-2.5 py-1 rounded-md text-[10px] hover:bg-gray-50 transition">View on OnlyVedaa</a>` : ''}
+          </div>
+        </div>
+      `).join('');
+    }
+    function filterProductsExplorer() {
+      const q = document.getElementById("productSearchInput").value.toLowerCase();
+      const filtered = allProducts.filter(p => p.name.toLowerCase().includes(q) || (p.benefits && p.benefits.toLowerCase().includes(q)));
+      renderProductsExplorer(filtered);
+    }
+    function askAboutProduct(prodName) {
+      closeProductExplorerModal();
+      sendQuickQuery(`Tell me the science, mechanism, and proper usage of ${prodName}`);
+    }
+
+    // -------------------------------------------------------------
+    // ANALYTICS MODAL
+    // -------------------------------------------------------------
+    async function openAnalyticsModal() {
+      document.getElementById("analyticsModal").classList.remove("hidden");
+      try {
+        const res = await fetch("/api/analytics/dashboard");
+        const d = await res.json();
+        document.getElementById("analyticsContent").innerHTML = `
+          <div class="grid grid-cols-2 gap-3 mb-3">
+            <div class="p-3 bg-emerald-50 border border-emerald-200 rounded-xl text-center">
+              <span class="text-2xl font-black text-emerald-800">${d.total_products}</span>
+              <p class="text-gray-600 text-[11px]">OnlyVeda Formulations</p>
+            </div>
+            <div class="p-3 bg-blue-50 border border-blue-200 rounded-xl text-center">
+              <span class="text-2xl font-black text-blue-800">${d.total_consultations}</span>
+              <p class="text-gray-600 text-[11px]">Consultations Conducted</p>
+            </div>
+          </div>
+          <div class="p-3 bg-gray-50 border border-gray-200 rounded-xl">
+            <strong class="text-slate-800 block mb-2">Top Consumer Health Goals:</strong>
+            ${d.top_wellness_goals.map(g => `
+              <div class="flex items-center justify-between py-1 border-b border-gray-100 last:border-0">
+                <span>${g.goal}</span>
+                <span class="font-bold text-emerald-700">${g.percentage}%</span>
+              </div>
+            `).join('')}
+          </div>
+          <div class="p-3 bg-gray-50 border border-gray-200 rounded-xl">
+            <strong class="text-slate-800 block mb-2">Most Researched Ingredients:</strong>
+            ${d.top_searched_ingredients.map(ing => `
+              <div class="flex items-center justify-between py-1 border-b border-gray-100 last:border-0">
+                <span>${ing.ingredient}</span>
+                <span class="text-gray-500">${ing.category}</span>
+              </div>
+            `).join('')}
+          </div>
+        `;
+      } catch (e) {
+        document.getElementById("analyticsContent").innerHTML = `<p class="text-red-500">Error loading dashboard: ${e.message}</p>`;
+      }
+    }
+    function closeAnalyticsModal() {
+      document.getElementById("analyticsModal").classList.add("hidden");
+    }
+
+    // -------------------------------------------------------------
+    // CATALOG & DRAWER HELPERS
+    // -------------------------------------------------------------
+    function toggleDrawer(id) {
+      const drawer = document.getElementById(id);
+      drawer.classList.toggle("hidden");
+    }
+    function switchCatalogTab(tab) {
+      document.getElementById("catalogViewSection").classList.toggle("hidden", tab !== "view");
+      document.getElementById("catalogAddSection").classList.toggle("hidden", tab !== "add");
+      document.getElementById("catalogUploadSection").classList.toggle("hidden", tab !== "upload");
+      
+      document.getElementById("tabViewBtn").className = tab === "view" ? "flex-1 py-2.5 text-[#1b4332] border-b-2 border-[#1b4332]" : "flex-1 py-2.5 text-gray-500";
+      document.getElementById("tabAddBtn").className = tab === "add" ? "flex-1 py-2.5 text-[#1b4332] border-b-2 border-[#1b4332]" : "flex-1 py-2.5 text-gray-500";
+      document.getElementById("tabUploadBtn").className = tab === "upload" ? "flex-1 py-2.5 text-[#1b4332] border-b-2 border-[#1b4332]" : "flex-1 py-2.5 text-gray-500";
     }
 
     async function loadProducts() {
@@ -452,261 +1108,34 @@
         const res = await fetch("/api/products");
         allProducts = await res.json();
         document.getElementById("productCountBadge").textContent = allProducts.length;
-        document.getElementById("tabCount").textContent = allProducts.length;
-        renderProductsList(allProducts);
+        document.getElementById("drawerCount").textContent = allProducts.length;
+        renderCatalogView(allProducts);
       } catch (e) {
-        console.error("Failed to load products:", e);
+        console.error("Error loading products:", e);
       }
     }
 
-    function renderProductsList(products) {
-      const container = document.getElementById("productsList");
-      if (!products.length) {
-        container.innerHTML = `<p class="text-xs text-gray-500 italic py-4 text-center">No products in catalog yet.</p>`;
-        return;
-      }
-
-      container.innerHTML = products.map(p => `
-        <div class="bg-gray-50 border border-gray-200 rounded-lg p-3 hover:border-[#2d6a4f] transition text-xs">
-          <div class="flex justify-between items-start gap-2">
-            <h4 class="font-bold text-gray-900 text-[13px]">${p.name}</h4>
-            <span class="font-bold text-green-700 shrink-0">₹${p.price_inr || 'N/A'}</span>
+    function renderCatalogView(prods) {
+      const v = document.getElementById("catalogViewSection");
+      v.innerHTML = prods.slice(0, 50).map(p => `
+        <div class="p-2.5 bg-gray-50 border rounded-lg text-xs">
+          <div class="font-bold flex justify-between">
+            <span>${p.name}</span>
+            <span class="text-[#1b4332]">₹${p.price_inr || 499}</span>
           </div>
-          <p class="text-gray-500 text-[11px] mt-0.5"><span class="font-semibold text-gray-600">${p.category}</span> • ${p.size || ''}</p>
-          <p class="text-gray-700 mt-1 line-clamp-2">${p.benefits}</p>
-          <div class="mt-2 text-[10px] text-gray-500 bg-white p-1.5 rounded border">
-            <strong>Key Herbs:</strong> ${(p.key_ingredients || []).join(", ")}
-          </div>
+          <div class="text-[11px] text-gray-500">${p.category || 'General'}</div>
         </div>
-      `).join("");
+      `).join('');
     }
 
-    function filterCatalog() {
-      const query = document.getElementById("catalogSearch").value.toLowerCase();
-      const filtered = allProducts.filter(p => 
-        p.name.toLowerCase().includes(query) || 
-        p.category.toLowerCase().includes(query) || 
-        p.benefits.toLowerCase().includes(query) ||
-        (p.key_ingredients || []).join(" ").toLowerCase().includes(query)
-      );
-      renderProductsList(filtered);
-    }
-
-    function toggleDrawer(id) {
-      const drawer = document.getElementById(id);
-      drawer.classList.toggle("hidden");
-    }
-
-    function switchCatalogTab(tab) {
-      ["view", "add", "import"].forEach(t => {
-        document.getElementById(`tabContent_${t}`).classList.add("hidden");
-        const btn = document.getElementById(`tab${t.charAt(0).toUpperCase() + t.slice(1)}Btn`);
-        btn.classList.remove("text-[#1b4332]", "border-b-2", "border-[#1b4332]", "bg-white");
-        btn.classList.add("text-gray-500");
-      });
-      document.getElementById(`tabContent_${tab}`).classList.remove("hidden");
-      const activeBtn = document.getElementById(`tab${tab.charAt(0).toUpperCase() + tab.slice(1)}Btn`);
-      activeBtn.classList.add("text-[#1b4332]", "border-b-2", "border-[#1b4332]", "bg-white");
-      activeBtn.classList.remove("text-gray-500");
-    }
-
-    async function changeLanguage() {
-      const select = document.getElementById("languageSelect");
-      currentLang = select.value;
-      if (currentLang !== "auto") {
-        try {
-          const res = await fetch(`/api/languages`);
-          const langs = await res.json();
-          if (langs[currentLang]) {
-            document.getElementById("welcomeGreeting").textContent = langs[currentLang].greeting;
-            document.getElementById("userInput").placeholder = langs[currentLang].placeholder;
-          }
-        } catch (e) {}
-      }
-    }
-
-    function sendQuickQuery(text) {
-      document.getElementById("userInput").value = text;
-      handleChatSubmit(new Event("submit"));
-    }
-
-    async function handleChatSubmit(e) {
-      e.preventDefault();
-      const input = document.getElementById("userInput");
-      const message = input.value.trim();
-      if (!message) return;
-
-      input.value = "";
-      appendUserMessage(message);
-
-      // Add loading indicator
-      const loadingId = appendLoadingBubble();
-      document.getElementById("sendBtn").disabled = true;
-
-      const sessionId = getSessionId();
-
+    async function clearChatHistory() {
+      if (!confirm("Are you sure you want to clear conversation memory?")) return;
       try {
-        const res = await fetch("/api/chat", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            message: message,
-            language: currentLang,
-            session_id: sessionId
-          })
-        });
-        const data = await res.json();
-        if (data.session_id) {
-          currentSessionId = data.session_id;
-          localStorage.setItem("onlyveda_session_id", data.session_id);
-          const sessEl = document.getElementById("sessionDisplay");
-          if (sessEl) sessEl.textContent = "ID: " + currentSessionId.slice(-8);
-        }
-        removeLoadingBubble(loadingId);
-        appendBotResponse(data);
-      } catch (err) {
-        removeLoadingBubble(loadingId);
-        appendErrorMessage("Sorry, an error occurred while connecting. Please try again.");
-      } finally {
-        document.getElementById("sendBtn").disabled = false;
-      }
-    }
-
-    function appendUserMessage(text) {
-      const container = document.getElementById("messagesContainer");
-      const div = document.createElement("div");
-      div.className = "flex justify-end";
-      div.innerHTML = `
-        <div class="bg-[#1b4332] text-white rounded-2xl rounded-tr-none px-4 py-3 max-w-xl text-sm shadow-sm">
-          ${escapeHtml(text)}
-        </div>
-      `;
-      container.appendChild(div);
-      container.scrollTop = container.scrollHeight;
-    }
-
-    function appendLoadingBubble() {
-      const container = document.getElementById("messagesContainer");
-      const id = "loading-" + Date.now();
-      const div = document.createElement("div");
-      div.id = id;
-      div.className = "flex items-start gap-3 max-w-2xl";
-      div.innerHTML = `
-        <div class="w-8 h-8 rounded-full bg-white border border-[#c2d6c0] flex items-center justify-center shrink-0 p-1 shadow-xs animate-pulse">
-          <img src="/logo.png" alt="OnlyVeda" class="w-full h-full object-contain" />
-        </div>
-        <div class="bg-white border border-[#e2ece1] rounded-2xl rounded-tl-none p-3 shadow-sm text-sm text-gray-500 flex items-center gap-2">
-          <i class="fa-solid fa-spinner fa-spin text-[#2d6a4f]"></i>
-          <span>Consulting OnlyVeda Ayurvedic Knowledgebase...</span>
-        </div>
-      `;
-      container.appendChild(div);
-      container.scrollTop = container.scrollHeight;
-      return id;
-    }
-
-    function removeLoadingBubble(id) {
-      const el = document.getElementById(id);
-      if (el) el.remove();
-    }
-
-    function appendBotResponse(data) {
-      const container = document.getElementById("messagesContainer");
-      const div = document.createElement("div");
-      div.className = "flex items-start gap-3 max-w-3xl";
-
-      let protocolBanner = "";
-      if (data.disease_protocol && data.disease_protocol.disease) {
-        protocolBanner = `
-          <div class="mb-2 bg-[#d8f3dc] border border-[#b7e4c7] text-[#1b4332] rounded-lg px-3 py-1.5 text-xs font-semibold flex items-center gap-2">
-            <i class="fa-solid fa-file-prescription text-[#2d6a4f]"></i>
-            <span>Official Formulary Protocol: <strong>${escapeHtml(data.disease_protocol.disease)}</strong></span>
-          </div>
-        `;
-      }
-
-      let productsHtml = "";
-      if (data.products && data.products.length > 0) {
-        productsHtml = `
-          <div class="mt-4 pt-3 border-t border-gray-100 grid grid-cols-1 sm:grid-cols-2 gap-3">
-            ${data.products.map(p => `
-              <div class="bg-[#f7faf7] border border-[#d8e8d7] rounded-xl p-3 flex flex-col justify-between shadow-xs hover:shadow transition">
-                <div>
-                  <div class="flex items-center justify-between gap-1 mb-1">
-                    <span class="text-[10px] bg-[#d8f3dc] text-[#1b4332] font-bold px-2 py-0.5 rounded-full uppercase">${p.category}</span>
-                    <span class="font-bold text-[#1b4332] text-xs">₹${p.price_inr}</span>
-                  </div>
-                  <h4 class="font-bold text-gray-900 text-xs">${escapeHtml(p.name)}</h4>
-                  ${p.prescribed_dose ? `
-                    <div class="mt-1 bg-[#e8f5e9] border border-[#c8e6c9] text-[#1b4332] px-2 py-0.5 rounded text-[10.5px] font-semibold flex items-center gap-1.5">
-                      <i class="fa-solid fa-prescription text-[#2d6a4f]"></i>
-                      <span>Dose: <strong>${escapeHtml(p.prescribed_dose)}</strong></span>
-                    </div>
-                  ` : ''}
-                  <p class="text-[11px] text-gray-600 mt-1 line-clamp-2">${escapeHtml(p.benefits || '')}</p>
-                  <p class="text-[10px] text-[#2d6a4f] mt-1.5 font-medium">🌿 <strong>Herbs:</strong> ${(p.key_ingredients || []).slice(0, 3).map(escapeHtml).join(", ")}</p>
-                </div>
-                <div class="mt-2 pt-1.5 border-t border-[#e2ede1] flex items-center justify-between text-[10px] text-gray-500">
-                  <span>${escapeHtml(p.size || 'In Stock')}</span>
-                  <span class="text-[#2d6a4f] font-medium"><i class="fa-solid fa-check text-[9px]"></i> OnlyVeda Official</span>
-                </div>
-              </div>
-            `).join("")}
-          </div>
-        `;
-      }
-
-      const formattedMarkdown = marked.parse(data.response || "");
-
-      div.innerHTML = `
-        <div class="w-8 h-8 rounded-full bg-white border border-[#c2d6c0] flex items-center justify-center shrink-0 p-1 shadow-xs">
-          <img src="/logo.png" alt="OnlyVeda" class="w-full h-full object-contain" />
-        </div>
-        <div class="bg-white border border-[#e2ece1] rounded-2xl rounded-tl-none p-4 shadow-sm text-sm text-gray-800 space-y-2 flex-1">
-          ${protocolBanner}
-          <div class="prose prose-sm max-w-none text-gray-800 leading-relaxed text-[13.5px]">
-            ${formattedMarkdown}
-          </div>
-          ${productsHtml}
-          <div class="flex items-center justify-between text-[10px] text-gray-400 pt-2 border-t border-gray-100">
-            <span>Language: <strong>${data.language_name || data.language}</strong></span>
-            <span>OnlyVeda Nutraceutical Engine</span>
-          </div>
-        </div>
-      `;
-      container.appendChild(div);
-      container.scrollTop = container.scrollHeight;
-    }
-
-    function appendErrorMessage(msg) {
-      const container = document.getElementById("messagesContainer");
-      const div = document.createElement("div");
-      div.className = "flex items-start gap-3 max-w-2xl";
-      div.innerHTML = `
-        <div class="w-8 h-8 rounded-full bg-red-600 text-white flex items-center justify-center shrink-0 text-sm">
-          <i class="fa-solid fa-circle-exclamation"></i>
-        </div>
-        <div class="bg-red-50 border border-red-200 text-red-800 rounded-2xl rounded-tl-none p-3 shadow-sm text-xs">
-          ${escapeHtml(msg)}
-        </div>
-      `;
-      container.appendChild(div);
-      container.scrollTop = container.scrollHeight;
-    }
-
-    async function clearChat() {
-      const sessId = localStorage.getItem("onlyveda_session_id");
-      if (sessId) {
-        try {
-          await fetch(`/api/history/${sessId}`, { method: "DELETE" });
-        } catch (e) {
-          console.error(e);
-        }
-      }
+        await fetch(`/api/history/${currentSessionId}`, { method: "DELETE" });
+      } catch (e) {}
       localStorage.removeItem("onlyveda_session_id");
-      currentSessionId = null;
-      getSessionId();
-
+      currentSessionId = "sess_" + Math.random().toString(36).substring(2, 10);
+      localStorage.setItem("onlyveda_session_id", currentSessionId);
       const container = document.getElementById("messagesContainer");
       while (container.children.length > 1) {
         container.removeChild(container.lastChild);
@@ -716,26 +1145,22 @@
     async function handleAddProduct(e) {
       e.preventDefault();
       const form = e.target;
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData.entries());
-
+      const data = Object.fromEntries(new FormData(form).entries());
       try {
         const res = await fetch("/api/products", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(data)
         });
-        const result = await res.json();
-        if (result.success) {
+        const r = await res.json();
+        if (r.success) {
           alert("Product added successfully!");
           form.reset();
           await loadProducts();
           switchCatalogTab("view");
-        } else {
-          alert("Error: " + result.message);
         }
       } catch (err) {
-        alert("Failed to save product: " + err.message);
+        alert("Error adding product: " + err.message);
       }
     }
 
@@ -749,34 +1174,19 @@
     async function uploadCsvFile() {
       const input = document.getElementById("csvFileInput");
       if (!input.files.length) return;
-
       const formData = new FormData();
       formData.append("file", input.files[0]);
-
-      const btn = document.getElementById("uploadCsvBtn");
-      btn.disabled = true;
-      btn.textContent = "Ingesting Products...";
-
       try {
-        const res = await fetch("/api/products/upload-csv", {
-          method: "POST",
-          body: formData
-        });
+        const res = await fetch("/api/products/upload-csv", { method: "POST", body: formData });
         const result = await res.json();
         if (result.success) {
           alert(`Success! Ingested ${result.added} products.`);
           input.value = "";
-          document.getElementById("selectedFileName").textContent = "No file selected";
           await loadProducts();
           switchCatalogTab("view");
-        } else {
-          alert("Upload issue: " + JSON.stringify(result.errors));
         }
       } catch (e) {
-        alert("Upload failed: " + e.message);
-      } finally {
-        btn.disabled = false;
-        btn.textContent = "Upload & Ingest Products";
+        alert("Upload error: " + e.message);
       }
     }
 
@@ -788,10 +1198,10 @@
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ api_key: key })
         });
-        const result = await res.json();
-        alert(result.message);
+        const r = await res.json();
+        alert(r.message);
       } catch (e) {
-        alert("Failed to update setting: " + e.message);
+        alert("Save failed: " + e.message);
       }
     }
 
