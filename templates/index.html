@@ -1,24 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="theme-color" content="#12372a" />
   <title>ONLYVEDAA AI™ | Personal Wellness & Learning Companion</title>
+  
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap');
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: #f6f9f5;
+    
+    html, body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #f4f7f4;
+      height: 100%;
+      height: 100dvh;
+      min-height: 100dvh;
+      max-height: 100dvh;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      position: fixed;
+      top: 0;
+      left: 0;
+      -webkit-tap-highlight-color: transparent;
+      overscroll-behavior: none;
     }
-    .serif-title {
-      font-family: 'Playfair Display', Georgia, serif;
+
+    .pb-safe {
+      padding-bottom: max(0.5rem, env(safe-area-inset-bottom, 0.5rem));
     }
+    .pt-safe {
+      padding-top: max(0.5rem, env(safe-area-inset-top, 0.5rem));
+    }
+
     .custom-scrollbar::-webkit-scrollbar {
-      width: 5px;
-      height: 5px;
+      width: 4px;
+      height: 4px;
     }
     .custom-scrollbar::-webkit-scrollbar-track {
       background: #eef3ed;
@@ -27,15 +51,29 @@
       background: #c3d9c0;
       border-radius: 4px;
     }
+
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .touch-scroll {
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+    }
+
     /* Voice Orb Animation */
     @keyframes pulse-orb {
-      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 125, 50, 0.7); }
-      70% { transform: scale(1.1); box-shadow: 0 0 0 25px rgba(46, 125, 50, 0); }
-      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 125, 50, 0); }
+      0% { transform: scale(0.96); box-shadow: 0 0 0 0 rgba(46, 125, 50, 0.75); }
+      70% { transform: scale(1.08); box-shadow: 0 0 0 22px rgba(46, 125, 50, 0); }
+      100% { transform: scale(0.96); box-shadow: 0 0 0 0 rgba(46, 125, 50, 0); }
     }
     @keyframes speaking-wave {
-      0%, 100% { height: 12px; }
-      50% { height: 44px; }
+      0%, 100% { height: 10px; }
+      50% { height: 38px; }
     }
     .pulse-animation {
       animation: pulse-orb 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
@@ -43,46 +81,54 @@
     .wave-bar {
       animation: speaking-wave 1.2s infinite ease-in-out;
     }
+
+    /* Message Selection */
+    #messagesContainer, .prose {
+      -webkit-user-select: text;
+      user-select: text;
+    }
   </style>
   <link rel="icon" type="image/png" href="/logo.png" />
 </head>
-<body class="h-screen flex flex-col bg-[#f4f7f4] text-slate-800 overflow-hidden">
+<body class="h-full flex flex-col bg-[#f4f7f4] text-slate-800">
 
   <!-- ========================================================================= -->
-  <!-- NAVBAR -->
+  <!-- RESPONSIVE NAVBAR -->
   <!-- ========================================================================= -->
-  <header class="bg-[#12372a] text-white px-4 md:px-6 py-2.5 shadow-md flex items-center justify-between border-b border-[#1b4332] shrink-0 z-20">
-    <div class="flex items-center gap-3">
-      <a href="/" class="bg-white/95 hover:bg-white px-3 py-1.5 rounded-xl shadow-xs border border-white/30 flex items-center transition">
-        <img src="/logo.png" alt="OnlyVeda" class="h-7 md:h-8 object-contain" />
+  <header class="bg-[#12372a] text-white px-3 sm:px-5 py-2 shadow-md flex items-center justify-between border-b border-[#1b4332] shrink-0 z-30">
+    <!-- Brand Info -->
+    <div class="flex items-center gap-2 sm:gap-3 min-w-0">
+      <a href="/" class="bg-white/95 hover:bg-white px-2 sm:px-3 py-1 rounded-xl shadow-xs border border-white/30 flex items-center transition shrink-0">
+        <img src="/logo.png" alt="OnlyVeda" class="h-6 sm:h-7 md:h-8 object-contain" />
       </a>
-      <div>
-        <div class="flex items-center gap-2">
-          <span class="text-[10px] bg-[#43a047] text-white font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider">ONLYVEDAA AI™</span>
-          <span class="hidden sm:inline text-xs text-[#c8e6c9] font-medium">• Understand. Learn. Live Better.</span>
+      <div class="min-w-0">
+        <div class="flex items-center gap-1.5 sm:gap-2">
+          <span class="text-[9px] sm:text-[10px] bg-[#43a047] text-white font-extrabold px-1.5 sm:px-2 py-0.5 rounded-full uppercase tracking-wider shrink-0">ONLYVEDAA AI™</span>
+          <span class="hidden md:inline text-xs text-[#c8e6c9] font-medium truncate">• Understand. Learn. Live Better.</span>
         </div>
-        <p class="text-[11px] text-[#e8f5e9]/70 hidden md:block">Knowledge Before Recommendation • Right Nutrition • Right Purpose</p>
+        <p class="text-[10px] sm:text-[11px] text-[#e8f5e9]/70 hidden lg:block truncate">Knowledge Before Recommendation • Right Nutrition • Right Purpose</p>
       </div>
     </div>
 
-    <!-- Controls -->
-    <div class="flex items-center gap-2 md:gap-3">
-      <!-- Perspective Selector -->
-      <div class="hidden lg:flex items-center bg-[#1e4635] rounded-lg px-2.5 py-1 text-xs border border-[#2d6a4f]">
-        <span class="text-[#a5d6a7] mr-1.5 font-semibold"><i class="fa-solid fa-graduation-cap"></i> Level:</span>
+    <!-- Header Actions -->
+    <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
+      
+      <!-- Perspective Level (Desktop Only) -->
+      <div class="hidden xl:flex items-center bg-[#1e4635] rounded-lg px-2.5 py-1 text-xs border border-[#2d6a4f]">
+        <span class="text-[#a5d6a7] mr-1.5 font-semibold"><i class="fa-solid fa-graduation-cap"></i></span>
         <select id="perspectiveSelect" onchange="updatePerspective()" class="bg-transparent text-white font-medium focus:outline-none cursor-pointer">
           <option value="beginner" class="text-gray-900" selected>🟢 Beginner</option>
           <option value="entrepreneur" class="text-gray-900">🟡 Entrepreneur</option>
-          <option value="student" class="text-gray-900">🔵 Nutrition Student</option>
+          <option value="student" class="text-gray-900">🔵 Student</option>
           <option value="professional" class="text-gray-900">🟣 Healthcare Pro</option>
         </select>
       </div>
 
       <!-- Language Selector -->
-      <div class="flex items-center bg-[#1e4635] rounded-lg px-2.5 py-1 text-xs border border-[#2d6a4f]">
-        <i class="fa-solid fa-globe text-[#a5d6a7] mr-1.5"></i>
-        <select id="languageSelect" onchange="changeLanguage()" class="bg-transparent text-white font-medium focus:outline-none cursor-pointer">
-          <option value="auto" class="text-gray-900" selected>🌐 Auto-Detect</option>
+      <div class="flex items-center bg-[#1e4635] rounded-lg px-2 sm:px-2.5 py-1 text-xs border border-[#2d6a4f]">
+        <i class="fa-solid fa-globe text-[#a5d6a7] mr-1"></i>
+        <select id="languageSelect" onchange="changeLanguage()" class="bg-transparent text-white font-medium focus:outline-none cursor-pointer max-w-[80px] sm:max-w-none text-[11px] sm:text-xs">
+          <option value="auto" class="text-gray-900" selected>🌐 Auto</option>
           <option value="en" class="text-gray-900">English</option>
           <option value="hi" class="text-gray-900">हिन्दी (Hindi)</option>
           <option value="gu" class="text-gray-900">ગુજરાતી (Gujarati)</option>
@@ -97,227 +143,278 @@
         </select>
       </div>
 
-      <!-- Live Voice Agent Trigger Button -->
-      <button onclick="openVoiceModal()" class="flex items-center gap-1.5 bg-gradient-to-r from-[#2e7d32] to-[#43a047] hover:from-[#1b5e20] hover:to-[#2e7d32] text-white px-3.5 py-1.5 rounded-lg text-xs md:text-sm font-bold shadow-md hover:shadow-lg transition">
+      <!-- Primary Voice Agent Trigger Button -->
+      <button onclick="openVoiceModal()" class="flex items-center gap-1 sm:gap-1.5 bg-gradient-to-r from-[#2e7d32] to-[#43a047] hover:from-[#1b5e20] hover:to-[#2e7d32] text-white px-2.5 sm:px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-bold shadow-md hover:shadow-lg active:scale-95 transition" title="Start Live Voice Agent">
         <i class="fa-solid fa-microphone-lines text-yellow-300 animate-pulse"></i>
-        <span>AI Voice Agent</span>
+        <span class="hidden xs:inline">Voice Agent</span>
+        <span class="xs:hidden">Voice</span>
       </button>
 
-      <!-- More Menu / Settings -->
-      <button onclick="toggleDrawer('catalogDrawer')" class="p-1.5 px-2.5 rounded-lg bg-[#1e4635] hover:bg-[#2d6a4f] text-[#c8e6c9] text-xs font-semibold transition" title="Catalog & Feeds">
-        <i class="fa-solid fa-boxes-stacked"></i> <span class="hidden sm:inline" id="productCountBadge">129</span>
+      <!-- Desktop Extra Buttons -->
+      <button onclick="toggleDrawer('catalogDrawer')" class="hidden sm:flex items-center gap-1 p-1.5 px-2.5 rounded-lg bg-[#1e4635] hover:bg-[#2d6a4f] text-[#c8e6c9] text-xs font-semibold transition" title="Catalog & Knowledge">
+        <i class="fa-solid fa-boxes-stacked"></i> <span id="productCountBadge">129</span>
       </button>
-      <button onclick="toggleDrawer('settingsDrawer')" class="p-1.5 rounded-lg bg-[#1e4635] hover:bg-[#2d6a4f] text-white transition" title="Settings">
+      <button onclick="toggleDrawer('settingsDrawer')" class="hidden sm:block p-1.5 px-2 rounded-lg bg-[#1e4635] hover:bg-[#2d6a4f] text-white transition" title="Settings">
         <i class="fa-solid fa-gear text-xs"></i>
+      </button>
+
+      <!-- Mobile Menu Button (Hamburger) -->
+      <button onclick="toggleMobileMenu()" class="sm:hidden p-1.5 px-2 rounded-lg bg-[#1e4635] active:bg-[#2d6a4f] text-white transition" title="Open Menu">
+        <i class="fa-solid fa-bars text-sm"></i>
       </button>
     </div>
   </header>
 
   <!-- ========================================================================= -->
-  <!-- 6 AI COACHES NAVIGATION BAR -->
+  <!-- MOBILE SLIDE-DOWN ACTION SHEET -->
   <!-- ========================================================================= -->
-  <nav class="bg-[#1b4332] text-white px-3 py-1.5 flex items-center gap-2 overflow-x-auto custom-scrollbar shrink-0 shadow-inner text-xs border-b border-[#2d6a4f]">
-    <span class="text-[#a5d6a7] font-bold uppercase tracking-wider text-[10px] shrink-0 mr-1">
+  <div id="mobileMenuSheet" class="hidden sm:hidden bg-[#183d2e] text-white border-b border-[#2d6a4f] px-3 py-2.5 space-y-2 z-20 shadow-xl transition-all">
+    <div class="flex items-center justify-between text-xs pb-1.5 border-b border-[#2d6a4f]">
+      <span class="text-[#a5d6a7] font-semibold"><i class="fa-solid fa-graduation-cap mr-1"></i> Knowledge Level:</span>
+      <select id="mobilePerspectiveSelect" onchange="syncMobilePerspective()" class="bg-[#12372a] text-white text-xs px-2 py-1 rounded-md border border-[#2d6a4f] focus:outline-none">
+        <option value="beginner" selected>🟢 Beginner</option>
+        <option value="entrepreneur">🟡 Entrepreneur</option>
+        <option value="student">🔵 Student</option>
+        <option value="professional">🟣 Healthcare Pro</option>
+      </select>
+    </div>
+    
+    <div class="grid grid-cols-2 gap-1.5 text-xs pt-1">
+      <button onclick="closeMobileMenu(); openNutritrainerModal();" class="p-2 rounded-lg bg-amber-600/90 text-white font-medium flex items-center justify-center gap-1.5">
+        <i class="fa-solid fa-award"></i> Nutritrainer
+      </button>
+      <button onclick="closeMobileMenu(); openDiscoveryModal();" class="p-2 rounded-lg bg-emerald-600/90 text-white font-medium flex items-center justify-center gap-1.5">
+        <i class="fa-solid fa-clipboard-check"></i> Discovery
+      </button>
+      <button onclick="closeMobileMenu(); openProductExplorerModal();" class="p-2 rounded-lg bg-teal-600/90 text-white font-medium flex items-center justify-center gap-1.5">
+        <i class="fa-solid fa-qrcode"></i> Scan Products
+      </button>
+      <button onclick="closeMobileMenu(); openAnalyticsModal();" class="p-2 rounded-lg bg-blue-700/90 text-white font-medium flex items-center justify-center gap-1.5">
+        <i class="fa-solid fa-chart-line"></i> Analytics
+      </button>
+    </div>
+
+    <div class="flex items-center justify-between pt-1 border-t border-[#2d6a4f] text-[11px] text-[#c8e6c9]">
+      <button onclick="closeMobileMenu(); toggleDrawer('catalogDrawer');" class="flex items-center gap-1 py-1 hover:underline">
+        <i class="fa-solid fa-boxes-stacked"></i> Full Catalog (129)
+      </button>
+      <button onclick="closeMobileMenu(); toggleDrawer('settingsDrawer');" class="flex items-center gap-1 py-1 hover:underline">
+        <i class="fa-solid fa-gear"></i> Settings
+      </button>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 6 AI COACHES NAVIGATION BAR (Touch Scrolling Optimized) -->
+  <!-- ========================================================================= -->
+  <nav class="bg-[#1b4332] text-white px-2 sm:px-3 py-1.5 flex items-center gap-1.5 sm:gap-2 overflow-x-auto touch-scroll no-scrollbar shrink-0 shadow-inner text-xs border-b border-[#2d6a4f]">
+    <span class="text-[#a5d6a7] font-bold uppercase tracking-wider text-[10px] shrink-0 hidden sm:inline mr-0.5">
       <i class="fa-solid fa-compass"></i> Coaches:
     </span>
-    <button onclick="selectCoachModule('orchestrator')" id="coachBtn-orchestrator" class="coach-pill shrink-0 bg-[#2d6a4f] text-white px-2.5 py-1 rounded-md font-semibold border border-[#52b788] transition flex items-center gap-1">
-      <span>🧠 All-in-One AI</span>
+    
+    <button onclick="selectCoachModule('orchestrator')" id="coachBtn-orchestrator" class="coach-pill shrink-0 whitespace-nowrap bg-[#2d6a4f] text-white px-2.5 py-1 rounded-full text-xs font-semibold border border-[#52b788] active:scale-95 transition flex items-center gap-1">
+      <span>🧠 All-in-One</span>
     </button>
-    <button onclick="selectCoachModule('body')" id="coachBtn-body" class="coach-pill shrink-0 bg-[#12372a]/60 hover:bg-[#2d6a4f] text-[#e8f5e9] px-2.5 py-1 rounded-md font-medium border border-[#2d6a4f] transition flex items-center gap-1">
+    <button onclick="selectCoachModule('body')" id="coachBtn-body" class="coach-pill shrink-0 whitespace-nowrap bg-[#12372a]/60 hover:bg-[#2d6a4f] text-[#e8f5e9] px-2.5 py-1 rounded-full text-xs font-medium border border-[#2d6a4f] active:scale-95 transition flex items-center gap-1">
       <span>🧬 Know Your Body™</span>
     </button>
-    <button onclick="selectCoachModule('nutrition')" id="coachBtn-nutrition" class="coach-pill shrink-0 bg-[#12372a]/60 hover:bg-[#2d6a4f] text-[#e8f5e9] px-2.5 py-1 rounded-md font-medium border border-[#2d6a4f] transition flex items-center gap-1">
+    <button onclick="selectCoachModule('nutrition')" id="coachBtn-nutrition" class="coach-pill shrink-0 whitespace-nowrap bg-[#12372a]/60 hover:bg-[#2d6a4f] text-[#e8f5e9] px-2.5 py-1 rounded-full text-xs font-medium border border-[#2d6a4f] active:scale-95 transition flex items-center gap-1">
       <span>🥗 Nutrition Coach</span>
     </button>
-    <button onclick="selectCoachModule('health')" id="coachBtn-health" class="coach-pill shrink-0 bg-[#12372a]/60 hover:bg-[#2d6a4f] text-[#e8f5e9] px-2.5 py-1 rounded-md font-medium border border-[#2d6a4f] transition flex items-center gap-1">
+    <button onclick="selectCoachModule('health')" id="coachBtn-health" class="coach-pill shrink-0 whitespace-nowrap bg-[#12372a]/60 hover:bg-[#2d6a4f] text-[#e8f5e9] px-2.5 py-1 rounded-full text-xs font-medium border border-[#2d6a4f] active:scale-95 transition flex items-center gap-1">
       <span>🩺 Health Educator</span>
     </button>
-    <button onclick="selectCoachModule('product')" id="coachBtn-product" class="coach-pill shrink-0 bg-[#12372a]/60 hover:bg-[#2d6a4f] text-[#e8f5e9] px-2.5 py-1 rounded-md font-medium border border-[#2d6a4f] transition flex items-center gap-1">
+    <button onclick="selectCoachModule('product')" id="coachBtn-product" class="coach-pill shrink-0 whitespace-nowrap bg-[#12372a]/60 hover:bg-[#2d6a4f] text-[#e8f5e9] px-2.5 py-1 rounded-full text-xs font-medium border border-[#2d6a4f] active:scale-95 transition flex items-center gap-1">
       <span>🌿 Product Brain</span>
     </button>
-    <button onclick="selectCoachModule('career')" id="coachBtn-career" class="coach-pill shrink-0 bg-[#12372a]/60 hover:bg-[#2d6a4f] text-[#e8f5e9] px-2.5 py-1 rounded-md font-medium border border-[#2d6a4f] transition flex items-center gap-1">
+    <button onclick="selectCoachModule('career')" id="coachBtn-career" class="coach-pill shrink-0 whitespace-nowrap bg-[#12372a]/60 hover:bg-[#2d6a4f] text-[#e8f5e9] px-2.5 py-1 rounded-full text-xs font-medium border border-[#2d6a4f] active:scale-95 transition flex items-center gap-1">
       <span>🚀 Career Coach</span>
     </button>
-    <button onclick="openNutritrainerModal()" class="shrink-0 bg-amber-600/80 hover:bg-amber-600 text-white px-2.5 py-1 rounded-md font-semibold transition flex items-center gap-1">
-      <i class="fa-solid fa-award"></i> <span>🎓 Nutritrainer Academy</span>
+
+    <!-- Desktop Feature Buttons in Nav -->
+    <button onclick="openNutritrainerModal()" class="hidden sm:flex shrink-0 whitespace-nowrap bg-amber-600/80 hover:bg-amber-600 text-white px-2.5 py-1 rounded-full font-semibold transition items-center gap-1">
+      <i class="fa-solid fa-award"></i> <span>Academy</span>
     </button>
-    <button onclick="openDiscoveryModal()" class="shrink-0 bg-emerald-600/80 hover:bg-emerald-600 text-white px-2.5 py-1 rounded-md font-semibold transition flex items-center gap-1">
-      <i class="fa-solid fa-clipboard-check"></i> <span>📋 Discovery Session</span>
+    <button onclick="openDiscoveryModal()" class="hidden sm:flex shrink-0 whitespace-nowrap bg-emerald-600/80 hover:bg-emerald-600 text-white px-2.5 py-1 rounded-full font-semibold transition items-center gap-1">
+      <i class="fa-solid fa-clipboard-check"></i> <span>Discovery</span>
     </button>
-    <button onclick="openProductExplorerModal()" class="shrink-0 bg-teal-600/80 hover:bg-teal-600 text-white px-2.5 py-1 rounded-md font-semibold transition flex items-center gap-1">
+    <button onclick="openProductExplorerModal()" class="hidden sm:flex shrink-0 whitespace-nowrap bg-teal-600/80 hover:bg-teal-600 text-white px-2.5 py-1 rounded-full font-semibold transition items-center gap-1">
       <i class="fa-solid fa-qrcode"></i> <span>Scan & Explore</span>
     </button>
-    <button onclick="openAnalyticsModal()" class="shrink-0 bg-blue-700/80 hover:bg-blue-700 text-white px-2.5 py-1 rounded-md font-semibold transition flex items-center gap-1">
+    <button onclick="openAnalyticsModal()" class="hidden sm:flex shrink-0 whitespace-nowrap bg-blue-700/80 hover:bg-blue-700 text-white px-2.5 py-1 rounded-full font-semibold transition items-center gap-1">
       <i class="fa-solid fa-chart-line"></i> <span>Analytics</span>
     </button>
   </nav>
 
   <!-- ========================================================================= -->
-  <!-- MAIN CHAT AREA -->
+  <!-- MAIN CHAT CONTAINER (Responsive Flex Layout) -->
   <!-- ========================================================================= -->
-  <div class="flex-1 flex overflow-hidden relative">
-    <main class="flex-1 flex flex-col h-full bg-[#f8faf7] max-w-4xl mx-auto w-full border-x border-[#e2e8df] shadow-xs">
+  <div class="flex-1 flex overflow-hidden relative w-full">
+    <main class="flex-1 flex flex-col h-full bg-[#f8faf7] max-w-4xl mx-auto w-full md:border-x border-[#e2e8df] shadow-xs">
       
-      <!-- Current Coach Banner -->
-      <div id="activeCoachBanner" class="bg-[#e8f5e9] border-b border-[#c8e6c9] px-4 py-2 flex items-center justify-between text-xs text-[#1b5e20] shrink-0">
-        <div class="flex items-center gap-2">
-          <span id="activeCoachTitle" class="font-bold text-sm">🧠 ONLYVEDAA AI™ Master Coach</span>
-          <span id="activeCoachBadge" class="bg-[#c8e6c9] text-[#1b5e20] px-2 py-0.5 rounded-full text-[10px] font-bold uppercase">All-in-One</span>
+      <!-- Current Active Coach Banner -->
+      <div id="activeCoachBanner" class="bg-[#e8f5e9] border-b border-[#c8e6c9] px-3 sm:px-4 py-1.5 sm:py-2 flex items-center justify-between text-xs text-[#1b5e20] shrink-0">
+        <div class="flex items-center gap-1.5 sm:gap-2 truncate">
+          <span id="activeCoachTitle" class="font-bold text-xs sm:text-sm truncate">🧠 ONLYVEDAA AI™ Master Coach</span>
+          <span id="activeCoachBadge" class="bg-[#c8e6c9] text-[#1b5e20] px-1.5 sm:px-2 py-0.5 rounded-full text-[9px] sm:text-[10px] font-bold uppercase shrink-0">All-in-One</span>
         </div>
-        <div class="text-[11px] text-[#2e7d32] italic hidden sm:block">
+        <div class="text-[11px] text-[#2e7d32] italic hidden md:block shrink-0">
           "Knowledge Before Recommendation"
         </div>
       </div>
 
-      <!-- Quick Topics Pill Bar -->
-      <div class="bg-white px-4 py-2 border-b border-[#e5ebe3] flex items-center gap-2 overflow-x-auto custom-scrollbar shrink-0 text-xs">
-        <span class="text-gray-500 font-semibold uppercase tracking-wider shrink-0 text-[10px]">
-          <i class="fa-solid fa-sparkles text-[#2e7d32]"></i> Try Asking:
+      <!-- Quick Suggested Questions Pill Bar -->
+      <div class="bg-white px-3 sm:px-4 py-1.5 sm:py-2 border-b border-[#e5ebe3] flex items-center gap-1.5 sm:gap-2 overflow-x-auto touch-scroll no-scrollbar shrink-0 text-xs">
+        <span class="text-gray-500 font-semibold uppercase tracking-wider shrink-0 text-[10px] hidden xs:inline">
+          <i class="fa-solid fa-sparkles text-[#2e7d32]"></i> Ask:
         </span>
-        <button onclick="sendQuickQuery('How does human digestion and nutrient absorption work?')" class="shrink-0 bg-[#f1f8e9] hover:bg-[#dcedc8] text-[#33691e] px-2.5 py-1 rounded-full border border-[#c5e1a5] transition">
+        <button onclick="sendQuickQuery('How does human digestion and nutrient absorption work?')" class="shrink-0 whitespace-nowrap bg-[#f1f8e9] hover:bg-[#dcedc8] active:scale-95 text-[#33691e] px-2.5 py-0.5 sm:py-1 rounded-full border border-[#c5e1a5] transition text-[11px] sm:text-xs">
           🧬 How Digestion Works
         </button>
-        <button onclick="sendQuickQuery('Why do people get fatty liver and how to care for it?')" class="shrink-0 bg-[#f1f8e9] hover:bg-[#dcedc8] text-[#33691e] px-2.5 py-1 rounded-full border border-[#c5e1a5] transition">
+        <button onclick="sendQuickQuery('Why do people get fatty liver and how to care for it?')" class="shrink-0 whitespace-nowrap bg-[#f1f8e9] hover:bg-[#dcedc8] active:scale-95 text-[#33691e] px-2.5 py-0.5 sm:py-1 rounded-full border border-[#c5e1a5] transition text-[11px] sm:text-xs">
           🩺 Fatty Liver Physiology
         </button>
-        <button onclick="sendQuickQuery('Why Onlyvedaa? Explain the community commerce model and career.')" class="shrink-0 bg-[#f1f8e9] hover:bg-[#dcedc8] text-[#33691e] px-2.5 py-1 rounded-full border border-[#c5e1a5] transition">
+        <button onclick="sendQuickQuery('Why Onlyvedaa? Explain the community commerce model and career.')" class="shrink-0 whitespace-nowrap bg-[#f1f8e9] hover:bg-[#dcedc8] active:scale-95 text-[#33691e] px-2.5 py-0.5 sm:py-1 rounded-full border border-[#c5e1a5] transition text-[11px] sm:text-xs">
           🚀 Why Onlyvedaa Career
         </button>
-        <button onclick="sendQuickQuery('I have high blood pressure, what OnlyVeda products support cardio health?')" class="shrink-0 bg-[#f1f8e9] hover:bg-[#dcedc8] text-[#33691e] px-2.5 py-1 rounded-full border border-[#c5e1a5] transition">
+        <button onclick="sendQuickQuery('I have high blood pressure, what OnlyVeda products support cardio health?')" class="shrink-0 whitespace-nowrap bg-[#f1f8e9] hover:bg-[#dcedc8] active:scale-95 text-[#33691e] px-2.5 py-0.5 sm:py-1 rounded-full border border-[#c5e1a5] transition text-[11px] sm:text-xs">
           🩸 High BP & Linopress
         </button>
-        <button onclick="sendQuickQuery('I have severe joint and knee pain in morning')" class="shrink-0 bg-[#f1f8e9] hover:bg-[#dcedc8] text-[#33691e] px-2.5 py-1 rounded-full border border-[#c5e1a5] transition">
+        <button onclick="sendQuickQuery('I have severe joint and knee pain in morning')" class="shrink-0 whitespace-nowrap bg-[#f1f8e9] hover:bg-[#dcedc8] active:scale-95 text-[#33691e] px-2.5 py-0.5 sm:py-1 rounded-full border border-[#c5e1a5] transition text-[11px] sm:text-xs">
           🦴 Joint & Knee Care
         </button>
       </div>
 
-      <!-- Chat Messages Container -->
-      <div id="messagesContainer" class="flex-1 overflow-y-auto px-4 md:px-6 py-4 space-y-4 custom-scrollbar">
-        <!-- Welcome Message -->
-        <div class="flex items-start gap-3 max-w-3xl">
-          <div class="w-8 h-8 rounded-full bg-[#1b4332] text-white flex items-center justify-center shrink-0 shadow-xs font-bold text-xs">
+      <!-- Chat Messages Scroll Container -->
+      <div id="messagesContainer" class="flex-1 overflow-y-auto touch-scroll px-3 sm:px-5 md:px-6 py-3 sm:py-4 space-y-3 sm:space-y-4 custom-scrollbar">
+        <!-- Welcome Card -->
+        <div class="flex items-start gap-2 sm:gap-3 max-w-3xl">
+          <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#1b4332] text-white flex items-center justify-center shrink-0 shadow-xs font-bold text-xs">
             🌿
           </div>
-          <div class="bg-white rounded-2xl rounded-tl-sm p-4 border border-[#e0e8de] shadow-xs text-sm leading-relaxed text-slate-800">
-            <h3 class="font-bold text-[#1b4332] text-base mb-1">Namaste & Welcome to ONLYVEDAA AI™</h3>
-            <p class="text-xs text-[#2d6a4f] font-semibold mb-2">Your Personal Wellness, Physiology & Learning Companion</p>
-            <p class="mb-3 text-slate-600">
-              I am your always-available guide based on the core philosophy: <strong>Health Before Wealth • Knowledge Before Recommendation</strong>. 
+          <div class="bg-white rounded-2xl rounded-tl-sm p-3.5 sm:p-4 border border-[#e0e8de] shadow-xs text-xs sm:text-sm leading-relaxed text-slate-800 w-full">
+            <h3 class="font-bold text-[#1b4332] text-sm sm:text-base mb-1">Namaste & Welcome to ONLYVEDAA AI™</h3>
+            <p class="text-[11px] sm:text-xs text-[#2d6a4f] font-semibold mb-2">Your Personal Wellness, Physiology & Learning Companion</p>
+            <p class="mb-2.5 text-slate-600 text-xs sm:text-sm">
+              I am your always-available guide based on the core philosophy: <strong>Health Before Wealth • Knowledge Before Recommendation</strong>.
             </p>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs mb-3">
-              <div class="bg-[#f1f8e9] p-2.5 rounded-lg border border-[#dcedc8]">
-                <strong class="text-[#2e7d32] block mb-0.5">🧬 Know Your Body™</strong>
+              <div class="bg-[#f1f8e9] p-2.5 rounded-xl border border-[#dcedc8]">
+                <strong class="text-[#2e7d32] block mb-0.5 text-xs">🧬 Know Your Body™</strong>
                 Learn human anatomy, liver, heart, gut microbiome & energy systems.
               </div>
-              <div class="bg-[#f1f8e9] p-2.5 rounded-lg border border-[#dcedc8]">
-                <strong class="text-[#2e7d32] block mb-0.5">🥗 Nutrition & Lifestyle</strong>
+              <div class="bg-[#f1f8e9] p-2.5 rounded-xl border border-[#dcedc8]">
+                <strong class="text-[#2e7d32] block mb-0.5 text-xs">🥗 Nutrition & Lifestyle</strong>
                 Master protein, hydration, fiber, and sustainable eating habits.
               </div>
-              <div class="bg-[#f1f8e9] p-2.5 rounded-lg border border-[#dcedc8]">
-                <strong class="text-[#2e7d32] block mb-0.5">🌿 OnlyVeda Product Brain</strong>
+              <div class="bg-[#f1f8e9] p-2.5 rounded-xl border border-[#dcedc8]">
+                <strong class="text-[#2e7d32] block mb-0.5 text-xs">🌿 OnlyVeda Product Brain</strong>
                 129 standardized formulations with exact ingredients & dosages.
               </div>
-              <div class="bg-[#f1f8e9] p-2.5 rounded-lg border border-[#dcedc8]">
-                <strong class="text-[#2e7d32] block mb-0.5">🎙️ Live Voice Agent</strong>
+              <div class="bg-[#f1f8e9] p-2.5 rounded-xl border border-[#dcedc8]">
+                <strong class="text-[#2e7d32] block mb-0.5 text-xs">🎙️ Live Voice Agent</strong>
                 Talk hands-free in English, Hindi, Gujarati, or any Indic language.
               </div>
             </div>
-            <p class="text-xs text-slate-500">
-              Ask any question, tap the <strong>AI Voice Agent</strong> button to talk, or click a coach above to begin your journey!
+            <p class="text-[11px] sm:text-xs text-slate-500">
+              Type any question below or tap the <strong>Voice Agent</strong> button above to talk hands-free!
             </p>
           </div>
         </div>
       </div>
 
       <!-- Typing Indicator -->
-      <div id="typingIndicator" class="hidden px-6 py-2">
-        <div class="flex items-center gap-2 text-xs text-[#2d6a4f] font-medium bg-white/80 w-fit px-3 py-1.5 rounded-full border border-[#d8f3dc]">
-          <span class="w-1.5 h-1.5 rounded-full bg-[#2d6a4f] animate-ping"></span>
+      <div id="typingIndicator" class="hidden px-4 sm:px-6 py-2">
+        <div class="flex items-center gap-2 text-xs text-[#2d6a4f] font-medium bg-white/90 w-fit px-3 py-1.5 rounded-full border border-[#d8f3dc] shadow-xs">
+          <span class="w-2 h-2 rounded-full bg-[#2d6a4f] animate-ping"></span>
           <span>ONLYVEDAA AI is consulting the knowledge base...</span>
         </div>
       </div>
 
-      <!-- Chat Input Area -->
-      <footer class="p-3 bg-white border-t border-[#e2e8df] shrink-0">
-        <form id="chatForm" onsubmit="handleSendMessage(event)" class="flex items-end gap-2 bg-[#f4f7f4] p-1.5 rounded-2xl border border-[#d0ded0] focus-within:border-[#2d6a4f] focus-within:ring-2 focus-within:ring-[#52b788]/20 transition">
-          <!-- Voice Quick Button inside input -->
-          <button type="button" onclick="startInlineVoiceInput()" id="inlineMicBtn" class="p-2 text-[#2d6a4f] hover:text-[#1b4332] transition rounded-xl hover:bg-white" title="Voice Input">
+      <!-- Bottom Chat Input Bar (Mobile Safe Area Optimized) -->
+      <footer class="p-2 sm:p-3 bg-white border-t border-[#e2e8df] shrink-0 pb-safe">
+        <form id="chatForm" onsubmit="handleSendMessage(event)" class="flex items-end gap-1.5 sm:gap-2 bg-[#f4f7f4] p-1 sm:p-1.5 rounded-2xl border border-[#d0ded0] focus-within:border-[#2d6a4f] focus-within:ring-2 focus-within:ring-[#52b788]/20 transition">
+          <!-- Voice Dictation Input Button -->
+          <button type="button" onclick="startInlineVoiceInput()" id="inlineMicBtn" class="min-w-[40px] min-h-[40px] p-2 text-[#2d6a4f] hover:text-[#1b4332] active:scale-95 transition rounded-xl flex items-center justify-center shrink-0" title="Voice Dictation">
             <i class="fa-solid fa-microphone text-base"></i>
           </button>
           
-          <textarea id="messageInput" rows="1" placeholder="Ask about your body, nutrition, condition, career, or products..." class="flex-1 bg-transparent px-2 py-1.5 text-sm focus:outline-none resize-none max-h-32 text-slate-800" onkeydown="handleTextareaKeydown(event)"></textarea>
+          <!-- Textarea (16px font-size to prevent iOS Safari auto-zoom) -->
+          <textarea id="messageInput" rows="1" placeholder="Ask about your body, nutrition, condition, or products..." class="flex-1 bg-transparent px-1.5 py-2 text-[16px] md:text-sm focus:outline-none resize-none max-h-32 text-slate-800 leading-normal" onkeydown="handleTextareaKeydown(event)"></textarea>
 
-          <button type="submit" id="sendBtn" class="bg-[#1b4332] hover:bg-[#2d6a4f] text-white p-2.5 rounded-xl transition shadow-xs flex items-center justify-center shrink-0">
+          <!-- Send Button -->
+          <button type="submit" id="sendBtn" class="min-w-[40px] min-h-[40px] bg-[#1b4332] active:bg-[#2d6a4f] text-white p-2 sm:p-2.5 rounded-xl transition shadow-xs flex items-center justify-center shrink-0 active:scale-95" title="Send Message">
             <i class="fa-solid fa-arrow-up text-sm"></i>
           </button>
         </form>
-        <div class="flex items-center justify-between text-[10px] text-gray-500 mt-1.5 px-2">
-          <span>⚠️ Holistic wellness guide. Not a substitute for emergency medicine.</span>
-          <button onclick="clearChatHistory()" class="hover:text-red-600 transition">Clear Chat</button>
+        
+        <div class="flex items-center justify-between text-[10px] text-gray-500 mt-1 px-1.5">
+          <span class="truncate mr-2">⚠️ Holistic wellness guide. Not a substitute for emergency medicine.</span>
+          <button onclick="clearChatHistory()" class="hover:text-red-600 active:text-red-700 transition shrink-0 underline">Clear Chat</button>
         </div>
       </footer>
     </main>
   </div>
 
   <!-- ========================================================================= -->
-  <!-- FULL AI VOICE AGENT MODAL (ChatGPT Voice / Gemini Live Style) -->
+  <!-- FULL AI VOICE AGENT MODAL (Responsive Touch Experience) -->
   <!-- ========================================================================= -->
-  <div id="voiceModal" class="hidden fixed inset-0 bg-[#0d1f18]/90 backdrop-blur-md z-50 flex items-center justify-center p-4">
-    <div class="bg-[#12372a] border border-[#2d6a4f] rounded-3xl max-w-lg w-full p-6 text-white text-center shadow-2xl relative flex flex-col items-center">
+  <div id="voiceModal" class="hidden fixed inset-0 bg-[#0d1f18]/95 backdrop-blur-md z-50 flex items-center justify-center p-3 sm:p-4">
+    <div class="bg-[#12372a] border border-[#2d6a4f] rounded-3xl max-w-lg w-full p-4 sm:p-6 text-white text-center shadow-2xl relative flex flex-col items-center max-h-[92dvh] overflow-y-auto touch-scroll">
       <!-- Close button -->
-      <button onclick="closeVoiceModal()" class="absolute top-4 right-4 text-white/60 hover:text-white text-xl">
+      <button onclick="closeVoiceModal()" class="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 text-white/70 hover:text-white p-2 text-xl active:scale-95 transition">
         <i class="fa-solid fa-xmark"></i>
       </button>
 
-      <!-- Header & Mode -->
-      <div class="mb-4">
-        <span class="text-[10px] bg-[#43a047] text-white font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">ONLYVEDAA LIVE VOICE AGENT</span>
-        <h2 class="text-xl font-bold mt-2 text-[#e8f5e9]">Speak Naturally to Your Coach</h2>
-        <p class="text-xs text-[#a5d6a7]">Supported in English, Hindi, Gujarati, Marathi & Indic languages</p>
+      <!-- Header & Title -->
+      <div class="mb-3 sm:mb-4 pt-1">
+        <span class="text-[9px] sm:text-[10px] bg-[#43a047] text-white font-extrabold px-2.5 py-0.5 rounded-full uppercase tracking-wider">ONLYVEDAA LIVE VOICE AGENT</span>
+        <h2 class="text-lg sm:text-xl font-bold mt-1.5 text-[#e8f5e9]">Speak Naturally to Your Coach</h2>
+        <p class="text-[11px] sm:text-xs text-[#a5d6a7]">Supported in English, Hindi, Gujarati, Marathi & Indic languages</p>
       </div>
 
       <!-- Voice Mode Switcher -->
-      <div class="flex items-center gap-1.5 bg-[#1b4332] p-1 rounded-xl text-xs mb-6 border border-[#2d6a4f]">
-        <button onclick="setVoiceMode('quick')" id="vmode-quick" class="px-2.5 py-1 rounded-lg bg-[#2e7d32] text-white font-semibold transition">⚡ Quick (30s)</button>
-        <button onclick="setVoiceMode('learn')" id="vmode-learn" class="px-2.5 py-1 rounded-lg text-white/70 hover:text-white transition">📖 Learn (3m)</button>
-        <button onclick="setVoiceMode('deep_dive')" id="vmode-deep_dive" class="px-2.5 py-1 rounded-lg text-white/70 hover:text-white transition">🔬 Deep Dive</button>
-        <button onclick="setVoiceMode('quiz')" id="vmode-quiz" class="px-2.5 py-1 rounded-lg text-white/70 hover:text-white transition">❓ Quiz Me</button>
+      <div class="flex flex-wrap sm:flex-nowrap justify-center gap-1 bg-[#1b4332] p-1 rounded-xl text-[11px] sm:text-xs mb-4 sm:mb-6 border border-[#2d6a4f] w-full">
+        <button onclick="setVoiceMode('quick')" id="vmode-quick" class="flex-1 min-w-[70px] py-1 px-1.5 rounded-lg bg-[#2e7d32] text-white font-semibold transition">⚡ Quick (30s)</button>
+        <button onclick="setVoiceMode('learn')" id="vmode-learn" class="flex-1 min-w-[70px] py-1 px-1.5 rounded-lg text-white/70 hover:text-white transition">📖 Learn (3m)</button>
+        <button onclick="setVoiceMode('deep_dive')" id="vmode-deep_dive" class="flex-1 min-w-[70px] py-1 px-1.5 rounded-lg text-white/70 hover:text-white transition">🔬 Deep Dive</button>
+        <button onclick="setVoiceMode('quiz')" id="vmode-quiz" class="flex-1 min-w-[70px] py-1 px-1.5 rounded-lg text-white/70 hover:text-white transition">❓ Quiz Me</button>
       </div>
 
-      <!-- Central Visualizer / Orb -->
-      <div class="my-6 relative flex items-center justify-center">
-        <div id="voiceOrb" class="w-32 h-32 rounded-full bg-gradient-to-tr from-[#2e7d32] via-[#43a047] to-[#81c784] flex items-center justify-center shadow-2xl transition duration-300">
-          <i id="voiceOrbIcon" class="fa-solid fa-microphone text-3xl text-white"></i>
+      <!-- Central Visualizer / Responsive Orb -->
+      <div class="my-4 sm:my-6 relative flex items-center justify-center">
+        <div id="voiceOrb" class="w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-gradient-to-tr from-[#2e7d32] via-[#43a047] to-[#81c784] flex items-center justify-center shadow-2xl transition duration-300">
+          <i id="voiceOrbIcon" class="fa-solid fa-microphone text-2xl sm:text-3xl text-white"></i>
         </div>
         <!-- Speaking waves -->
-        <div id="voiceWaveContainer" class="hidden absolute flex items-center gap-1.5">
-          <span class="wave-bar w-1.5 bg-yellow-300 rounded-full" style="animation-delay: 0.1s"></span>
-          <span class="wave-bar w-1.5 bg-yellow-300 rounded-full" style="animation-delay: 0.3s"></span>
-          <span class="wave-bar w-1.5 bg-yellow-300 rounded-full" style="animation-delay: 0.2s"></span>
-          <span class="wave-bar w-1.5 bg-yellow-300 rounded-full" style="animation-delay: 0.4s"></span>
-          <span class="wave-bar w-1.5 bg-yellow-300 rounded-full" style="animation-delay: 0.1s"></span>
+        <div id="voiceWaveContainer" class="hidden absolute flex items-center gap-1 sm:gap-1.5">
+          <span class="wave-bar w-1 sm:w-1.5 bg-yellow-300 rounded-full" style="animation-delay: 0.1s"></span>
+          <span class="wave-bar w-1 sm:w-1.5 bg-yellow-300 rounded-full" style="animation-delay: 0.3s"></span>
+          <span class="wave-bar w-1 sm:w-1.5 bg-yellow-300 rounded-full" style="animation-delay: 0.2s"></span>
+          <span class="wave-bar w-1 sm:w-1.5 bg-yellow-300 rounded-full" style="animation-delay: 0.4s"></span>
+          <span class="wave-bar w-1 sm:w-1.5 bg-yellow-300 rounded-full" style="animation-delay: 0.1s"></span>
         </div>
       </div>
 
       <!-- Live Voice Status Text -->
-      <div id="voiceStatusText" class="text-sm font-semibold text-[#c8e6c9] mb-2">Tap 'Start Listening' to talk</div>
+      <div id="voiceStatusText" class="text-xs sm:text-sm font-semibold text-[#c8e6c9] mb-2">Tap 'Start Listening' to talk</div>
       
       <!-- Speech Transcript Display -->
-      <div class="w-full bg-[#0d281e] p-3 rounded-xl border border-[#1b4332] min-h-[70px] max-h-32 overflow-y-auto custom-scrollbar text-xs text-left mb-6">
-        <div class="text-[10px] text-gray-400 uppercase font-semibold mb-1">Transcript:</div>
+      <div class="w-full bg-[#0d281e] p-2.5 sm:p-3 rounded-xl border border-[#1b4332] min-h-[60px] max-h-24 sm:max-h-32 overflow-y-auto touch-scroll text-[11px] sm:text-xs text-left mb-4 sm:mb-6">
+        <div class="text-[9px] sm:text-[10px] text-gray-400 uppercase font-semibold mb-0.5">Transcript:</div>
         <p id="voiceTranscriptText" class="text-white/90 italic">Say something like: "Explain how protein works in our muscles..."</p>
       </div>
 
-      <!-- Voice Control Buttons -->
-      <div class="flex items-center gap-4">
-        <button onclick="toggleVoiceListening()" id="voiceToggleBtn" class="bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-2.5 rounded-full font-bold shadow-lg flex items-center gap-2 transition">
+      <!-- Voice Control Buttons (Thumb Friendly) -->
+      <div class="flex items-center justify-center gap-3 sm:gap-4 w-full">
+        <button onclick="toggleVoiceListening()" id="voiceToggleBtn" class="flex-1 max-w-[200px] bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 text-white py-2.5 sm:py-3 px-4 rounded-full font-bold shadow-lg flex items-center justify-center gap-2 transition active:scale-95 text-xs sm:text-sm">
           <i class="fa-solid fa-play"></i> <span>Start Listening</span>
         </button>
-        <button onclick="stopVoiceAudio()" class="bg-[#1b4332] hover:bg-[#2d6a4f] text-white p-3 rounded-full border border-[#2d6a4f] transition" title="Mute/Stop Speech">
-          <i class="fa-solid fa-volume-xmark"></i>
+        <button onclick="stopVoiceAudio()" class="w-11 h-11 bg-[#1b4332] hover:bg-[#2d6a4f] active:bg-[#34785a] text-white rounded-full border border-[#2d6a4f] transition flex items-center justify-center shrink-0 active:scale-95" title="Mute/Stop Speech">
+          <i class="fa-solid fa-volume-xmark text-sm"></i>
         </button>
-        <button onclick="closeVoiceModal()" class="bg-red-900/60 hover:bg-red-800 text-white p-3 rounded-full transition" title="End Call">
-          <i class="fa-solid fa-phone-slash"></i>
+        <button onclick="closeVoiceModal()" class="w-11 h-11 bg-red-900/70 hover:bg-red-800 text-white rounded-full transition flex items-center justify-center shrink-0 active:scale-95" title="Close Voice Agent">
+          <i class="fa-solid fa-phone-slash text-sm"></i>
         </button>
       </div>
     </div>
@@ -326,22 +423,22 @@
   <!-- ========================================================================= -->
   <!-- NUTRITRAINER AI ACADEMY MODAL -->
   <!-- ========================================================================= -->
-  <div id="nutritrainerModal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-2xl w-full p-6 text-slate-800 shadow-2xl relative max-h-[85vh] flex flex-col">
+  <div id="nutritrainerModal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-3 sm:p-4">
+    <div class="bg-white rounded-3xl max-w-2xl w-full p-4 sm:p-6 text-slate-800 shadow-2xl relative max-h-[90dvh] flex flex-col">
       <div class="flex items-center justify-between pb-3 border-b border-gray-100 shrink-0">
         <div class="flex items-center gap-2">
-          <div class="w-8 h-8 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center font-bold">🎓</div>
+          <div class="w-8 h-8 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-sm">🎓</div>
           <div>
-            <h2 class="font-bold text-lg text-slate-900">Nutritrainer AI Academy</h2>
-            <p class="text-xs text-slate-500">Structured Nutrition & Product Science Certification</p>
+            <h2 class="font-bold text-base sm:text-lg text-slate-900">Nutritrainer AI Academy</h2>
+            <p class="text-[11px] sm:text-xs text-slate-500">Structured Nutrition & Product Science</p>
           </div>
         </div>
-        <button onclick="closeNutritrainerModal()" class="text-gray-400 hover:text-gray-600 text-xl"><i class="fa-solid fa-xmark"></i></button>
+        <button onclick="closeNutritrainerModal()" class="text-gray-400 hover:text-gray-600 p-2 text-xl active:scale-95"><i class="fa-solid fa-xmark"></i></button>
       </div>
       
-      <div class="flex-1 overflow-y-auto py-4 space-y-4 custom-scrollbar text-sm" id="nutritrainerContent">
+      <div class="flex-1 overflow-y-auto py-3 space-y-3 touch-scroll text-xs sm:text-sm" id="nutritrainerContent">
         <!-- Interactive Levels -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
           <div class="p-3 rounded-xl border border-amber-200 bg-amber-50/50">
             <span class="text-[10px] font-bold uppercase text-amber-800 bg-amber-200 px-2 py-0.5 rounded-full">Level 1</span>
             <h4 class="font-bold text-slate-800 mt-1">Nutrition Fundamentals</h4>
@@ -360,17 +457,17 @@
         </div>
 
         <!-- Sample Interactive Quiz -->
-        <div class="bg-gray-50 p-4 rounded-2xl border border-gray-200 mt-2">
-          <span class="text-xs font-bold text-amber-700 uppercase tracking-wider">Interactive Assessment Check</span>
-          <h4 class="font-semibold text-slate-800 mt-1 text-sm">Question: What is Onlyvedaa's core philosophical rule regarding product recommendations?</h4>
-          <div class="space-y-2 mt-3">
-            <button onclick="checkQuizAnswer(this, false)" class="w-full text-left p-2.5 rounded-xl border border-gray-200 bg-white hover:bg-gray-50 text-xs transition">
+        <div class="bg-gray-50 p-3.5 rounded-2xl border border-gray-200 mt-2">
+          <span class="text-[10px] sm:text-xs font-bold text-amber-700 uppercase tracking-wider">Interactive Assessment Check</span>
+          <h4 class="font-semibold text-slate-800 mt-1 text-xs sm:text-sm">Question: What is Onlyvedaa's core philosophical rule regarding product recommendations?</h4>
+          <div class="space-y-2 mt-2.5">
+            <button onclick="checkQuizAnswer(this, false)" class="w-full text-left p-2.5 rounded-xl border border-gray-200 bg-white hover:bg-gray-50 active:bg-gray-100 text-xs transition">
               A. Pitch products immediately to every user on first contact
             </button>
-            <button onclick="checkQuizAnswer(this, true)" class="w-full text-left p-2.5 rounded-xl border border-gray-200 bg-white hover:bg-gray-50 text-xs transition">
+            <button onclick="checkQuizAnswer(this, true)" class="w-full text-left p-2.5 rounded-xl border border-gray-200 bg-white hover:bg-gray-50 active:bg-gray-100 text-xs transition">
               B. Knowledge Before Recommendation: Understand and educate the person first
             </button>
-            <button onclick="checkQuizAnswer(this, false)" class="w-full text-left p-2.5 rounded-xl border border-gray-200 bg-white hover:bg-gray-50 text-xs transition">
+            <button onclick="checkQuizAnswer(this, false)" class="w-full text-left p-2.5 rounded-xl border border-gray-200 bg-white hover:bg-gray-50 active:bg-gray-100 text-xs transition">
               C. Prescribe treatments for all medical diseases
             </button>
           </div>
@@ -381,41 +478,41 @@
   </div>
 
   <!-- ========================================================================= -->
-  <!-- WELLNESS DISCOVERY MODAL -->
+  <!-- WELLNESS DISCOVERY MODAL (Responsive Forms) -->
   <!-- ========================================================================= -->
-  <div id="discoveryModal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-xl w-full p-6 text-slate-800 shadow-2xl relative max-h-[85vh] flex flex-col">
+  <div id="discoveryModal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-3 sm:p-4">
+    <div class="bg-white rounded-3xl max-w-xl w-full p-4 sm:p-6 text-slate-800 shadow-2xl relative max-h-[90dvh] flex flex-col">
       <div class="flex items-center justify-between pb-3 border-b border-gray-100 shrink-0">
         <div class="flex items-center gap-2">
-          <div class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold">📋</div>
+          <div class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-sm">📋</div>
           <div>
-            <h2 class="font-bold text-lg text-slate-900">Personal Wellness Discovery™</h2>
-            <p class="text-xs text-slate-500">Generate your personalized 30-Day Health Journey</p>
+            <h2 class="font-bold text-base sm:text-lg text-slate-900">Personal Wellness Discovery™</h2>
+            <p class="text-[11px] sm:text-xs text-slate-500">Your custom 30-Day Health Journey</p>
           </div>
         </div>
-        <button onclick="closeDiscoveryModal()" class="text-gray-400 hover:text-gray-600 text-xl"><i class="fa-solid fa-xmark"></i></button>
+        <button onclick="closeDiscoveryModal()" class="text-gray-400 hover:text-gray-600 p-2 text-xl active:scale-95"><i class="fa-solid fa-xmark"></i></button>
       </div>
 
-      <div class="flex-1 overflow-y-auto py-4 space-y-3 custom-scrollbar text-xs" id="discoveryBody">
+      <div class="flex-1 overflow-y-auto py-3 space-y-3 touch-scroll text-xs" id="discoveryBody">
         <form id="discoveryForm" onsubmit="handleDiscoverySubmit(event)">
-          <div class="grid grid-cols-2 gap-3 mb-3">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-2.5">
             <div>
               <label class="font-semibold text-gray-700 block mb-1">Your Age</label>
-              <input type="number" id="discAge" value="38" class="w-full p-2 border rounded-xl" required />
+              <input type="number" id="discAge" value="38" class="w-full p-2 border rounded-xl text-[16px] sm:text-xs" required />
             </div>
             <div>
               <label class="font-semibold text-gray-700 block mb-1">Gender</label>
-              <select id="discGender" class="w-full p-2 border rounded-xl">
+              <select id="discGender" class="w-full p-2 border rounded-xl text-[16px] sm:text-xs">
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
                 <option value="Other">Other</option>
               </select>
             </div>
           </div>
-          <div class="grid grid-cols-2 gap-3 mb-3">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-2.5">
             <div>
               <label class="font-semibold text-gray-700 block mb-1">Dietary Pattern</label>
-              <select id="discDiet" class="w-full p-2 border rounded-xl">
+              <select id="discDiet" class="w-full p-2 border rounded-xl text-[16px] sm:text-xs">
                 <option value="Vegetarian">Vegetarian</option>
                 <option value="Non-Vegetarian">Non-Vegetarian</option>
                 <option value="Vegan">Vegan</option>
@@ -423,16 +520,16 @@
             </div>
             <div>
               <label class="font-semibold text-gray-700 block mb-1">Daily Sleep</label>
-              <select id="discSleep" class="w-full p-2 border rounded-xl">
+              <select id="discSleep" class="w-full p-2 border rounded-xl text-[16px] sm:text-xs">
                 <option value="5-6 hours">5-6 hours (Low)</option>
                 <option value="6-7 hours" selected>6-7 hours (Moderate)</option>
                 <option value="7-8 hours">7-8 hours (Optimal)</option>
               </select>
             </div>
           </div>
-          <div class="mb-3">
+          <div class="mb-2.5">
             <label class="font-semibold text-gray-700 block mb-1">Primary Wellness Goal</label>
-            <select id="discGoal" class="w-full p-2 border rounded-xl">
+            <select id="discGoal" class="w-full p-2 border rounded-xl text-[16px] sm:text-xs">
               <option value="Weight Management & Metabolism">Weight Management & Metabolism</option>
               <option value="Joint Mobility & Bone Strength">Joint Mobility & Bone Strength</option>
               <option value="Digestive & Gut Wellness">Digestive & Gut Wellness</option>
@@ -440,11 +537,11 @@
               <option value="Stress, Focus & Sound Sleep">Stress, Focus & Sound Sleep</option>
             </select>
           </div>
-          <div class="mb-4">
+          <div class="mb-3">
             <label class="font-semibold text-gray-700 block mb-1">Current Health Concern (Optional)</label>
-            <input type="text" id="discConcern" placeholder="e.g. Morning joint stiffness, low energy after lunch" class="w-full p-2 border rounded-xl" />
+            <input type="text" id="discConcern" placeholder="e.g. Morning joint stiffness, low energy" class="w-full p-2 border rounded-xl text-[16px] sm:text-xs" />
           </div>
-          <button type="submit" class="w-full bg-[#1b4332] hover:bg-[#2d6a4f] text-white p-2.5 rounded-xl font-bold transition">
+          <button type="submit" class="w-full bg-[#1b4332] active:bg-[#2d6a4f] text-white p-2.5 sm:p-3 rounded-xl font-bold transition active:scale-95 text-xs sm:text-sm">
             Generate My Wellness Snapshot
           </button>
         </form>
@@ -457,82 +554,78 @@
   <!-- ========================================================================= -->
   <!-- PRODUCT QR EXPLORER MODAL -->
   <!-- ========================================================================= -->
-  <div id="productExplorerModal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-2xl w-full p-6 text-slate-800 shadow-2xl relative max-h-[85vh] flex flex-col">
+  <div id="productExplorerModal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-3 sm:p-4">
+    <div class="bg-white rounded-3xl max-w-2xl w-full p-4 sm:p-6 text-slate-800 shadow-2xl relative max-h-[90dvh] flex flex-col">
       <div class="flex items-center justify-between pb-3 border-b border-gray-100 shrink-0">
         <div class="flex items-center gap-2">
-          <div class="w-8 h-8 rounded-full bg-teal-100 text-teal-800 flex items-center justify-center font-bold">🔍</div>
+          <div class="w-8 h-8 rounded-full bg-teal-100 text-teal-800 flex items-center justify-center font-bold text-sm">🔍</div>
           <div>
-            <h2 class="font-bold text-lg text-slate-900">Ask Anything About My Product</h2>
-            <p class="text-xs text-slate-500">Official Onlyvedaa Product Brain & Science Layer</p>
+            <h2 class="font-bold text-base sm:text-lg text-slate-900">Ask Anything About My Product</h2>
+            <p class="text-[11px] sm:text-xs text-slate-500">Official Onlyvedaa Product Brain</p>
           </div>
         </div>
-        <button onclick="closeProductExplorerModal()" class="text-gray-400 hover:text-gray-600 text-xl"><i class="fa-solid fa-xmark"></i></button>
+        <button onclick="closeProductExplorerModal()" class="text-gray-400 hover:text-gray-600 p-2 text-xl active:scale-95"><i class="fa-solid fa-xmark"></i></button>
       </div>
 
-      <div class="p-3 bg-gray-50 border-b border-gray-200">
-        <input type="text" id="productSearchInput" onkeyup="filterProductsExplorer()" placeholder="Search products (e.g. Linopress, Hadjod, Active 365, Shilajit)..." class="w-full p-2 border rounded-xl text-xs bg-white" />
+      <div class="p-2 sm:p-3 bg-gray-50 border-b border-gray-200">
+        <input type="text" id="productSearchInput" onkeyup="filterProductsExplorer()" placeholder="Search (e.g. Linopress, Hadjod, Active 365)..." class="w-full p-2 border rounded-xl text-[16px] sm:text-xs bg-white" />
       </div>
 
-      <div class="flex-1 overflow-y-auto py-3 space-y-2.5 custom-scrollbar text-xs" id="productExplorerList">
-        <!-- Dynamically filled with products -->
-      </div>
+      <div class="flex-1 overflow-y-auto py-2.5 space-y-2 touch-scroll text-xs" id="productExplorerList"></div>
     </div>
   </div>
 
   <!-- ========================================================================= -->
   <!-- ANALYTICS DASHBOARD MODAL -->
   <!-- ========================================================================= -->
-  <div id="analyticsModal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-2xl w-full p-6 text-slate-800 shadow-2xl relative max-h-[85vh] flex flex-col">
+  <div id="analyticsModal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-3 sm:p-4">
+    <div class="bg-white rounded-3xl max-w-2xl w-full p-4 sm:p-6 text-slate-800 shadow-2xl relative max-h-[90dvh] flex flex-col">
       <div class="flex items-center justify-between pb-3 border-b border-gray-100 shrink-0">
         <div class="flex items-center gap-2">
-          <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-800 flex items-center justify-center font-bold">📊</div>
+          <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-800 flex items-center justify-center font-bold text-sm">📊</div>
           <div>
-            <h2 class="font-bold text-lg text-slate-900">Onlyvedaa Intelligence Dashboard</h2>
-            <p class="text-xs text-slate-500">Real-time Wellness Trends & Learning Metrics</p>
+            <h2 class="font-bold text-base sm:text-lg text-slate-900">Onlyvedaa Intelligence Dashboard</h2>
+            <p class="text-[11px] sm:text-xs text-slate-500">Community Trends & Metrics</p>
           </div>
         </div>
-        <button onclick="closeAnalyticsModal()" class="text-gray-400 hover:text-gray-600 text-xl"><i class="fa-solid fa-xmark"></i></button>
+        <button onclick="closeAnalyticsModal()" class="text-gray-400 hover:text-gray-600 p-2 text-xl active:scale-95"><i class="fa-solid fa-xmark"></i></button>
       </div>
-      <div class="flex-1 overflow-y-auto py-4 space-y-4 custom-scrollbar text-xs" id="analyticsContent">
-        <!-- Dynamically loaded -->
-      </div>
+      <div class="flex-1 overflow-y-auto py-3 space-y-3 touch-scroll text-xs" id="analyticsContent"></div>
     </div>
   </div>
 
   <!-- ========================================================================= -->
-  <!-- CATALOG DRAWER (Existing Feature Preserved) -->
+  <!-- CATALOG DRAWER (Slide-Over) -->
   <!-- ========================================================================= -->
   <div id="catalogDrawer" class="hidden fixed inset-y-0 right-0 w-full max-w-md bg-white shadow-2xl z-40 flex flex-col border-l border-gray-200">
-    <div class="bg-[#1b4332] text-white p-4 flex items-center justify-between">
+    <div class="bg-[#1b4332] text-white p-3.5 sm:p-4 flex items-center justify-between">
       <h3 class="font-bold text-sm flex items-center gap-2">
         <i class="fa-solid fa-database"></i> Product Catalog & Knowledge
       </h3>
-      <button onclick="toggleDrawer('catalogDrawer')" class="text-white/80 hover:text-white text-lg"><i class="fa-solid fa-xmark"></i></button>
+      <button onclick="toggleDrawer('catalogDrawer')" class="text-white/80 hover:text-white p-1 text-lg active:scale-95"><i class="fa-solid fa-xmark"></i></button>
     </div>
     <div class="flex border-b border-gray-200 text-xs font-semibold bg-gray-50">
       <button onclick="switchCatalogTab('view')" id="tabViewBtn" class="flex-1 py-2.5 text-[#1b4332] border-b-2 border-[#1b4332]">View Catalog (<span id="drawerCount">0</span>)</button>
       <button onclick="switchCatalogTab('add')" id="tabAddBtn" class="flex-1 py-2.5 text-gray-500">Feed Product</button>
       <button onclick="switchCatalogTab('upload')" id="tabUploadBtn" class="flex-1 py-2.5 text-gray-500">Upload CSV</button>
     </div>
-    <div id="catalogDrawerContent" class="flex-1 overflow-y-auto p-4 custom-scrollbar text-xs">
+    <div id="catalogDrawerContent" class="flex-1 overflow-y-auto p-3 sm:p-4 touch-scroll text-xs">
       <div id="catalogViewSection" class="space-y-2"></div>
       <div id="catalogAddSection" class="hidden">
-        <form onsubmit="handleAddProduct(event)" class="space-y-3">
-          <input type="text" name="name" placeholder="Product Name *" required class="w-full p-2 border rounded-lg" />
-          <input type="text" name="category" placeholder="Category *" required class="w-full p-2 border rounded-lg" />
-          <input type="text" name="key_ingredients" placeholder="Key Herbs (comma separated)" class="w-full p-2 border rounded-lg" />
-          <textarea name="benefits" placeholder="Benefits & Action *" required class="w-full p-2 border rounded-lg" rows="2"></textarea>
-          <input type="text" name="dosage_and_usage" placeholder="Dosage (e.g. 1-0-1)" required class="w-full p-2 border rounded-lg" />
-          <input type="number" name="price_inr" placeholder="Price (INR)" class="w-full p-2 border rounded-lg" />
-          <button type="submit" class="w-full bg-[#1b4332] text-white p-2 rounded-lg font-bold">Add Product</button>
+        <form onsubmit="handleAddProduct(event)" class="space-y-2.5">
+          <input type="text" name="name" placeholder="Product Name *" required class="w-full p-2 border rounded-lg text-[16px] sm:text-xs" />
+          <input type="text" name="category" placeholder="Category *" required class="w-full p-2 border rounded-lg text-[16px] sm:text-xs" />
+          <input type="text" name="key_ingredients" placeholder="Key Herbs (comma separated)" class="w-full p-2 border rounded-lg text-[16px] sm:text-xs" />
+          <textarea name="benefits" placeholder="Benefits & Action *" required class="w-full p-2 border rounded-lg text-[16px] sm:text-xs" rows="2"></textarea>
+          <input type="text" name="dosage_and_usage" placeholder="Dosage (e.g. 1-0-1)" required class="w-full p-2 border rounded-lg text-[16px] sm:text-xs" />
+          <input type="number" name="price_inr" placeholder="Price (INR)" class="w-full p-2 border rounded-lg text-[16px] sm:text-xs" />
+          <button type="submit" class="w-full bg-[#1b4332] active:bg-[#2d6a4f] text-white p-2.5 rounded-lg font-bold">Add Product</button>
         </form>
       </div>
       <div id="catalogUploadSection" class="hidden space-y-3">
         <input type="file" id="csvFileInput" accept=".csv" class="w-full text-xs" onchange="handleFileSelected(this)" />
         <span id="selectedFileName" class="text-gray-400 block text-[11px]">No file selected</span>
-        <button onclick="uploadCsvFile()" id="uploadCsvBtn" disabled class="w-full bg-[#1b4332] disabled:opacity-50 text-white p-2 rounded-lg font-bold">Upload & Ingest</button>
+        <button onclick="uploadCsvFile()" id="uploadCsvBtn" disabled class="w-full bg-[#1b4332] disabled:opacity-50 text-white p-2.5 rounded-lg font-bold">Upload & Ingest</button>
       </div>
     </div>
   </div>
@@ -541,15 +634,15 @@
   <!-- SETTINGS DRAWER -->
   <!-- ========================================================================= -->
   <div id="settingsDrawer" class="hidden fixed inset-y-0 right-0 w-full max-w-sm bg-white shadow-2xl z-40 flex flex-col border-l border-gray-200">
-    <div class="bg-[#1b4332] text-white p-4 flex items-center justify-between">
+    <div class="bg-[#1b4332] text-white p-3.5 sm:p-4 flex items-center justify-between">
       <h3 class="font-bold text-sm"><i class="fa-solid fa-gear"></i> Settings</h3>
-      <button onclick="toggleDrawer('settingsDrawer')" class="text-white/80 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
+      <button onclick="toggleDrawer('settingsDrawer')" class="text-white/80 hover:text-white p-1 active:scale-95"><i class="fa-solid fa-xmark"></i></button>
     </div>
-    <div class="p-4 space-y-4 text-xs">
+    <div class="p-4 space-y-3.5 text-xs">
       <div>
         <label class="font-bold block mb-1 text-gray-700">Google Gemini API Key</label>
-        <input type="password" id="apiKeyInput" placeholder="Enter Gemini API Key..." class="w-full p-2 border rounded-lg mb-2" />
-        <button onclick="saveApiKey()" class="w-full bg-[#1b4332] text-white p-2 rounded-lg font-semibold">Save Key</button>
+        <input type="password" id="apiKeyInput" placeholder="Enter Gemini API Key..." class="w-full p-2 border rounded-lg mb-2 text-[16px] sm:text-xs" />
+        <button onclick="saveApiKey()" class="w-full bg-[#1b4332] active:bg-[#2d6a4f] text-white p-2.5 rounded-lg font-semibold">Save Key</button>
       </div>
       <div class="pt-2 border-t text-[11px] text-gray-500">
         ONLYVEDAA AI™ runs seamlessly with native multi-model fallback and local Indic knowledge base.
@@ -558,7 +651,7 @@
   </div>
 
   <!-- ========================================================================= -->
-  <!-- JAVASCRIPT LOGIC & VOICE ENGINE -->
+  <!-- JAVASCRIPT ENGINE & LOGIC -->
   <!-- ========================================================================= -->
   <script>
     let currentSessionId = localStorage.getItem("onlyveda_session_id") || "sess_" + Math.random().toString(36).substring(2, 10);
@@ -577,8 +670,29 @@
       initSpeechRecognition();
     });
 
-    function getSessionId() {
-      return currentSessionId;
+    function toggleMobileMenu() {
+      const sheet = document.getElementById("mobileMenuSheet");
+      sheet.classList.toggle("hidden");
+    }
+
+    function closeMobileMenu() {
+      document.getElementById("mobileMenuSheet").classList.add("hidden");
+    }
+
+    function syncMobilePerspective() {
+      activePerspective = document.getElementById("mobilePerspectiveSelect").value;
+      const desk = document.getElementById("perspectiveSelect");
+      if (desk) desk.value = activePerspective;
+    }
+
+    function updatePerspective() {
+      activePerspective = document.getElementById("perspectiveSelect").value;
+      const mob = document.getElementById("mobilePerspectiveSelect");
+      if (mob) mob.value = activePerspective;
+    }
+
+    function changeLanguage() {
+      // Language selector updated
     }
 
     // -------------------------------------------------------------
@@ -597,24 +711,16 @@
       }
 
       const titles = {
-        "orchestrator": { title: "🧠 ONLYVEDAA AI™ Master Coach", badge: "All-in-One Guide" },
-        "body": { title: "🧬 Body Coach (Know Your Body™)", badge: "Anatomy & Physiology" },
-        "nutrition": { title: "🥗 Nutrition Coach", badge: "Nutrients & Diet" },
+        "orchestrator": { title: "🧠 ONLYVEDAA AI™ Master Coach", badge: "All-in-One" },
+        "body": { title: "🧬 Body Coach (Know Your Body™)", badge: "Anatomy" },
+        "nutrition": { title: "🥗 Nutrition Coach", badge: "Diet & Nutrients" },
         "health": { title: "🩺 Health Educator", badge: "Condition Education" },
         "product": { title: "🌿 Onlyvedaa Wellness & Product Guide", badge: "Product Brain" },
-        "career": { title: "🚀 Onlyvedaa Career Coach", badge: "Community Commerce" }
+        "career": { title: "🚀 Onlyvedaa Career Coach", badge: "Community" }
       };
       const info = titles[moduleKey] || titles["orchestrator"];
       document.getElementById("activeCoachTitle").textContent = info.title;
       document.getElementById("activeCoachBadge").textContent = info.badge;
-    }
-
-    function updatePerspective() {
-      activePerspective = document.getElementById("perspectiveSelect").value;
-    }
-
-    function changeLanguage() {
-      // Language selected
     }
 
     // -------------------------------------------------------------
@@ -669,12 +775,12 @@
     function appendUserMessage(text) {
       const container = document.getElementById("messagesContainer");
       const div = document.createElement("div");
-      div.className = "flex items-start gap-2.5 justify-end";
+      div.className = "flex items-start gap-2 justify-end";
       div.innerHTML = `
-        <div class="bg-[#1b4332] text-white rounded-2xl rounded-tr-xs p-3.5 max-w-2xl text-sm shadow-xs">
+        <div class="bg-[#1b4332] text-white rounded-2xl rounded-tr-xs p-3 sm:p-3.5 max-w-[85%] sm:max-w-2xl text-xs sm:text-sm shadow-xs break-words">
           ${escapeHtml(text)}
         </div>
-        <div class="w-7 h-7 rounded-full bg-[#52b788] text-white flex items-center justify-center font-bold text-xs shrink-0">
+        <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#52b788] text-white flex items-center justify-center font-bold text-[10px] sm:text-xs shrink-0">
           U
         </div>
       `;
@@ -685,23 +791,23 @@
     function appendBotMessage(data) {
       const container = document.getElementById("messagesContainer");
       const div = document.createElement("div");
-      div.className = "flex items-start gap-3 max-w-3xl";
+      div.className = "flex items-start gap-2 sm:gap-3 max-w-3xl";
 
-      const coachBadge = data.coach_info ? `<span class="inline-block mb-1 text-[10px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full">${data.coach_info.title || "Onlyvedaa AI"}</span>` : '';
-      const emergencyBadge = data.is_emergency ? `<div class="mb-2 p-2 bg-red-100 border border-red-300 text-red-800 rounded-xl font-bold text-xs">🚨 Urgent Medical Notice</div>` : '';
+      const coachBadge = data.coach_info ? `<span class="inline-block mb-1 text-[9px] sm:text-[10px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full">${data.coach_info.title || "Onlyvedaa AI"}</span>` : '';
+      const emergencyBadge = data.is_emergency ? `<div class="mb-2 p-2.5 bg-red-100 border border-red-300 text-red-800 rounded-xl font-bold text-xs">🚨 Urgent Medical Notice</div>` : '';
 
       let productsHtml = "";
       if (data.products && data.products.length > 0) {
-        productsHtml = `<div class="mt-4 pt-3 border-t border-emerald-100">
+        productsHtml = `<div class="mt-3.5 pt-3 border-t border-emerald-100">
           <h4 class="text-xs font-bold text-[#1b4332] uppercase tracking-wider mb-2 flex items-center gap-1.5">
             <i class="fa-solid fa-prescription-bottle-medical"></i> Prescribed OnlyVeda Formulations:
           </h4>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
             ${data.products.map(p => `
-              <div class="bg-[#f7faf7] border border-[#cde0ca] rounded-xl p-3 shadow-xs">
+              <div class="bg-[#f7faf7] border border-[#cde0ca] rounded-xl p-2.5 sm:p-3 shadow-xs">
                 <div class="flex items-center justify-between font-bold text-slate-900 text-xs mb-1">
-                  <span>${p.name}</span>
-                  <span class="text-[#2e7d32]">₹${p.price_inr || 499}</span>
+                  <span class="truncate mr-1">${p.name}</span>
+                  <span class="text-[#2e7d32] shrink-0">₹${p.price_inr || 499}</span>
                 </div>
                 <div class="text-[11px] text-emerald-800 font-semibold mb-1">Dose: ${p.prescribed_dose || p.dosage_and_usage || '1-0-1'}</div>
                 <p class="text-[11px] text-slate-600 line-clamp-2">${p.benefits || ''}</p>
@@ -712,13 +818,13 @@
       }
 
       div.innerHTML = `
-        <div class="w-8 h-8 rounded-full bg-[#1b4332] text-white flex items-center justify-center shrink-0 shadow-xs font-bold text-xs">
+        <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#1b4332] text-white flex items-center justify-center shrink-0 shadow-xs font-bold text-xs">
           🌿
         </div>
-        <div class="bg-white rounded-2xl rounded-tl-xs p-4 border border-[#e0e8de] shadow-xs text-sm leading-relaxed text-slate-800 w-full">
+        <div class="bg-white rounded-2xl rounded-tl-xs p-3.5 sm:p-4 border border-[#e0e8de] shadow-xs text-xs sm:text-sm leading-relaxed text-slate-800 w-full overflow-hidden">
           ${coachBadge}
           ${emergencyBadge}
-          <div class="prose prose-sm max-w-none text-slate-800 text-sm">
+          <div class="prose prose-sm max-w-none text-slate-800 text-xs sm:text-sm overflow-x-auto">
             ${marked.parse(data.response || '')}
           </div>
           ${productsHtml}
@@ -784,9 +890,9 @@
         const btn = document.getElementById(`vmode-${m}`);
         if (btn) {
           if (m === mode) {
-            btn.className = "px-2.5 py-1 rounded-lg bg-[#2e7d32] text-white font-semibold transition";
+            btn.className = "flex-1 min-w-[70px] py-1 px-1.5 rounded-lg bg-[#2e7d32] text-white font-semibold transition";
           } else {
-            btn.className = "px-2.5 py-1 rounded-lg text-white/70 hover:text-white transition";
+            btn.className = "flex-1 min-w-[70px] py-1 px-1.5 rounded-lg text-white/70 hover:text-white transition";
           }
         }
       });
@@ -794,18 +900,21 @@
 
     function toggleVoiceListening() {
       if (!speechRecognition) {
-        alert("Speech Recognition is not supported on this browser. Chrome or Edge is recommended.");
+        alert("Speech Recognition is not supported on this browser. Chrome, Safari, or Edge is recommended.");
         return;
       }
       if (isListening) {
         speechRecognition.stop();
       } else {
         stopVoiceAudio();
-        // Set speech language to active language
         const langMap = { "hi": "hi-IN", "gu": "gu-IN", "mr": "mr-IN", "bn": "bn-IN", "ta": "ta-IN", "te": "te-IN", "en": "en-IN" };
         const sel = document.getElementById("languageSelect").value;
         speechRecognition.lang = langMap[sel] || "en-IN";
-        speechRecognition.start();
+        try {
+          speechRecognition.start();
+        } catch (e) {
+          console.log("Recognition start catch:", e);
+        }
       }
     }
 
@@ -824,7 +933,9 @@
         const txt = document.getElementById("messageInput").value.trim();
         if (txt) handleSendMessage();
       };
-      speechRecognition.start();
+      try {
+        speechRecognition.start();
+      } catch (e) {}
     }
 
     function setVoiceUIState(state, detail = "") {
@@ -835,26 +946,26 @@
       const toggleBtn = document.getElementById("voiceToggleBtn");
 
       if (state === "listening") {
-        orb.className = "w-32 h-32 rounded-full bg-emerald-500 pulse-animation flex items-center justify-center shadow-2xl";
-        orbIcon.className = "fa-solid fa-microphone text-3xl text-white";
+        orb.className = "w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-emerald-500 pulse-animation flex items-center justify-center shadow-2xl";
+        orbIcon.className = "fa-solid fa-microphone text-2xl sm:text-3xl text-white";
         waves.classList.add("hidden");
         status.textContent = "Listening... Speak now";
         toggleBtn.innerHTML = `<i class="fa-solid fa-stop"></i> <span>Stop Listening</span>`;
       } else if (state === "thinking") {
-        orb.className = "w-32 h-32 rounded-full bg-blue-600 animate-spin flex items-center justify-center shadow-2xl";
-        orbIcon.className = "fa-solid fa-circle-notch text-3xl text-white";
+        orb.className = "w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-blue-600 animate-spin flex items-center justify-center shadow-2xl";
+        orbIcon.className = "fa-solid fa-circle-notch text-2xl sm:text-3xl text-white";
         waves.classList.add("hidden");
-        status.textContent = "Thinking with Google Gemini AI...";
+        status.textContent = "Thinking with Gemini AI...";
         toggleBtn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> <span>Processing...</span>`;
       } else if (state === "speaking") {
-        orb.className = "w-32 h-32 rounded-full bg-gradient-to-tr from-amber-500 to-emerald-500 flex items-center justify-center shadow-2xl";
-        orbIcon.className = "fa-solid fa-volume-high text-3xl text-white";
+        orb.className = "w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-gradient-to-tr from-amber-500 to-emerald-500 flex items-center justify-center shadow-2xl";
+        orbIcon.className = "fa-solid fa-volume-high text-2xl sm:text-3xl text-white";
         waves.classList.remove("hidden");
         status.textContent = "Onlyvedaa AI is speaking...";
         toggleBtn.innerHTML = `<i class="fa-solid fa-microphone"></i> <span>Speak Again</span>`;
       } else {
-        orb.className = "w-32 h-32 rounded-full bg-gradient-to-tr from-[#2e7d32] to-[#43a047] flex items-center justify-center shadow-2xl";
-        orbIcon.className = "fa-solid fa-microphone text-3xl text-white";
+        orb.className = "w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-gradient-to-tr from-[#2e7d32] to-[#43a047] flex items-center justify-center shadow-2xl";
+        orbIcon.className = "fa-solid fa-microphone text-2xl sm:text-3xl text-white";
         waves.classList.add("hidden");
         status.textContent = detail ? `Notice: ${detail}` : "Tap 'Start Listening' to speak";
         toggleBtn.innerHTML = `<i class="fa-solid fa-play"></i> <span>Start Listening</span>`;
@@ -879,14 +990,10 @@
         });
         const data = await res.json();
         
-        // Show in transcript
         document.getElementById("voiceTranscriptText").textContent = data.speech_text || data.response;
-        
-        // Also add to chat log
         appendUserMessage(speechText);
         appendBotMessage(data);
 
-        // Speak aloud
         speakText(data.speech_text || data.response, data.language);
       } catch (err) {
         setVoiceUIState("idle", "Error: " + err.message);
@@ -903,7 +1010,6 @@
       utterance.rate = 1.0;
       utterance.pitch = 1.0;
 
-      // Find appropriate Indic or English voice
       const voices = window.speechSynthesis.getVoices();
       const langPrefix = lang === "hi" ? "hi" : (lang === "gu" ? "gu" : "en");
       const matchedVoice = voices.find(v => v.lang.startsWith(langPrefix));
@@ -951,15 +1057,17 @@
     function closeDiscoveryModal() {
       document.getElementById("discoveryModal").classList.add("hidden");
     }
+
     async function handleDiscoverySubmit(e) {
       e.preventDefault();
       const payload = {
-        age: parseInt(document.getElementById("discAge").value),
+        age: parseInt(document.getElementById("discAge").value) || 35,
         gender: document.getElementById("discGender").value,
         diet: document.getElementById("discDiet").value,
         sleep: document.getElementById("discSleep").value,
         goal: document.getElementById("discGoal").value,
-        concern: document.getElementById("discConcern").value
+        concern: document.getElementById("discConcern").value || "General Vitality",
+        language: document.getElementById("languageSelect").value
       };
 
       try {
@@ -968,32 +1076,31 @@
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload)
         });
-        const snap = await res.json();
+        const data = await res.json();
         
         const resDiv = document.getElementById("discoveryResult");
         resDiv.classList.remove("hidden");
         resDiv.innerHTML = `
-          <div class="bg-emerald-50 border border-emerald-200 p-3.5 rounded-2xl">
-            <h4 class="font-bold text-emerald-900 text-sm mb-1">${snap.title}</h4>
-            <p class="text-emerald-800 text-xs mb-2">${snap.profile_summary}</p>
-            <div class="space-y-1.5 my-2">
-              ${snap.focus_areas.map(fa => `
-                <div class="bg-white p-2 rounded-lg border border-emerald-100">
-                  <strong class="text-emerald-800">${fa.area}</strong> (${fa.status})<br/>
-                  <span class="text-slate-600">${fa.tip}</span>
+          <div class="bg-[#f1f8e9] border border-[#c5e1a5] p-3 sm:p-4 rounded-2xl text-xs">
+            <h3 class="font-bold text-[#2e7d32] text-sm mb-1">${data.title}</h3>
+            <p class="text-slate-600 mb-2">${data.profile_summary}</p>
+            <strong class="text-slate-800 block mb-1">Key Focus Areas:</strong>
+            <ul class="list-disc list-inside text-slate-700 mb-3 space-y-0.5">
+              ${data.focus_areas.map(f => `<li>${f}</li>`).join('')}
+            </ul>
+            <strong class="text-[#1b5e20] block mb-1">30-Day Phased Action Plan:</strong>
+            <div class="space-y-1.5">
+              ${data.journey_plan_30_days.map(w => `
+                <div class="bg-white p-2 rounded-xl border border-gray-200">
+                  <span class="font-bold text-[#2e7d32]">${w.phase} (${w.week}):</span>
+                  <p class="text-slate-600 text-[11px]">${w.focus}</p>
                 </div>
               `).join('')}
-            </div>
-            <h5 class="font-bold text-emerald-900 mt-3 mb-1">Your 30-Day Journey:</h5>
-            <div class="space-y-1 text-slate-700">
-              <p>• <strong>Days 1-10:</strong> ${snap.journey_plan_30_days.days_1_10}</p>
-              <p>• <strong>Days 11-20:</strong> ${snap.journey_plan_30_days.days_1_10}</p>
-              <p>• <strong>Days 21-30:</strong> ${snap.journey_plan_30_days.days_21_30}</p>
             </div>
           </div>
         `;
       } catch (err) {
-        alert("Failed to build snapshot: " + err.message);
+        alert("Error generating snapshot: " + err.message);
       }
     }
 
@@ -1002,42 +1109,37 @@
     // -------------------------------------------------------------
     function openProductExplorerModal() {
       document.getElementById("productExplorerModal").classList.remove("hidden");
-      renderProductsExplorer(allProducts);
+      filterProductsExplorer();
     }
     function closeProductExplorerModal() {
       document.getElementById("productExplorerModal").classList.add("hidden");
     }
-    function renderProductsExplorer(products) {
-      const container = document.getElementById("productExplorerList");
-      if (!products || products.length === 0) {
-        container.innerHTML = `<p class="text-center text-gray-500 py-4">No products found</p>`;
-        return;
-      }
-      container.innerHTML = products.slice(0, 30).map(p => `
-        <div class="p-3 bg-white border border-gray-200 rounded-xl hover:border-emerald-500 transition">
-          <div class="flex items-center justify-between font-bold text-slate-900 text-xs">
-            <span>${p.name}</span>
-            <span class="text-[#2e7d32]">₹${p.price_inr || 499}</span>
+    function filterProductsExplorer() {
+      const q = (document.getElementById("productSearchInput").value || "").toLowerCase();
+      const list = document.getElementById("productExplorerList");
+      const filtered = allProducts.filter(p => 
+        (p.name || '').toLowerCase().includes(q) || 
+        (p.category || '').toLowerCase().includes(q) ||
+        (p.key_ingredients || []).join(' ').toLowerCase().includes(q)
+      );
+
+      list.innerHTML = filtered.slice(0, 30).map(p => `
+        <div class="p-2.5 sm:p-3 bg-gray-50 border rounded-xl flex items-start justify-between gap-2">
+          <div class="min-w-0">
+            <div class="font-bold text-slate-900 text-xs truncate">${p.name}</div>
+            <div class="text-[11px] text-[#2e7d32] font-semibold">${p.category || 'OnlyVeda'} • ₹${p.price_inr || 499}</div>
+            <div class="text-[11px] text-gray-500 line-clamp-1 mt-0.5">${p.benefits || ''}</div>
           </div>
-          <div class="text-[11px] text-gray-500 mb-1">Category: ${p.category || 'Nutraceutical'} • Dose: ${p.dosage_and_usage || '1-0-1'}</div>
-          <p class="text-slate-600 text-[11px] mb-2">${p.benefits || ''}</p>
-          <div class="flex gap-2">
-            <button onclick="askAboutProduct('${escapeHtml(p.name)}')" class="bg-[#1b4332] text-white px-2.5 py-1 rounded-md text-[10px] font-semibold hover:bg-[#2d6a4f] transition">
-              <i class="fa-solid fa-sparkles"></i> Ask AI About This
-            </button>
-            ${p.link ? `<a href="${p.link}" target="_blank" class="border border-gray-300 text-gray-700 px-2.5 py-1 rounded-md text-[10px] hover:bg-gray-50 transition">View on OnlyVedaa</a>` : ''}
-          </div>
+          <button onclick="askAboutProduct('${escapeJsString(p.name)}')" class="shrink-0 bg-[#1b4332] active:bg-[#2d6a4f] text-white px-2.5 py-1.5 rounded-lg text-[11px] font-semibold transition active:scale-95">
+            Ask AI
+          </button>
         </div>
       `).join('');
     }
-    function filterProductsExplorer() {
-      const q = document.getElementById("productSearchInput").value.toLowerCase();
-      const filtered = allProducts.filter(p => p.name.toLowerCase().includes(q) || (p.benefits && p.benefits.toLowerCase().includes(q)));
-      renderProductsExplorer(filtered);
-    }
+
     function askAboutProduct(prodName) {
       closeProductExplorerModal();
-      sendQuickQuery(`Tell me the science, mechanism, and proper usage of ${prodName}`);
+      sendQuickQuery(`Tell me about ${prodName}: science, mechanism, and dosage`);
     }
 
     // -------------------------------------------------------------
@@ -1049,29 +1151,29 @@
         const res = await fetch("/api/analytics/dashboard");
         const d = await res.json();
         document.getElementById("analyticsContent").innerHTML = `
-          <div class="grid grid-cols-2 gap-3 mb-3">
+          <div class="grid grid-cols-2 gap-2.5 mb-2.5">
             <div class="p-3 bg-emerald-50 border border-emerald-200 rounded-xl text-center">
-              <span class="text-2xl font-black text-emerald-800">${d.total_products}</span>
-              <p class="text-gray-600 text-[11px]">OnlyVeda Formulations</p>
+              <span class="text-xl sm:text-2xl font-black text-emerald-800">${d.total_products}</span>
+              <p class="text-gray-600 text-[10px] sm:text-[11px]">OnlyVeda Products</p>
             </div>
             <div class="p-3 bg-blue-50 border border-blue-200 rounded-xl text-center">
-              <span class="text-2xl font-black text-blue-800">${d.total_consultations}</span>
-              <p class="text-gray-600 text-[11px]">Consultations Conducted</p>
+              <span class="text-xl sm:text-2xl font-black text-blue-800">${d.total_consultations}</span>
+              <p class="text-gray-600 text-[10px] sm:text-[11px]">Consultations Run</p>
             </div>
           </div>
           <div class="p-3 bg-gray-50 border border-gray-200 rounded-xl">
-            <strong class="text-slate-800 block mb-2">Top Consumer Health Goals:</strong>
+            <strong class="text-slate-800 block mb-1.5 text-xs">Top Health Goals:</strong>
             ${d.top_wellness_goals.map(g => `
-              <div class="flex items-center justify-between py-1 border-b border-gray-100 last:border-0">
+              <div class="flex items-center justify-between py-1 border-b border-gray-100 last:border-0 text-[11px]">
                 <span>${g.goal}</span>
                 <span class="font-bold text-emerald-700">${g.percentage}%</span>
               </div>
             `).join('')}
           </div>
           <div class="p-3 bg-gray-50 border border-gray-200 rounded-xl">
-            <strong class="text-slate-800 block mb-2">Most Researched Ingredients:</strong>
+            <strong class="text-slate-800 block mb-1.5 text-xs">Researched Ingredients:</strong>
             ${d.top_searched_ingredients.map(ing => `
-              <div class="flex items-center justify-between py-1 border-b border-gray-100 last:border-0">
+              <div class="flex items-center justify-between py-1 border-b border-gray-100 last:border-0 text-[11px]">
                 <span>${ing.ingredient}</span>
                 <span class="text-gray-500">${ing.category}</span>
               </div>
@@ -1107,8 +1209,10 @@
       try {
         const res = await fetch("/api/products");
         allProducts = await res.json();
-        document.getElementById("productCountBadge").textContent = allProducts.length;
-        document.getElementById("drawerCount").textContent = allProducts.length;
+        const b = document.getElementById("productCountBadge");
+        if (b) b.textContent = allProducts.length;
+        const dc = document.getElementById("drawerCount");
+        if (dc) dc.textContent = allProducts.length;
         renderCatalogView(allProducts);
       } catch (e) {
         console.error("Error loading products:", e);
@@ -1120,8 +1224,8 @@
       v.innerHTML = prods.slice(0, 50).map(p => `
         <div class="p-2.5 bg-gray-50 border rounded-lg text-xs">
           <div class="font-bold flex justify-between">
-            <span>${p.name}</span>
-            <span class="text-[#1b4332]">₹${p.price_inr || 499}</span>
+            <span class="truncate mr-2">${p.name}</span>
+            <span class="text-[#1b4332] shrink-0">₹${p.price_inr || 499}</span>
           </div>
           <div class="text-[11px] text-gray-500">${p.category || 'General'}</div>
         </div>
@@ -1178,30 +1282,32 @@
       formData.append("file", input.files[0]);
       try {
         const res = await fetch("/api/products/upload-csv", { method: "POST", body: formData });
-        const result = await res.json();
-        if (result.success) {
-          alert(`Success! Ingested ${result.added} products.`);
-          input.value = "";
-          await loadProducts();
-          switchCatalogTab("view");
-        }
-      } catch (e) {
-        alert("Upload error: " + e.message);
+        const r = await res.json();
+        alert(r.message || "CSV Uploaded successfully!");
+        input.value = "";
+        document.getElementById("uploadCsvBtn").disabled = true;
+        document.getElementById("selectedFileName").textContent = "No file selected";
+        await loadProducts();
+        switchCatalogTab("view");
+      } catch (err) {
+        alert("Upload error: " + err.message);
       }
     }
 
     async function saveApiKey() {
       const key = document.getElementById("apiKeyInput").value.trim();
+      if (!key) return;
       try {
         const res = await fetch("/api/settings", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ api_key: key })
+          body: JSON.stringify({ gemini_api_key: key })
         });
         const r = await res.json();
-        alert(r.message);
-      } catch (e) {
-        alert("Save failed: " + e.message);
+        alert(r.message || "Key saved successfully!");
+        document.getElementById("apiKeyInput").value = "";
+      } catch (err) {
+        alert("Error saving key: " + err.message);
       }
     }
 
@@ -1209,6 +1315,10 @@
       const div = document.createElement("div");
       div.textContent = text;
       return div.innerHTML;
+    }
+
+    function escapeJsString(str) {
+      return (str || '').replace(/'/g, "\\'").replace(/"/g, '\\"');
     }
   </script>
 </body>
